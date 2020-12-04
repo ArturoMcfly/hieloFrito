@@ -21,131 +21,131 @@
     </head>
     <style>
       :root {
-  --input-padding-x: 1.5rem;
-  --input-padding-y: 0.75rem;
-}
+        --input-padding-x: 1.5rem;
+        --input-padding-y: 0.75rem;
+      }
 
-.login,
-.image {
-  min-height: 100vh;
-}
+      .login,
+      .image {
+        min-height: 100vh;
+      }
 
-.bg-image {
-  background-image: url('https://cdn.forbes.com.mx/2019/09/Pizza-Napolitana.jpg');
-  background-size: cover;
-  background-position: center;
-}
+      .bg-image {
+        background-image: url('https://cdn.forbes.com.mx/2019/09/Pizza-Napolitana.jpg');
+        background-size: cover;
+        background-position: center;
+      }
 
-.login-heading {
-  font-weight: 300;
-}
+      .login-heading {
+        font-weight: 300;
+      }
 
-.btn-login {
-  font-size: 0.9rem;
-  letter-spacing: 0.05rem;
-  padding: 0.75rem 1rem;
-  border-radius: 2rem;
-}
+      .btn-login {
+        font-size: 0.9rem;
+        letter-spacing: 0.05rem;
+        padding: 0.75rem 1rem;
+        border-radius: 2rem;
+      }
 
-.form-label-group {
-  position: relative;
-  margin-bottom: 1rem;
-}
+      .form-label-group {
+        position: relative;
+        margin-bottom: 1rem;
+      }
 
-.form-label-group>input,
-.form-label-group>label {
-  padding: var(--input-padding-y) var(--input-padding-x);
-  height: auto;
-  border-radius: 2rem;
-}
+      .form-label-group>input,
+      .form-label-group>label {
+        padding: var(--input-padding-y) var(--input-padding-x);
+        height: auto;
+        border-radius: 2rem;
+      }
 
-.form-label-group>label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  margin-bottom: 0;
-  /* Override default `<label>` margin */
-  line-height: 1.5;
-  color: #495057;
-  cursor: text;
-  /* Match the input under the label */
-  border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: all .1s ease-in-out;
-}
+      .form-label-group>label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        margin-bottom: 0;
+        /* Override default `<label>` margin */
+        line-height: 1.5;
+        color: #495057;
+        cursor: text;
+        /* Match the input under the label */
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        transition: all .1s ease-in-out;
+      }
 
-.form-label-group input::-webkit-input-placeholder {
-  color: transparent;
-}
+      .form-label-group input::-webkit-input-placeholder {
+        color: transparent;
+      }
 
-.form-label-group input:-ms-input-placeholder {
-  color: transparent;
-}
+      .form-label-group input:-ms-input-placeholder {
+        color: transparent;
+      }
 
-.form-label-group input::-ms-input-placeholder {
-  color: transparent;
-}
+      .form-label-group input::-ms-input-placeholder {
+        color: transparent;
+      }
 
-.form-label-group input::-moz-placeholder {
-  color: transparent;
-}
+      .form-label-group input::-moz-placeholder {
+        color: transparent;
+      }
 
-.form-label-group input::placeholder {
-  color: transparent;
-}
+      .form-label-group input::placeholder {
+        color: transparent;
+      }
 
-.form-label-group input:not(:placeholder-shown) {
-  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
-  padding-bottom: calc(var(--input-padding-y) / 3);
-}
+      .form-label-group input:not(:placeholder-shown) {
+        padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+        padding-bottom: calc(var(--input-padding-y) / 3);
+      }
 
-.form-label-group input:not(:placeholder-shown)~label {
-  padding-top: calc(var(--input-padding-y) / 3);
-  padding-bottom: calc(var(--input-padding-y) / 3);
-  font-size: 12px;
-  color: #777;
-}
+      .form-label-group input:not(:placeholder-shown)~label {
+        padding-top: calc(var(--input-padding-y) / 3);
+        padding-bottom: calc(var(--input-padding-y) / 3);
+        font-size: 12px;
+        color: #777;
+      }
 
-/* Fallback for Edge
--------------------------------------------------- */
+      /* Fallback for Edge
+      -------------------------------------------------- */
 
-@supports (-ms-ime-align: auto) {
-  .form-label-group>label {
-    display: none;
-  }
-  .form-label-group input::-ms-input-placeholder {
-    color: #777;
-  }
-}
+      @supports (-ms-ime-align: auto) {
+        .form-label-group>label {
+          display: none;
+        }
+        .form-label-group input::-ms-input-placeholder {
+          color: #777;
+        }
+      }
 
-/* Fallback for IE
--------------------------------------------------- */
+      /* Fallback for IE
+      -------------------------------------------------- */
 
-@media all and (-ms-high-contrast: none),
-(-ms-high-contrast: active) {
-  .form-label-group>label {
-    display: none;
-  }
-  .form-label-group input:-ms-input-placeholder {
-    color: #777;
-  }
-}
+      @media all and (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+        .form-label-group>label {
+          display: none;
+        }
+        .form-label-group input:-ms-input-placeholder {
+          color: #777;
+        }
+      }
     </style>
     <body id="page-top">
       <!-- Navigation-->
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
           <div class="container">
-              <a class="navbar-brand js-scroll-trigger" href="index.html">Hilo Frio</a>
+              <a class="navbar-brand js-scroll-trigger" href="index.php">Hilo Frio</a>
               <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
               <div class="collapse navbar-collapse" id="navbarResponsive">
                   <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pizzas.html">Pizzas</a></li>
-                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="Promociones.html">Promociones</a></li>
-                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="Bebidas.html">Bebidas</a></li>
-                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pedidos.html">Pedidos</a></li>
-                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="InicioSesion.html">Iniciar Sesión</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pizzas.php">Pizzas</a></li>
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="promociones.php">Promociones</a></li>
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="Bebidas.php">Bebidas</a></li>
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pedidos.php">Pedidos</a></li>
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="InicioSesion.php">Iniciar Sesión</a></li>
                   </ul>
               </div>
           </div>
