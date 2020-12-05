@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Xtrema</title>
+        <title>Hielo Frito Pedidos</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -137,12 +137,12 @@
       <!-- Navigation-->
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
           <div class="container">
-              <a class="navbar-brand js-scroll-trigger" href="index.php">Hilo Frio</a>
+              <a class="navbar-brand js-scroll-trigger" href="index.php">Hilo Frito</a>
               <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
               <div class="collapse navbar-collapse" id="navbarResponsive">
                   <ul class="navbar-nav ml-auto my-2 my-lg-0">
                   <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pizzas.php">Pizzas</a></li>
-                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="promociones.php">Promociones</a></li>
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="promosiones.php">Promociones</a></li>
                       <li class="nav-item"><a class="nav-link js-scroll-trigger" href="Bebidas.php">Bebidas</a></li>
                       <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pedidos.php">Pedidos</a></li>
                       <li class="nav-item"><a class="nav-link js-scroll-trigger" href="InicioSesion.php">Iniciar Sesión</a></li>
