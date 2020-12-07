@@ -6,7 +6,7 @@ include('php/conexion.php');
 
 <head>
 
-  <meta charset="utf-8">
+  <meta charset="utf8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -32,6 +32,9 @@ include('php/conexion.php');
 }
 .imagen-pizza{
   width:100px;
+}
+.table{
+  background:#fff;
 }
 </style>
 <body>
@@ -186,7 +189,7 @@ include('php/conexion.php');
    $resultado=$mysqli->query($query);
    if($resultado->num_rows > 0){
      ?>
-  <table class="table">
+  <table class="table" >
   <tr>
     <th>
     Imagen
@@ -206,7 +209,7 @@ include('php/conexion.php');
     $precio=$fila['precio'];
     $caracteristicas=$fila['caracteristicas'];
   ?>
-  <form action="#">
+  <form action="php/editarPizza.php" method="post">
     <tr>
       <th >
         <img src="https://cdn1.cocina-familiar.com/recetas/pizza-hawaiana-con-masa-casera.JPG" alt="" class="imagen-pizza">
@@ -214,7 +217,7 @@ include('php/conexion.php');
       <th>
         <h3>
         <?php
-         echo "$nombre<input type='text' value='$nombre' name='id' hidden>"; 
+         echo "$nombre<input type='text' value='$nombre' name='nombre' hidden>"; 
           
         ?>
         </h3>
@@ -224,12 +227,12 @@ include('php/conexion.php');
       <p>
         <?php
 
-          echo "$caracteristicas<input type='text' value='$caracteristicas' name='id' hidden>"; 
+          echo "$caracteristicas<input type='text' value='$caracteristicas' name='caracteristicas' hidden>"; 
         ?>
         </p>  
         <p>
         <?php
-          echo " $precio<input type='text' value=' $precio' name='id' hidden>"; 
+          echo " $precio<input type='text' value=' $precio' name='precio' hidden>"; 
         ?>
         </p>
       </th>
