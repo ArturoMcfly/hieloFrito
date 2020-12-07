@@ -1,5 +1,8 @@
+<?php
+include('php/conexion.php');
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -27,13 +30,16 @@
   -o-background-size: cover;
   background-size: cover;
 }
+.imagen-pizza{
+  width:100px;
+}
 </style>
 <body>
 
   <!-- Navigation -->
   <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background:#0000009b;">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="index.php">Hilo Frito</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -48,6 +54,7 @@
             </div>
         </div>
     </nav>
+    
 
     <header>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -59,8 +66,8 @@
             <div class="carousel-inner" role="listbox">
               <!-- Slide One - Set the background image for this slide in the line below -->
               <div class="carousel-item active" style="background-image: url('https://images.alphacoders.com/276/276653.jpg')">
-                <div class="carousel-caption d-none d-md-block">
-                  <h3 class="display-4">La extra queso JUMBO</h3>
+                <div class="carousel-caption d-none d-md-block" style="background:#0000009b;">
+                  <h3 class="display-4" > La extra queso JUMBO</h3>
                   <p class="lead">La reian de los quesos.</p>
                 </div>
               </div>
@@ -89,6 +96,9 @@
                 </a>
           </div>
   </header>
+
+ 
+ 
    <!-- Page Content -->
    <div class="container">
 
@@ -96,22 +106,46 @@
     
     <!-- Marketing Icons Section -->
     <div class="row">
+    <?php
+      $query1="SELECT * FROM pizza WHERE nombre LIKE 'Hawaiana'";
+      $resultado1=$mysqli->query($query1);
+      if($resultado1->num_rows > 0){
+        $fila1=$resultado1->fetch_assoc();
+    ?>
+      
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <h4 class="card-header" style="color: white;">Hawaiana</h4>
+          <h4 class="card-header" style="color: white;">
+        <?php
+        echo($fila1['nombre']);
+        ?>
+        </h4>
           <div class="card-body">
-            <p class="card-text" style="text-align: center; color: rgb(255, 255, 255); background: rgba(128, 0, 0, 0.575);"><strong style="color: orangered;">Detalles:</strong> 
+            <p class="card-text" style="text-align: center; color: rgb(255, 255, 255); background: rgba(128, 0, 0, 0.575);"><strong style="color: orangered;">Ingredientes:</strong> 
               <br>
-              La pizza que unos cuestionan pero todos aman.<br>
-              <strong style="color: rgb(59, 185, 0);">Ingredientes:</strong>  <br> Jamón y Piña. <br><br>
+              <?php
+              echo($fila1['caracteristicas']);
+              ?><br>
+              <strong style="color: rgb(59, 185, 0);">Precio</strong>  <br> 
+              <?php
+              echo("$".$fila1['precio']);
+              ?> <br><br>
             <img width="310" height="200" src="https://cdn1.cocina-familiar.com/recetas/pizza-hawaiana-con-masa-casera.JPG" alt="">  
           </p>
           </div>
           <div class="card-footer">
+          
             <a href="compra.php" class="btn btn-primary">Ordenar aqui</a>
+    
           </div>
         </div>
       </div>
+      
+      <?php
+      }else{
+        echo ("<h1>Pizza no disponible</h1>");
+      }
+      ?>
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
           <h4 class="card-header" style="color: white;">Carnes frias</h4>
@@ -146,6 +180,75 @@
       </div>
     </div>
     <!-- /.row -->
+
+    <?php
+   $query="SELECT * FROM pizza";
+   $resultado=$mysqli->query($query);
+   if($resultado->num_rows > 0){
+     ?>
+  <table class="table">
+  <tr>
+    <th>
+    Imagen
+    </th>
+    <th>
+      Nombre
+
+    </th>
+    <th>
+      Datos
+    </th>
+    
+  </tr>
+  <?php
+  while($fila=$resultado->fetch_assoc()){
+    $nombre=$fila['nombre'];
+    $precio=$fila['precio'];
+    $caracteristicas=$fila['caracteristicas'];
+  ?>
+  <form action="#">
+    <tr>
+      <th >
+        <img src="https://cdn1.cocina-familiar.com/recetas/pizza-hawaiana-con-masa-casera.JPG" alt="" class="imagen-pizza">
+      </th>
+      <th>
+        <h3>
+        <?php
+         echo "$nombre<input type='text' value='$nombre' name='id' hidden>"; 
+          
+        ?>
+        </h3>
+        
+      </th>
+      <th>
+      <p>
+        <?php
+
+          echo "$caracteristicas<input type='text' value='$caracteristicas' name='id' hidden>"; 
+        ?>
+        </p>  
+        <p>
+        <?php
+          echo " $precio<input type='text' value=' $precio' name='id' hidden>"; 
+        ?>
+        </p>
+      </th>
+      <th>
+      <input type="submit" value="Prepara a tu gusto">
+      </th>
+    </tr>
+  </form>
+  <?php
+  }
+  ?>
+  
+  </table>
+
+  <?php
+   }else{
+     echo ("<h1>NO HAY PIZZAS</h1>");
+   }
+  ?>
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">

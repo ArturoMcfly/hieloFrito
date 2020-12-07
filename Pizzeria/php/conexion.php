@@ -2,6 +2,6 @@
 $server="localhost";
 $usuario="root";
 $contraseña="";
-$bd="asistencia_asesoria";
+$bd="hilo_frito";
 $mysqli=new mysqli($server, $usuario,$contraseña,$bd);
 ?>
