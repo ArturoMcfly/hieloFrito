@@ -2,7 +2,7 @@
 include('php/conexion.php');
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-mx">
 
 <head>
 
