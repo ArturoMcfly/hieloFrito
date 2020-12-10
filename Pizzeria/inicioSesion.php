@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesion</title>
     <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
         body{
     margin: 0;
     padding: 0;
-    background-image: url(img/pizzafondo.jpg);
+    background-image: url(images/pizzafondo.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: Tahoma, sans-serif;
+    font-family: 'Poppins',sans-serif
+    ;
     background-attachment: fixed;
 }
 .form-area{
@@ -81,6 +83,18 @@ h3{
     font-size: 14px;
     font-weight: bold;
 
+}
+.carousel-item {
+  height: 65vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.imagen-pizza{
+  width:100px;
 }
     </style>
 </head>
