@@ -9,7 +9,7 @@
         body{
     margin: 0;
     padding: 0;
-    background-image: url(images/pizzafondo.jpg);
+    background-image: url(images/pizzafondo.jpg) !important;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -68,13 +68,15 @@ h3{
     outline: none;
     color: #ffffff;
     font-size: 15px;
-    background-color: tomato;
+    background-color: #e66767;
     cursor: pointer;
     border-radius: 20px;
+    transition: .3s linear;
 }
 .form-area input[type=submit]:hover{
-    background-color: cyan;
+    background-color: transparent;
     color: #ffffff;
+    border: 2px solid #e66767;
 
 }
 .form-area a{
@@ -82,6 +84,9 @@ h3{
     text-decoration: none;
     font-size: 14px;
     font-weight: bold;
+    transition: .3s linear;
+    
+    
 
 }
 .carousel-item {
@@ -97,37 +102,50 @@ h3{
   width:100px;
 }
     </style>
+      <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css.css" rel="stylesheet">
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background:#0000009b;">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.php">Hilo Frito</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pizzas.php">Pizzas</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger " href="promosiones.php">Promociones</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="Bebidas.php">Bebidas</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pedidos.php">Pedidos</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="form-area">
         <h3>Inicio de session</h3>
-        <form action="">
+        <form action="php/login.php" method="post">
             <p>Correo</p>
-            <input type="text" name="" id="" placeholder="Ingresa tu correo">
+            <input type="text" name="user" id="" placeholder="Ingresa tu correo" required="required">
             <p>Contraseña</p>
-            <input type="password" name="" id="" placeholder="ingresa la contraseña">
-            <p>Pregunta de seguridad</p>
-            <select name="" id="">
-                <option value="">
-                
-                </option>
-                <option value="">
-                Cual es el nombre de tu mama?
-                </option>
-                <option value="">
-                Cual es el nombre de tu escuela?
-                </option>
-                <option value="">
-                cual es el nombre de tu mascota?
-                </option>
-            </select>
-            <p></p>
-            <input type="text" name="" id="" placeholder="Respuesta">
+            <input type="password" name="pass" id="" placeholder="Ingresa la contraseña" required="required">
+            <p>No de empleado</p>
+            <input type="number" name="num" id="" placeholder="Ingresa tu correo" required="required">
+           
+            
 
             <input type="submit" value="Ingresa">
             <a href="a">olvidaste contraseña?</a>
         </form>
     </div>
+    <?php
+        if(isset($_GET['err'])){
+            echo " ".$_GET['err'];
+            
+        }
+    ?>
 </body>
 </html>
