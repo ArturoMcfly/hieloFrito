@@ -30,7 +30,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="promosiones.php">Promociones</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="Bebidas.php">Bebidas</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pedidos.php">Pedidos</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="InicioSesion.php">Iniciar Sesión</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login2.php">Iniciar Sesión</a></li>
                     </ul>
                 </div>
             </div>

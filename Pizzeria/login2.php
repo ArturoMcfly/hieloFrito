@@ -27,18 +27,12 @@
 
 <body>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background:#0000009b;">
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background:#000000;">
 			<div class="container">
 				<a class="navbar-brand js-scroll-trigger" href="index.php">Hilo Frito</a>
 				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<ul class="navbar-nav ml-auto my-2 my-lg-0">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="pizzas.php">Pizzas</a></li>
-						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="promosiones.php">Promociones</a></li>
-						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="Bebidas.php">Bebidas</a></li>
-						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="pedidos.php">Pedidos</a></li>
-						<li class="nav-item"><a class="nav-link js-scroll-trigger" href="InicioSesion.php">Iniciar Sesión</a></li>
-					</ul>
+					
 				</div>
 			</div>
 		</nav>
@@ -49,17 +43,23 @@
 				<div class="col s12 m5 login ">
 					<h4 class="center">Ingresar</h4>
 					<br>
-					<form action="check.php" method="post" autocomplete="off">
+					<form action="php/login.php" method="post" autocomplete="off">
 						<div class="row">
 							<div class="input-field">
-								<input type="text" id="user" name="username" class="validate" required="required">
-								<label for="user">Nombre de Usuario</label>
+								<input type="text" id="user" name="user" class="validate" required="required">
+								<label for="user">Correo</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field">
-								<input type="password" id="pass" name="password" class="validate" required="required">
+								<input type="password" id="pass" name="pass" class="validate" required="required">
 								<label for="pass">Contraseña</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field">
+								<input type="number" id="pass" name="num" class="validate" required="required">
+								<label for="pass">No de empleado</label>
 							</div>
 						</div>
 						<div class="row">
@@ -74,30 +74,27 @@
 				<!-- registrarse -->
 				<div class="col s12 m7 signup">
 					<div class="signupForm">
-						<h4 class="center">Registrarse</h4>
+						<h4 class="center">Registrarse como empleado</h4>
 						<br>
-						<form action="regCheck.php" name="signup" method="post" autocomplete="off">
+						<form action="php/registro.php" name="signup" method="post" autocomplete="off">
 							<div class="row">
 								<div class="input-field col s12 m6">
-									<input type="text" id="name-picked" name="namepicked" class="validate"
+									<input type="email" id="name-picked" name="user" class="validate"
 										required="required">
-									<label for="name-picked">Nombre de Usuario</label>
+									<label for="name-picked">Correo</label>
 								</div>
 								<div class="input-field col s12 m6">
-									<input type="password" id="pass-picked" name="passpicked" class="validate"
+									<input type="password" id="pass-picked" name="pass" class="validate"
 										required="required">
 									<label for="pass-picked">Contraseña</label>
 								</div>
-							</div>
-							<div class="row">
-								<div class="input-field email">
-									<div class="col s12">
-										<input type="text" id="email" name="email" class="validate" required="required">
-										<label for="email">Correo</label>
-									</div>
+								<div class="input-field col s12 m6">
+									<input type="password" id="pass-picked" name="num" class="validate"
+										required="required">
+									<label for="pass-picked">No de empleado</label>
 								</div>
 							</div>
-						</form>
+							
 						<div class="row">
 							<button type="submit" name="btn-signup"
 								class="btn blue right waves-effect waves-light">Registrarse</button>
