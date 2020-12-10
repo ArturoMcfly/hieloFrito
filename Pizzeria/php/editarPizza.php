@@ -165,18 +165,34 @@ $caracteristicas=$_POST['caracteristicas'];
 <div class="form-area">
     <table class="table">
     <?php
-      $query1="SELECT * FROM pizza WHERE nombre LIKE 'Hawaiana'";
-      $resultado1=$mysqli->query($query1);
-      if($resultado1->num_rows > 0){
-        $fila1=$resultado1->fetch_assoc();
+      $query="SELECT * FROM pizza WHERE nombre LIKE '$nombre'";
+      $resultado=$mysqli->query($query);
+      if($resultado->num_rows > 0){
+        $fila=$resultado->fetch_assoc();
+        echo(" ".$fila['id_pizza']." ".$fila['nombre']." ".$fila['precio']." ".$fila['caracteristicas']."<br>");
+        $id_pizza=$fila['id_pizza'];
+        $detalle="SELECT * FROM agregados_pizza WHERE id_entrada LIKE '$id_pizza'";
+        $resultado_detalle=$mysqli->query($detalle);
+        $fila_detalle=$resultado_detalle->fetch_assoc();
+        echo(" ".$fila_detalle['nombre_agregado_pizza']." ".$fila_detalle['precio_agregado_pizza']." ".$fila_detalle['caracterisitcas_agregado_pizza']." ".$fila_detalle['id_entrada']);
     ?>
+    <h1>
+        <?php
+            echo($fila['nombre'])
+        ?>
+    </h1>
+    <h3>
+    <?php
+            echo($fila['caracteristicas'])
+        ?>
+    </h3>
         <tr>
             <th>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCf2vz1E0s1rJYyOMSMDIemGyDuGFQe7LhZA&usqp=CAU" alt="">
             </th>
             <th>
                 <h3></h3>
-                <form action="">
+                <form action="../compra.php">
                     <p>Correo</p>
                     <input type="text" name="" id="" placeholder="Ingresa tu correo">
                     <p>Contraseña</p>
@@ -208,7 +224,8 @@ $caracteristicas=$_POST['caracteristicas'];
         
     </div>
     <?php
-    echo("hola ".$nombre." ".$precio." ".$caracteristicas);
+      }
+    
     ?>
     
 </body>
