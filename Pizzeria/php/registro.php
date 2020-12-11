@@ -11,7 +11,8 @@
         VALUES (
             '".$usuario."',
             '".$password."',
-            '".$numero')";
+            '".$numero."')";
+    $resultado=$mysqli->query($query);
     if ($resultado) {
         echo "<script language='javascript'>"; 
                 echo "alert('Registro guardado.')"; 

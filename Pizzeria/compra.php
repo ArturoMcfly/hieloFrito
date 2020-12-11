@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="es-mx">
 <head>
@@ -31,6 +34,7 @@
         <tr>
             <th>
                 
+
             </th>
         </tr>
 

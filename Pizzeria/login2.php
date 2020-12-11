@@ -79,7 +79,7 @@
 						<form action="php/registro.php" name="signup" method="post" autocomplete="off">
 							<div class="row">
 								<div class="input-field col s12 m6">
-									<input type="email" id="name-picked" name="user" class="validate"
+									<input type="text" id="name-picked" name="user" class="validate"
 										required="required">
 									<label for="name-picked">Correo</label>
 								</div>
@@ -89,7 +89,7 @@
 									<label for="pass-picked">Contraseña</label>
 								</div>
 								<div class="input-field col s12 m6">
-									<input type="password" id="pass-picked" name="num" class="validate"
+									<input type="number" id="pass-picked" name="num" class="validate"
 										required="required">
 									<label for="pass-picked">No de empleado</label>
 								</div>
