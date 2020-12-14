@@ -44,6 +44,7 @@ $nombre=$_SESSION['usr'];
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="adminEntradas.php">Entradas</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="AdminPostres.php">Postres</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../php/cerrarsesion.php">Cerrar sesion</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -105,6 +106,9 @@ $nombre=$_SESSION['usr'];
                 </th>
                 <th>
                     <a href="">borrar</a>
+                </th>
+                <th>
+                    <a href="">complementos</a>
                 </th>
             </tr>
             <?php

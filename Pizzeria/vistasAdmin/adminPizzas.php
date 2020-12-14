@@ -61,6 +61,9 @@ $nombre=$_SESSION['usr'];
                 <th>
                     <a href="">borrar</a>
                 </th>
+                <th>
+                    <a href="">complementos</a>
+                </th>
             </tr>
             <?php
             }
