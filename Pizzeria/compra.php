@@ -72,6 +72,26 @@
                 Sub-total
             </th>
         </tr>
+        <tr>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+            <th>
+                <a href="">Editar</a>
+            </th>
+            <th>
+                <a href="">Borrar</a>
+            </th>
+        </tr>
    
    </table>
 
