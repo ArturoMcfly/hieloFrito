@@ -209,7 +209,7 @@ include('php/conexion.php');
     $precio=$fila['precio'];
     $caracteristicas=$fila['caracteristicas'];
   ?>
-  <form action="php/editarPizza.php" method="post">
+  <form action="detalles/editarPizza.php" method="post">
     <tr>
       <th >
         <img src="https://cdn1.cocina-familiar.com/recetas/pizza-hawaiana-con-masa-casera.JPG" alt="" class="imagen-pizza">

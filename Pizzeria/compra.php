@@ -30,14 +30,50 @@
         </div>
     </nav>
 
-    <table class="table">
-        <tr>
-            <th>
-                
+    
+    <div class="form-area">
+        <h2>
+            Datos de orden
+        </h2>
+        <br>
+        <form action="php/login.php" method="post">
+            <p>
+             Nombre
+            </p>
+            
+            <input type="text" name="user" placeholder="Ingresa el Usuario">
+            <p>Telefono</p>
+            <input type="number" name="user" placeholder="Ingresa el Usuario">
+            
+            <p>Dirección</p>
+            <input type="text" name="pass" placeholder="Ingresa la contraseña">
+            
+            <p>Total </p>
+            <input type="date" name="pass" placeholder="Ingresa la contraseña">
+            <p>Fecha </p>
+            <input type="date" name="pass" placeholder="Ingresa la contraseña">
+            
+            <p>Fecha salida </p>
+            <input type="datetime" name="pass" placeholder="Ingresa la contraseña">
+            <br>
+            <input type="submit" value="Ingresa">
 
+
+
+        </form>
+
+   </div>
+   <table class="table">
+        <tr>
+            <th>nombre</th>
+            <th>Complementos</th>
+            <th>Cantidad</th>
+            <th>
+                Sub-total
             </th>
         </tr>
+   
+   </table>
 
-    </table>
 </body>
 </html>

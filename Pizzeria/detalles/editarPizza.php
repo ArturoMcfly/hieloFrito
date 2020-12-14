@@ -33,6 +33,16 @@ $caracteristicas=$_POST['caracteristicas'];
             color: #fff;
             padding: 40px;
         }
+        .form-area h4 {
+           
+            color: #fff;
+            
+        }
+        .form-area h5 {
+           
+           color: #fff;
+           
+       }
         h3{
             margin: 0;
             padding: 0;
@@ -171,34 +181,38 @@ $caracteristicas=$_POST['caracteristicas'];
         $fila=$resultado->fetch_assoc();
         echo(" ".$fila['id_pizza']." ".$fila['nombre']." ".$fila['precio']." ".$fila['caracteristicas']."<br>");
         $id_pizza=$fila['id_pizza'];
-        $detalle="SELECT * FROM agregados_pizza WHERE id_entrada LIKE '$id_pizza'";
+        $detalle="SELECT * FROM agregados_pizza WHERE id_entrada LIKE $id_pizza";
         $resultado_detalle=$mysqli->query($detalle);
-        $fila_detalle=$resultado_detalle->fetch_assoc();
-        echo(" ".$fila_detalle['nombre_agregado_pizza']." ".$fila_detalle['precio_agregado_pizza']." ".$fila_detalle['caracterisitcas_agregado_pizza']." ".$fila_detalle['id_entrada']);
+        
     ?>
     <h1>
         <?php
-            echo($fila['nombre'])
+            echo($fila['nombre']);
         ?>
     </h1>
     <h3>
     <?php
-            echo($fila['caracteristicas'])
+            echo($fila['caracteristicas']);
+            echo("");
         ?>
+        
     </h3>
         <tr>
             <th>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCf2vz1E0s1rJYyOMSMDIemGyDuGFQe7LhZA&usqp=CAU" alt="">
             </th>
             <th>
-                <h3></h3>
+                <h3>Elige el complemento</h3>
                 <form action="../compra.php">
-                    <p>Correo</p>
-                    <input type="text" name="" id="" placeholder="Ingresa tu correo">
-                    <p>Contraseña</p>
-                    <input type="password" name="" id="" placeholder="ingresa la contraseña">
-                    <p>Pregunta de seguridad</p>
-                    <select name="" id="">
+                    <?php
+                    while($fila_detalle=$resultado_detalle->fetch_assoc()){
+                    ?>
+                    <p><?php echo($fila_detalle['nombre_agregado_pizza'])?></p>
+                    <h4><?php echo($fila_detalle['caracterisitcas_agregado_pizza'])?></h4>
+                    <h5><?php echo("$".$fila_detalle['precio_agregado_pizza'])?></h5>
+                    <input type="radio" id="menos18" value="menos18" name="edad"/>
+                    
+                    <!--<select name="" id="">
                         <option value="">
                         
                         </option>
@@ -211,12 +225,13 @@ $caracteristicas=$_POST['caracteristicas'];
                         <option value="">
                         cual es el nombre de tu mascota?
                         </option>
-                    </select>
-                    <p></p>
-                    <input type="text" name="" id="" placeholder="Respuesta">
+                    </select>-->
+                    <?php
+                    }
+                    ?>
 
-                    <input type="submit" value="Ingresa">
-                    <a href="a">olvidaste contraseña?</a>
+                    <input type="submit" value="Añadir a la orden">
+                   
                 </form>
             </th>
         </tr>

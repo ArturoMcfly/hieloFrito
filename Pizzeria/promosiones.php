@@ -36,9 +36,11 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pizzas.php" style="color: aliceblue;">Pizzas</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pedidos.php" style="color: aliceblue;">Pedidos</a></li>
-                    
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="pizzas.php" style="color: aliceblue;">Pizzas</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#promociones" style="color: aliceblue;">Promociones</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#dosxuno" style="color: aliceblue;">2x1</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Extras" style="color: aliceblue;">Extras</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="pedidos.php" style="color: aliceblue;">Pedidos</a></li>
                 </ul>
             </div>
         </div>
@@ -47,7 +49,7 @@
     <!-- END nav -->
 
     
-		<section class="ftco-section">
+		<section class="ftco-section" id="promociones">
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
@@ -122,7 +124,7 @@
     		</div>
     	</div>
 
-    	<div class="container">
+    	<div class="container" id="dosxuno">
     		<div class="row justify-content-center mb-5 pb-3 mt-5 pt-5">
           <div class="col-md-7 heading-section text-center ftco-animate">
             <h2 class="mb-4">Promociones del 2x1</h2>
@@ -236,7 +238,7 @@
     	</div>
     </section>
 
-    <section class="ftco-menu"> 
+    <section class="ftco-menu" id="Extras"> 
         <h2 class="mb-4">Productos extra</h2>
     	<div class="container-fluid">
     		<div class="row d-md-flex">
