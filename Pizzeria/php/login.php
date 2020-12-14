@@ -14,8 +14,8 @@
     if($row!=null){
 			
         session_start();
-        $_SESSION['usr'] = $row[4];
-    
+        $_SESSION['usr'] = $row[1];
+        echo($row[1]);
         header("location:../vistasAdmin/menu.php");
 
      

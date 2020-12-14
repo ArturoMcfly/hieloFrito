@@ -1,3 +1,9 @@
+<?php
+include 'plantilla/header.php';
+include ('../php/conexion.php');
+$nombre=$_SESSION['usr'];
+?>
+
 <!DOCTYPE html>
 <html lang="es-mx">
 <head>
@@ -14,6 +20,15 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../css.css" rel="stylesheet" />
+        <style>
+        h1{
+            margin-top:70px;
+        }
+        .table{
+            color:#000 !important;
+            background:#fff !important;
+        }
+        </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
@@ -33,7 +48,19 @@
                 </div>
             </div>
         </nav>
+        <h1>
+            Bienvenido 
+            <?php
+            echo($nombre);
+            ?>
+        </h1>
         <a href="">Crear nuevo</a>
+        <?php
+      $query="SELECT * FROM usuario";
+      $resultado=$mysqli->query($query);
+      if($resultado->num_rows > 0){
+        
+    ?>
         <table class="table">
             <tr>
                 <th>
@@ -49,18 +76,29 @@
                     numero
                 </th>
             </tr>
+            <?php
+            while($fila=$resultado->fetch_assoc()){
+            ?>
             <tr>
                 <th>
-
+                    <?php
+                        echo($fila['id_usuario']);
+                    ?>
                 </th>
                 <th>
-
+                <?php
+                        echo($fila['nombre_usuario']);
+                    ?>
                 </th>
                 <th>
-
+                <?php
+                        echo($fila['contrasenia_usuario']);
+                    ?>
                 </th>
                 <th>
-
+                <?php
+                        echo($fila['no_empleado']);
+                    ?>
                 </th>
                 <th>
                     <a href="">editar</a>
@@ -69,7 +107,14 @@
                     <a href="">borrar</a>
                 </th>
             </tr>
+            <?php
+            }
+            ?>
 
         </table>
+        <?php
+            }
+        ?>
+
 </body>
 </html>
