@@ -20,7 +20,9 @@ $nombre=$_SESSION['usr'];
         .table{
             color:#000 !important;
             background:#fff !important;
-            border-radius:6px;
+            
+            border-radius:15px;
+            
         }
         </style>
     </head>
