@@ -16,7 +16,7 @@
         session_start();
         $_SESSION['usr'] = $row[1];
         echo($row[1]);
-        header("location:../vistasAdmin/menu.php");
+        header("location:../Admin/Bienvenida.php");
 
      
     } else {
