@@ -11,10 +11,11 @@ $nombre=$_SESSION['usr'];
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>index admin</title>
         <link href="styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+        <link href="../icomoon/fonts/style.css" rel="stylesheet">
         <style>
         
         .table{
@@ -23,6 +24,35 @@ $nombre=$_SESSION['usr'];
             
             border-radius:15px;
             
+        }
+        .crear{
+            background:#fff;
+            padding:10px;
+            color: 10157F;
+            text-decoration: none !important;
+            transition: .3s linear;
+            border-radius:6px;
+
+        }
+        .crear:hover{
+            background:#007BFF;
+            color:#fff;
+
+        }
+        .boton{
+            background:#fff;
+            text-decoration: none !important;
+            transition: .3s linear;
+            border: 2px solid #fff;
+            color:#007BFF;
+        }
+        .boton:hover{
+            background:#007BFF;
+            color:#fff;
+            border:6px;
+        }
+        .icono{
+            color:#007BFF;
         }
         </style>
     </head>
@@ -33,11 +63,11 @@ $nombre=$_SESSION['usr'];
     background-attachment: scroll;
     background-size: cover;" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="Bienvenida.html">Hielo Frito</a>
+            <a class="navbar-brand" href="Bienvenida.php">Hielo Frito</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                        <a class="btn btn-primary" >Cerrar Sesion</a>        
+                        <a class="btn btn-primary" href="../php/cerrarsesion.php" > Cerrar Sesion <span class="icon-exit">    </span> </a>        
             </div>
             <!-- Navbar-->
         </nav>
@@ -76,8 +106,11 @@ $nombre=$_SESSION['usr'];
                 <main >
                     <div class="container-fluid">
                         <h1 style="color: white; background: rgba(0, 0, 0, 0.692);" class="mt-4">Bienvenido <?php echo($nombre); ?></h1>
-                        <a href="">Crear nuevo</a>
-
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">¿Qué haremos el día de hoy?</li>
+                        </ol>
+                        <a href="" class=" crear">Crear nuevo &nbsp;<span class="icon-plus"></span></a>
+                        <p></p>
                         <?php
       $query="SELECT * FROM usuario";
       $resultado=$mysqli->query($query);
@@ -85,6 +118,11 @@ $nombre=$_SESSION['usr'];
         
     ?>
         <table class="table">
+            <tr>
+                <th colspan=7>
+                    <h1>Tabla usuarios</h1>
+                </th>
+            </tr>
             <tr>
                 <th>
                     id usuario
@@ -101,37 +139,47 @@ $nombre=$_SESSION['usr'];
             </tr>
             <?php
             while($fila=$resultado->fetch_assoc()){
+                $id=$fila['id_usuario'];
+                
             ?>
             <tr>
-                <th>
+                <form action="adminUsuarios/editarBorrar.php" method="POST">
+
+                
+                    <th>
+                        <?php
+                            echo "$id<input type='text' value='$id' name='id' hidden>"; 
+                            
+                        ?>
+                    </th>
+                    <th>
                     <?php
-                        echo($fila['id_usuario']);
-                    ?>
-                </th>
-                <th>
-                <?php
-                        echo($fila['nombre_usuario']);
-                    ?>
-                </th>
-                <th>
-                <?php
-                        echo($fila['contrasenia_usuario']);
-                    ?>
-                </th>
-                <th>
-                <?php
-                        echo($fila['no_empleado']);
-                    ?>
-                </th>
-                <th>
-                    <a href="">editar</a>
-                </th>
-                <th>
-                    <a href="">borrar</a>
-                </th>
-                <th>
-                    <a href="">complementos</a>
-                </th>
+                            echo($fila['nombre_usuario']);
+                        ?>
+                    </th>
+                    <th>
+                    <?php
+                            echo($fila['contrasenia_usuario']);
+                        ?>
+                    </th>
+                    <th>
+                    <?php
+                            echo($fila['no_empleado']);
+                        ?>
+                    </th>
+                    <th >
+                        <input type="submit" value="Editar" class="boton " name="boton">&nbsp;<span class="icon-pencil icono">
+                        
+                    </th>
+                    <th>
+                        <input type="submit" value="Borrar" class="boton "name="boton">&nbsp;<span class="icon-bin icono">
+                        
+                    </th>
+                    <!--<th>
+                        <input type="submit" value="Detalles" class="boton ">&nbsp;<span class="icon-stack icono">
+                        
+                    </th>-->
+                </form>
             </tr>
             <?php
             }
