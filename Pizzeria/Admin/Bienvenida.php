@@ -188,6 +188,10 @@ $nombre=$_SESSION['usr'];
         </table>
         <?php
             }
+            if(isset($_GET['err'])){
+                echo " ".$_GET['err'];
+                
+            }
         ?>
                        
                        
