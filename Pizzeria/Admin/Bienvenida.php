@@ -19,12 +19,13 @@ $nombre=$_SESSION['usr'];
         <style>
         
         .table{
-            color:#000 !important;
-            background:#fff !important;
+            color:#000000 !important;
+            background:#ffffff !important;
             
             border-radius:15px;
             
         }
+        
         .crear{
             background:#fff;
             padding:10px;
@@ -78,10 +79,15 @@ $nombre=$_SESSION['usr'];
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
+                        
                             <div class="sb-sidenav-menu-heading"></div>
+                            <a class="nav-link" href="viewpedidos.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Administracion de Pedidos
+                            </a>
                             <a class="nav-link" href="addpizzas.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Administración de pizzas
+                                Administración de Pizzas
                             </a>
                             <a class="nav-link" href="addpromos.html">
                               <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -89,7 +95,19 @@ $nombre=$_SESSION['usr'];
                           </a>
                           <a class="nav-link" href="viewpedidos.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Administracion de Pedidos
+                            Administracion de Bebidas
+                        </a>
+                        <a class="nav-link" href="viewpedidos.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Administracion de Entradas
+                        </a>
+                        <a class="nav-link" href="viewpedidos.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Administracion de Postres
+                        </a>
+                        <a class="nav-link" href="viewpedidos.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Administracion de Salsas
                         </a>
                            
                         </div>
@@ -109,7 +127,7 @@ $nombre=$_SESSION['usr'];
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">¿Qué haremos el día de hoy?</li>
                         </ol>
-                        <a href="" class=" crear">Crear nuevo &nbsp;<span class="icon-plus"></span></a>
+                        <a href="adminUsuarios/CrearUsuario.php" class=" crear">Crear nuevo &nbsp;<span class="icon-plus"></span></a>
                         <p></p>
                         <?php
       $query="SELECT * FROM usuario";
