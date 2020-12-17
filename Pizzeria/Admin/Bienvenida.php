@@ -128,6 +128,8 @@ $nombre=$_SESSION['usr'];
                             <li class="breadcrumb-item active">¿Qué haremos el día de hoy?</li>
                         </ol>
                         <a href="adminUsuarios/CrearUsuario.php" class=" crear">Crear nuevo &nbsp;<span class="icon-plus"></span></a>
+
+                        <a class=" btn btn-primary" href="fpdf/usupdf.php">Descargar archivo PDF &nbsp;<i class="fa fa-download"></i></a>
                         <p></p>
                         <?php
       $query="SELECT * FROM usuario";
