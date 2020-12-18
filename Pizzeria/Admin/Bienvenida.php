@@ -80,12 +80,12 @@ $nombre=$_SESSION['usr'];
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                         
-                            <div class="sb-sidenav-menu-heading"></div>
+                            
                             <a class="nav-link" href="viewpedidos.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Administracion de Pedidos
+                            Administracion de Ordenes
                             </a>
-                            <a class="nav-link" href="addpizzas.html">
+                            <a class="nav-link" href="adminPizzas/BienvenidaPizzas.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Administración de Pizzas
                             </a>
@@ -139,9 +139,10 @@ $nombre=$_SESSION['usr'];
     ?>
         <table class="table">
             <tr>
-                <th colspan=7>
+                <th colspan=6>
                     <h1>Tabla usuarios</h1>
                 </th>
+                
             </tr>
             <tr>
                 <th>
@@ -153,7 +154,7 @@ $nombre=$_SESSION['usr'];
                 <th>
                     contraseñas
                 </th>
-                <th>
+                <th colspan=3>
                     numero
                 </th>
             </tr>
@@ -173,9 +174,9 @@ $nombre=$_SESSION['usr'];
                         ?>
                     </th>
                     <th>
-                    <?php
-                            echo($fila['nombre_usuario']);
-                        ?>
+                        <?php
+                                echo($fila['nombre_usuario']);
+                            ?>
                     </th>
                     <th>
                     <?php
