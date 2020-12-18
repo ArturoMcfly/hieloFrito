@@ -5,14 +5,14 @@
     if($boton=="Editar"){
         Header("Location: edit.php?id=$id");
     }else if($boton=="Borrar"){
-        $consulta="DELETE FROM `usuario` WHERE id_usuario=$id";
+        $consulta="DELETE FROM `pizza` WHERE id_pizza=$id";
         $resultado=$mysqli->query($consulta);
         if($resultado==TRUE){
             $mensaje=" <script language='javascript'> alert('El registro se borro con exito.') </script> <script>window.history.go(-1)</script>";
-            Header("Location: ../Bienvenida.php?err=$mensaje");
+            Header("Location: BienvenidaPizzas.php?err=$mensaje");
         }else{
             $mensaje=" <script language='javascript'> alert('Error.') </script> <script>window.history.go(-1)</script>";
-            Header("Location: ../Bienvenida.php?err=$mensaje");
+            Header("Location: BienvenidaPizzas.php?err=$mensaje");
         }
         
     }else{

@@ -245,7 +245,7 @@ body {
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Qué pizza nueva tendremos?</li>
                         </ol>
-                        <a href="adminUsuarios/CrearUsuario.php" class=" crear">Crear nuevo &nbsp;<span class="icon-plus"></span></a>
+                        <a href="CrearPizza.php" class=" crear">Crear nuevo &nbsp;<span class="icon-plus"></span></a>
 
                         <a class=" btn btn-primary" href="../fpdf/usupdf.php">Descargar archivo PDF &nbsp;<i class="fa fa-download"></i></a>
                         <p></p>
@@ -258,7 +258,7 @@ body {
                           <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                DataTable Example
+                                Tabla de Pizzas
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

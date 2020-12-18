@@ -1,7 +1,7 @@
 <?php
-include '../plantilla/header.php';
-$id=$_GET['id'];
-echo($id);
+    include '../plantilla/header.php';
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -205,7 +205,7 @@ body {
                               <div class="">
                                 <div class="card card-signin my-5">
                                   <div class="card-body">
-                                    <h5 class="card-title text-center">Modifique la pizza</h5>
+                                    <h5 class="card-title text-center">Ingresa una nueva pizza</h5>
                                     <form class="form-signin" action="crear.php" method="post">
                                       
                         
