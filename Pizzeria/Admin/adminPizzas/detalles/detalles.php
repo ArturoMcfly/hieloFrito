@@ -1,6 +1,7 @@
 <?php
-include '../plantilla/header.php';
-include ('../../php/conexion.php');
+include '../../plantilla/header.php';
+include ('../../../php/conexion.php');
+$id=$_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -11,10 +12,10 @@ include ('../../php/conexion.php');
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
-        <link href="../styles.css" rel="stylesheet" />
+        <link href="../../styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-        <link href="../../icomoon/fonts/style.css" rel="stylesheet">
+        <link href="../../../icomoon/fonts/style.css" rel="stylesheet">
     </head>
     <style>
         :root {
@@ -241,24 +242,37 @@ body {
             <div id="layoutSidenav_content">
                 <main >
                     <div class="container-fluid">
-                        <h1 style="color: white;" class="mt-4"> Administrar Pizzas</h1>
+                        
+                        <h1 style="color: white;" class="mt-4"> Detalles de Pizzas</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Qué pizza nueva tendremos?</li>
+                            <?php
+                                $consulta="SELECT * FROM pizza WHERE id_pizza='$id'";
+                                $resultado_pizza=$mysqli->query($consulta);
+                                if($resultado_pizza->num_rows > 0){
+                                    $fila1=$resultado_pizza->fetch_assoc();
+                                    $nombre=$fila1['nombre'];
+                            ?>
+                            <li class="breadcrumb-item active"><?php echo("Detalles de ".$nombre)?></li>
+                            <?php
+                             }
+                            ?>
                         </ol>
                         <a href="CrearPizza.php" class=" crear">Crear nuevo &nbsp;<span class="icon-plus"></span></a>
 
                         <a class=" btn btn-primary" href="../fpdf/usupdf.php">Descargar archivo PDF &nbsp;<i class="fa fa-download"></i></a>
                         <p></p>
                         <?php
-      $query="SELECT * FROM pizza";
-      $resultado=$mysqli->query($query);
-      if($resultado->num_rows > 0){
-        
-    ?>
+                            $query="SELECT * FROM agregados_pizza WHERE id_entrada='$id'";
+                            $resultado=$mysqli->query($query);
+                            if($resultado->num_rows > 0){
+                                
+                        ?>
                           <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                Tabla de Pizzas
+                                <?php
+                                    echo("Detalles de pizza ".$nombre)
+                                ?>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -292,7 +306,7 @@ body {
                                             </tr>-->
                                             <?php
                                                 while($fila=$resultado->fetch_assoc()){
-                                                    $id=$fila['id_pizza'];
+                                                    $id=$fila['id_agregado_pizza'];
                                                     
                                             ?>
                                             <tr>
@@ -306,17 +320,17 @@ body {
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['nombre']);
+                                                            echo($fila['nombre_agregado_pizza']);
                                                         ?>
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['precio']);
+                                                            echo($fila['precio_agregado_pizza']);
                                                         ?>
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['caracteristicas']);
+                                                            echo($fila['caracterisitcas_agregado_pizza']);
                                                         ?>
                                                     </th>
                                                     <th>
@@ -325,9 +339,7 @@ body {
                                                     <th>
                                                         <input type="submit" value="Borrar" class="boton "name="boton">&nbsp;<span class="icon-bin icono">
                                                     </th>
-                                                    <th>
-                                                        <input type="submit" value="Detalles" class="boton " name="boton">&nbsp;<span class="icon-stack icono">
-                                                    </th>
+                                                    
                                                 </form>
                                             </tr>
                                             <?php
@@ -346,6 +358,11 @@ body {
                             </div>
                         </div>
                         <?php
+                            }
+                            else{
+                            ?>
+                            <h1>No hay agregados para esta Pizza</h1>
+                            <?php
                             }
                         ?>
 
@@ -368,13 +385,13 @@ body {
             </div>
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-            <script src="../scripts.js"></script>
+            <script src="../../scripts.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
             <script src="chart-area-demo.js"></script>
             <script src="chart-bar-demo.js"></script>
             <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
             <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-            <script src="../datatables-demo.js"></script>
+            <script src="../../datatables-demo.js"></script>
         </body>
     </html>
     

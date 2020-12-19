@@ -16,6 +16,6 @@
         }
         
     }else{
-        Header("Location: detalles.php?id=$id");
+        Header("Location: detalles/detalles.php?id=$id");
     }
 ?>

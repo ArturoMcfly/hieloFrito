@@ -1,5 +1,6 @@
 <?php
 include '../plantilla/header.php';
+include ('../../php/conexion.php');
 $id=$_GET['id'];
 echo($id);
 ?>
@@ -155,11 +156,11 @@ body {
     </style>
     <body style="background: linear-gradient(to right, #6b6b6b, #612103);" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="../Bienvenida.php">Hielo Frito</a>
+            <a class="navbar-brand" href="BienvenidaPizzas.php">Hielo Frito</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                        <a class="btn btn-primary"  href="../php/cerrarsesion.php">Cerrar Sesion</a>        
+                        <a class="btn btn-primary"  href="../../php/cerrarsesion.php">Cerrar Sesion</a>        
             </div>
             <!-- Navbar-->
         </nav>
@@ -192,6 +193,16 @@ body {
                     </div>
                 </nav>
             </div>
+            <?php
+                $query="SELECT * FROM pizza WHERE id_pizza=$id";
+                $resultado=$mysqli->query($query);
+                if($resultado->num_rows > 0){
+                    $fila=$resultado->fetch_assoc();
+                    $id_pizza=$fila['id_pizza'];
+                    $nombre=$fila['nombre'];
+                    $precio=$fila['precio'];
+                    $caracteristicas=$fila['caracteristicas'];
+            ?>
             <!-- Parte del centro -->
             <div id="layoutSidenav_content">
                 <main >
@@ -206,22 +217,34 @@ body {
                                 <div class="card card-signin my-5">
                                   <div class="card-body">
                                     <h5 class="card-title text-center">Modifique la pizza</h5>
-                                    <form class="form-signin" action="crear.php" method="post">
+                                    <form class="form-signin" action="edi.php" method="post">
                                       
-                        
                                       <div class="form-label-group">
-                                        
-                                        <input type="text" id="inputNombre" name="nombre" class="form-control" placeholder="Nombre" required>
+                                          <?php
+                                            echo "<input type='number' id='inputId' name='id' class='form-control' placeholder='Id usuario' value='$id_pizza' required autofocus>"; 
+                                          ?>
+                                        <!--<input type="number" id="inputId" name="id" class="form-control" placeholder="ID" required>-->
+                                        <label for="inputId">ID</label>
+                                      </div>
+                                      <div class="form-label-group">
+                                      <?php
+                                            echo "<input type='text' id='inputNombre' name='nombre' class='form-control' placeholder='Nombre' value='$nombre' required autofocus>"; 
+                                          ?>
+                                        <!--<input type="text" id="inputNombre" name="nombre" class="form-control" placeholder="Nombre" required>-->
                                         <label for="inputNombre">Nombre</label>
                                       </div>
                                       <div class="form-label-group">
-                                        
-                                        <input type="int" id="inputPrecio" name="precio" class="form-control" placeholder="Precio" required>
+                                        <?php
+                                            echo "<input type='number' id='inputPrecio' name='precio' class='form-control' placeholder='Precio' value='$precio' required autofocus>"; 
+                                        ?>
+                                        <!--<input type="int" id="inputPrecio" name="precio" class="form-control" placeholder="Precio" required>-->
                                         <label for="inputPrecio">Precio</label>
                                       </div>
                                       <div class="form-label-group">
-                                          
-                                      <input type="text" id="inputCaracteristicas" name="caracteristicas"class="form-control" placeholder="caracterisiticas" required>
+                                      <?php
+                                            echo "<input type='text' id='inputCaracteristicas' name='caracteristicas' class='form-control' placeholder='Caracteristicas' value='$caracteristicas' required autofocus>"; 
+                                          ?>
+                                      <!--<input type="textarea" rows="20" cols="5"id="inputCaracteristicas" name="caracteristicas"class="form-control" placeholder="caracterisiticas" required>-->
                                         <label for="inputCaracteristicas">Caracteristicas</label>
                                       </div>
                                       
@@ -233,12 +256,11 @@ body {
                               </div>
                             </div>
                           </div>
-                       
-
-                          
-
-
-                       
+                          <?php
+                            }  
+                              if(isset($_GET['err'])){
+                              echo " ".$_GET['err'];  
+                            }?>
                     </main>
                     <footer class="py-4 bg-black  mt-auto">
                       <div class="container-fluid">
