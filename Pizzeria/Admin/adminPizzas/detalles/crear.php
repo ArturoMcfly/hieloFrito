@@ -237,7 +237,11 @@ body {
                                       <input type="text" id="inputCaracteristicas" name="caracteristicas"class="form-control" placeholder="caracterisiticas" required>
                                         <label for="inputCaracteristicas">Caracteristicas</label>
                                       </div>
-                                      
+                                      <div class="form-label-group">
+                                          
+                                      <input type="number" id="inputIdPizza" name="id_pizza"class="form-control" placeholder="Id_pizza" required>
+                                        <label for="inputIdPizza">Id_pizza</label>
+                                      </div>
                                       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Guardar</button>
                                       <hr class="my-4">
                                     </form>
