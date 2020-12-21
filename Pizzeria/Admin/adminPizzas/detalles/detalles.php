@@ -185,11 +185,11 @@ body {
     </style>
     <body style="background: linear-gradient(to right, #6b6b6b, #612103);" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="../Bienvenida.php">Hielo Frito</a>
+            <a class="navbar-brand" href="../BienvenidaPizzas.php">Hielo Frito</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                        <a class="btn btn-primary" >Cerrar Sesion <span class="icon-exit"></span></a>        
+                        <a class="btn btn-primary"  href="../../../php/cerrarsesion.php">Cerrar Sesion <span class="icon-exit"></span></a>        
             </div>
             <!-- Navbar-->
         </nav>
@@ -257,7 +257,7 @@ body {
                              }
                             ?>
                         </ol>
-                        <a href="CrearPizza.php" class=" crear">Crear nuevo &nbsp;<span class="icon-plus"></span></a>
+                        <a href="Crear.php" class=" crear">Crear nuevo &nbsp;<span class="icon-plus"></span></a>
 
                         <a class=" btn btn-primary" href="../fpdf/usupdf.php">Descargar archivo PDF &nbsp;<i class="fa fa-download"></i></a>
                         <p></p>
@@ -310,7 +310,7 @@ body {
                                                     
                                             ?>
                                             <tr>
-                                                <form action="opcion.php" method="post">
+                                                <form action="boton.php" method="post">
                                                     <th>
                                                     <?php
                                                         echo "$id<input type='text' value='$id' name='id' hidden>"; 
