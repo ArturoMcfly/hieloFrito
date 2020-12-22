@@ -31,6 +31,7 @@ include('../php/conexion.php');
                 color: #000;
                 padding: 40px;
                 border-radius: 6px;
+                margin-top:100px !important;
             }
             .form-area h4 {
             
@@ -125,10 +126,11 @@ include('../php/conexion.php');
                 border: 2px solid #08F43E !important;
                 color:#000 !important;
             }
+           
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background:#0000009b;">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 " id="mainNav" style="background:#0000009b;">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="../index.php">Hilo Frito</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -145,6 +147,63 @@ include('../php/conexion.php');
                 </div>
             </div>
         </nav>
+        
+        <?php
+            if(isset($_GET['err'])){
+                if($_GET['err']=='1'){
+                    
+                    $id_regreso=$_GET['id'];
+                    $total=$_GET['total'];
+        ?>
+        <div class="form-area titulo">
+            <table class="table">
+                <?php
+                    
+                    $query="SELECT * FROM pizza WHERE id_pizza LIKE '$id_regreso'";
+                    $resultado=$mysqli->query($query);
+                    if($resultado->num_rows > 0){
+                        $fila=$resultado->fetch_assoc();
+                        $id_pizza=$fila['id_pizza'];
+                        $precio=$fila['precio'];
+                        
+                ?>
+                <form action="boton.php" method="POST">
+                    <h1>
+                        Datos de la pizza:
+                        <?php
+                            echo($fila['nombre']);
+                        ?>
+                    </h1>
+                    <tr>
+                        <th>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCf2vz1E0s1rJYyOMSMDIemGyDuGFQe7LhZA&usqp=CAU" alt="">
+                        </th>
+                        <th>
+                            <h3>Datos de la pizza</h3>
+                            
+                            <?php
+                                echo($fila['caracteristicas']."<br>");
+                                echo("<input type='text' value='$id_pizza' name='id_pizza' hidden>");
+                                echo("<input type='text' value='$precio' name='precio' hidden>");
+                                echo("costo $".$precio);
+                            ?>
+                            
+                            
+                            <p>Cantidad</p>
+                            
+                            <input type="submit" name="boton" value="Añadir a la orden">
+                        </th>
+                    </tr>
+                </form>
+            </table>
+        </div>
+        <?php
+            }
+                }else{
+                    echo("que hay");
+                }
+            }else{
+        ?>
         <header>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -185,65 +244,6 @@ include('../php/conexion.php');
                 </a>
             </div>
         </header>
-        <?php
-            if(isset($_GET['err'])){
-                if($_GET['err']=='1'){
-                    
-                    $id_regreso=$_GET['id'];
-                    $total=$_GET['total'];
-        ?>
-        <div class="form-area">
-            <table class="table">
-                <?php
-                    
-                    $query="SELECT * FROM pizza WHERE id_pizza LIKE '$id_regreso'";
-                    $resultado=$mysqli->query($query);
-                    if($resultado->num_rows > 0){
-                        $fila=$resultado->fetch_assoc();
-                        $id_pizza=$fila['id_pizza'];
-                        $precio=$fila['precio'];
-                        
-                ?>
-                <form action="boton.php" method="POST">
-                    <h1>
-                        <?php
-                            echo($fila['nombre']);
-                        ?>
-                    </h1>
-                    <h3>
-                        <?php
-                            echo($fila['caracteristicas']."<br>");
-                            echo("<input type='text' value='$id_pizza' name='id_pizza' hidden>");
-                            echo("<input type='text' value='$precio' name='precio' hidden>");
-                            echo("costo $".$precio);
-                        ?>
-                
-                    </h3>
-                    <tr>
-                        <th>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCf2vz1E0s1rJYyOMSMDIemGyDuGFQe7LhZA&usqp=CAU" alt="">
-                        </th>
-                        <th>
-                            <h3>Elige el complemento</h3>
-                            
-                           
-                            
-                            
-                            <p>Cantidad</p>
-                            <input type='number' value='1' name='cantidad'>
-                            <input type="submit" name="boton" value="Añadir a la orden">
-                        </th>
-                    </tr>
-                </form>
-            </table>
-        </div>
-        <?php
-            }
-                }else{
-                    echo("que hay");
-                }
-            }else{
-        ?>
         <div class="form-area">
             <table class="table">
                 <?php
