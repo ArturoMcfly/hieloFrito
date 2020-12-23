@@ -11,6 +11,7 @@
 
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+	
 	<style>
 		body {
 			background: url(images/pizzafondo.jpg) !important;
@@ -23,21 +24,16 @@
 
 
 </head>
-
-
-<body>
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background:#000000;">
-			<div class="container">
-				<a class="navbar-brand js-scroll-trigger" href="index.php">Hilo Frito</a>
-				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-				<div class="collapse navbar-collapse" id="navbarResponsive">
+<body class="login-body">
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background:#000000;">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="index.php">Hilo Frito</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
 					
-				</div>
 			</div>
-		</nav>
-
-	<body class="login-body">
+		</div>
+	</nav>
 		<div class="row">
 			<div class=" input-cart col s12 m10 push-m1 z-depth-2 grey lighten-5 ">
 				<div class="col s12 m5 login ">

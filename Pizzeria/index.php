@@ -26,10 +26,9 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pizzas.php">Pizzas</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="promosiones.php">Promociones</a></li>
-                        
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login2.php">Iniciar Sesión</a></li>
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pizzas.php">Pizzas</a></li>
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="promosiones.php">Promociones</a></li>  
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login2.php">Iniciar Sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -43,69 +42,68 @@
                         <hr class="divider my-4" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">Los mejores sasones encontrados en las mas detallaas pizzas</p>
-                        
+                        <p class="text-white-75 font-weight-light mb-5">Los mejores sasones encontrados en las mas detallaas pizzas</p>             
                     </div>
                 </div>
             </div>
         </header>
-       <!-- Page Content -->
-  <div class="container">
-
-<h1 style="text-align: center; color: white;" class="my-4">Elije tu pizza</h1>
-
-<!-- Marketing Icons Section -->
-<div class="row">
-  <div class="col-lg-4 mb-4">
-    <div class="card h-100">
-      <h4 class="card-header" style="color: white;">Hawaiana</h4>
-      <div class="card-body">
-        <p class="card-text" style="text-align: center; color: rgb(255, 255, 255); background: rgba(128, 0, 0, 0.575);"><strong style="color: orangered;">Detalles:</strong> 
-          <br>
-          La pizza que unos cuestionan pero todos aman.<br>
-          <strong style="color: rgb(59, 185, 0);">Ingredientes:</strong>  <br> Jamón y Piña. <br><br>
-        <img width="310" height="200" src="https://cdn1.cocina-familiar.com/recetas/pizza-hawaiana-con-masa-casera.JPG" alt="">  
-      </p>
-      </div>
-      <div class="card-footer">
-        <a href="compra.php" class="btn btn-primary">Ordenar aqui</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 mb-4">
-    <div class="card h-100">
-      <h4 class="card-header" style="color: white;">Carnes frias</h4>
-      <div class="card-body">
-        <p class="card-text" style="text-align: center; color: rgb(255, 255, 255); background: rgba(128, 0, 0, 0.575);"><strong style="color: orangered;">Detalles:</strong> 
-          <br>
-          La pizza para los amantes de la carne. <br> 
-          <strong style="color:rgb(59, 185, 0);">Ingredientes:</strong>  <br> Pepperoni,Salami, pepperoni, jamón, finas hierbas.
-    <br><br> <img width="310" height="200" src="https://italianissimo.mx/wp-content/uploads/2014/04/photodune-5347516-traditional-pizza-and-ingredients-xs1.jpg" alt="">  
-  </p>
-  </div>
-      <div class="card-footer">
-        <a href="compra.php" class="btn btn-primary">Ordenar aqui</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 mb-4">
-    <div class="card h-100">
-      <h4 class="card-header" style="color: white;">Cuatro quesos</h4>
-      <div class="card-body">
-        <p class="card-text" style="background: rgba(128, 0, 0, 0.575); text-align: center; color: rgb(255, 255, 255);" ><strong style="color: orangered;">Detalles:</strong>  
-          <br>
-          La pizza pensada en los amantes del queso. <br>
-          <strong style="color:rgb(59, 185, 0);">Ingredientes:</strong> <br> Queso mozzarella, queso crema, queso cheddar, queso.
-        <br><br><img width="310" height="200" src="https://vod-hogarmania.atresmedia.com/cocinatis/images/images01/2019/04/11/5caf542f1f4daa0001932466/1239x697.jpg" alt="">    
-      </p>
-      </div>
-      <div class="card-footer">
-        <a href="compra.php" class="btn btn-primary">Ordenar aqui</a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- /.row -->
+        <!-- Page Content -->
+        <div class="container">
+          <h1 style="text-align: center; color: white;" class="my-4">Elije tu pizza</h1>
+          <!-- Marketing Icons Section -->
+          <div class="row">
+            <div class="col-lg-4 mb-4">
+              <div class="card h-100">
+                <h4 class="card-header" style="color: white;">Hawaiana</h4>
+                <div class="card-body">
+                  <p class="card-text" style="text-align: center; color: rgb(255, 255, 255); background: rgba(128, 0, 0, 0.575);"><strong style="color: orangered;">Detalles:</strong> 
+                    <br>
+                    La pizza que unos cuestionan pero todos aman.
+                    <br>
+                    <strong style="color: rgb(59, 185, 0);">Ingredientes:</strong>  <br> Jamón y Piña. <br><br>
+                    <img width="310" height="200" src="https://cdn1.cocina-familiar.com/recetas/pizza-hawaiana-con-masa-casera.JPG" alt="">  
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <a href="compra.php" class="btn btn-primary">Ordenar aqui</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="card h-100">
+                <h4 class="card-header" style="color: white;">Carnes frias</h4>
+                <div class="card-body">
+                  <p class="card-text" style="text-align: center; color: rgb(255, 255, 255); background: rgba(128, 0, 0, 0.575);"><strong style="color: orangered;">Detalles:</strong> 
+                    <br>
+                    La pizza para los amantes de la carne. <br> 
+                    <strong style="color:rgb(59, 185, 0);">Ingredientes:</strong>  <br> Pepperoni,Salami, pepperoni, jamón, finas hierbas.
+                    <br><br> <img width="310" height="200" src="https://italianissimo.mx/wp-content/uploads/2014/04/photodune-5347516-traditional-pizza-and-ingredients-xs1.jpg" alt="">  
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <a href="compra.php" class="btn btn-primary">Ordenar aqui</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+              <div class="card h-100">
+                <h4 class="card-header" style="color: white;">Cuatro quesos</h4>
+                <div class="card-body">
+                  <p class="card-text" style="background: rgba(128, 0, 0, 0.575); text-align: center; color: rgb(255, 255, 255);" ><strong style="color: orangered;">Detalles:</strong>  
+                    <br>
+                    La pizza pensada en los amantes del queso. <br>
+                    <strong style="color:rgb(59, 185, 0);">Ingredientes:</strong> <br> Queso mozzarella, queso crema, queso cheddar, queso.
+                    <br><br><img width="310" height="200" src="https://vod-hogarmania.atresmedia.com/cocinatis/images/images01/2019/04/11/5caf542f1f4daa0001932466/1239x697.jpg" alt="">    
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <a href="compra.php" class="btn btn-primary">Ordenar aqui</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+        <!-- /.row -->
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
