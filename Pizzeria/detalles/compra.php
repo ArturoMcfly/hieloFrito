@@ -1,5 +1,8 @@
 <?php
-
+$id=$_GET['id_compra'];
+$id_detalle=$_GET['id_detalle'];
+$cantidad=$_GET['cantidad_compra'];
+$total=$_GET['total_compra'];
 ?>
 <!DOCTYPE html>
 <html lang="es-mx">

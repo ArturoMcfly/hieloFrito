@@ -27,33 +27,33 @@ include('../php/conexion.php');
             }
             .form-area{
                 margin: 20px;
-                background: #fff;
-                color: #000;
+                background: rgba(0,0,0,0.5);
+                color: #fff;
                 padding: 40px;
-                border-radius: 6px;
+                
                 margin-top:100px !important;
             }
             .form-area h4 {
             
-                color: #000;
+                color: #fff;
                 
             }
             .form-area h5 {
             
-            color: #000;
+                color: #fff;
             
-        }
+            }
             h3{
                 margin: 0;
                 padding: 0;
                 font-weight: bold;
-                color: #000;
+                color: #fff;
             }
             .form-area p{
                 margin: 0;
                 padding: 0;
                 font-weight: bold;
-                color: #000;
+                color: #fff;
             }
             .form-area input,select{
                 margin-bottom: 20px;
@@ -91,7 +91,7 @@ include('../php/conexion.php');
             .form-area input[type=submit]:hover{
                 background-color: transparent;
                 border: 2px solid #e66767;
-                color: #000;
+                color: #fff;
                 
             }
             .form-area a{
@@ -113,9 +113,7 @@ include('../php/conexion.php');
             .imagen-pizza{
             width:100px;
             }
-            .table{
-            
-            }
+           
             .calcular{
                 background:#08F43E!important;
                 transition: .3s linear;
@@ -124,7 +122,7 @@ include('../php/conexion.php');
                 
                 background:transparent !important;
                 border: 2px solid #08F43E !important;
-                color:#000 !important;
+                color:#fff !important;
             }
            
         </style>
@@ -147,13 +145,13 @@ include('../php/conexion.php');
                 </div>
             </div>
         </nav>
-        
         <?php
             if(isset($_GET['err'])){
                 if($_GET['err']=='1'){
                     
                     $id_regreso=$_GET['id'];
                     $total=$_GET['total'];
+                    $cantidad_pizza=$_GET['canti'];
         ?>
         <div class="form-area titulo">
             <table class="table">
@@ -180,17 +178,18 @@ include('../php/conexion.php');
                         </th>
                         <th>
                             <h3>Datos de la pizza</h3>
-                            
+                            <h3>
                             <?php
                                 echo($fila['caracteristicas']."<br>");
-                                echo("<input type='text' value='$id_pizza' name='id_pizza' hidden>");
-                                echo("<input type='text' value='$precio' name='precio' hidden>");
-                                echo("costo $".$precio);
+                                echo("<input type='text' value='$id_pizza' name='id_pizza_agregar' hidden>");
+                                echo("<input type='text' value='$cantidad_pizza' name='cantidad_agregar' hidden>");
+                                echo("<input type='text' value='$total' name='total_agregar' hidden>");
+                                echo("<input type='text' value='tradicional' name='tipo' hidden>");
+                                echo("costo: $".$precio."<br>");
+                                echo("cantidad ordenada: ".$cantidad_pizza."<br>");
+                                echo("Total: $".$total);
                             ?>
-                            
-                            
-                            <p>Cantidad</p>
-                            
+                            </h3>
                             <input type="submit" name="boton" value="Añadir a la orden">
                         </th>
                     </tr>
@@ -200,50 +199,74 @@ include('../php/conexion.php');
         <?php
             }
                 }else{
-                    echo("que hay");
+                    $id_regreso=$_GET['id'];
+                    $total=$_GET['total'];
+                    $cantidad_pizza=$_GET['canti'];
+                    $id_detalle=$_GET['detalle'];
+                   
+        ?>
+        <div class="form-area titulo">
+            <table class="table">
+                <?php
+                    
+                    $query="SELECT * FROM pizza WHERE id_pizza LIKE '$id_regreso'";
+                    $resultado=$mysqli->query($query);
+                    if($resultado->num_rows > 0){
+                        $fila=$resultado->fetch_assoc();
+                        $id_pizza=$fila['id_pizza'];
+                        $precio=$fila['precio'];
+                        $consulta="SELECT * FROM agregados_pizza WHERE id_agregado_pizza LIKE $id_detalle";
+                        $resultado_consulta=$mysqli->query($consulta);
+                        if($resultado_consulta->num_rows > 0){
+
+                            $fila_resultado=$resultado_consulta->fetch_assoc();
+                            $nombre_detalle_pizza=$fila_resultado['nombre_agregado_pizza'];
+                            $precio_detalle_pizza=$fila_resultado['precio_agregado_pizza'];
+                            $nombre_detalle_pizza=$fila_resultado['caracterisitcas_agregado_pizza'];
+                            
+                ?>
+                <form action="boton.php" method="POST">
+                    <h1>
+                        Datos de la pizza:
+                        <?php
+                            echo($fila['nombre']);
+                        ?>
+                    </h1>
+                    <tr>
+                        <th>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCf2vz1E0s1rJYyOMSMDIemGyDuGFQe7LhZA&usqp=CAU" alt="">
+                        </th>
+                        <th>
+                            <h3>Datos de la pizza</h3>
+                            <h3>
+                            <?php
+                                echo($fila['caracteristicas']."<br>");
+                                echo("costo: $".$precio."<br>");
+                                echo("<input type='text' value='$id_pizza' name='id_pizza_agregar' hidden>");
+                                echo("<input type='text' value='$id_detalle' name='id_detalle_agregar' hidden>");
+                                echo("<input type='text' value='$cantidad_pizza' name='cantidad_agregar' hidden>");
+                                echo("<input type='text' value='$total' name='total_agregar' hidden>");
+                                echo("<input type='text' value='com' name='tipo' hidden>");
+                                echo("Complemento: ".$nombre_detalle_pizza."<br> ");
+                                echo("precio complemento: $".$precio_detalle_pizza ."<br>");
+                                echo("cantidad ordenada: ".$cantidad_pizza."<br>");
+                                echo("Total: $".$total);
+                            ?>
+                            </h3>
+                            <input type="submit" name="boton" value="Añadir a la orden">
+                        </th>
+                    </tr>
+                </form>
+            </table>
+        </div>
+
+        <?php
+                        }
+                    }
                 }
             }else{
         ?>
-        <header>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                <!-- Slide One - Set the background image for this slide in the line below -->
-                    <div class="carousel-item active" style="background-image: url('https://images.alphacoders.com/276/276653.jpg')">
-                        <div class="carousel-caption d-none d-md-block" style="background:#0000009b;">
-                            <h3 class="display-4" style="color:#fff" > La extra queso JUMBO</h3>
-                            <p class="lead">La reian de los quesos.</p>
-                        </div>
-                    </div>
-                    <!-- Slide Two - Set the background image for this slide in the line below -->
-                    <div class="carousel-item" style="background-image: url('https://wallpaperaccess.com/full/424487.jpg')">
-                        <div class="carousel-caption d-none d-md-block">
-                        <h3 class="display-4">Second Slide</h3>
-                        <p class="lead">This is a description for the second slide.</p>
-                        </div>
-                    </div>
-                    <!-- Slide Three - Set the background image for this slide in the line below -->
-                    <div class="carousel-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCf2vz1E0s1rJYyOMSMDIemGyDuGFQe7LhZA&usqp=CAU')">
-                        <div class="carousel-caption d-none d-md-block">
-                        <h3 class="display-4">Third Slide</h3>
-                        <p class="lead">This is a description for the third slide.</p>
-                        </div>
-                    </div>
-            </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </header>
+
         <div class="form-area">
             <table class="table">
                 <?php
@@ -293,7 +316,7 @@ include('../php/conexion.php');
                             ?>
                             <p><?php echo($nombre_detalle)?></p>
                             <h4><?php echo($caracteristicas_detalle)?></h4>
-                            <h5><?php echo("$".$precio_detalle)?></h5>
+                            <h5><?php echo("$".$precio_detalle."<br>")?></h5>
                             <?php
                                 echo(" 
                                 <input type='radio' id='$precio_detalle'value='$precio_detalle' name='precio_detalle'/>");
