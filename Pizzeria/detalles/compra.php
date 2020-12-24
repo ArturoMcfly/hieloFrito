@@ -1,8 +1,18 @@
 <?php
-$id=$_GET['id_compra'];
-$id_detalle=$_GET['id_detalle'];
-$cantidad=$_GET['cantidad_compra'];
-$total=$_GET['total_compra'];
+include('../php/conexion.php');
+
+$tipo=$_GET['tipo'];
+if($tipo=='tradicional'){
+    $id=$_GET['id_compra'];
+    $cantidad=$_GET['cantidad_compra'];
+    $total=$_GET['total_compra'];
+}else{
+    $id=$_GET['id_compra'];
+    $cantidad=$_GET['cantidad_compra'];
+    $id_detalle=$_GET['id_detalle'];
+    $total=$_GET['total_compra'];
+}
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es-mx">
@@ -142,6 +152,9 @@ $total=$_GET['total_compra'];
           color:#fff;
           font-family: 'Poppins',sans-serif;
       }
+      .espacio{
+          padding-top:30px;
+      }
     </style>
     <body id="page-top">
         <!-- Navigation-->
@@ -160,101 +173,11 @@ $total=$_GET['total_compra'];
                 </div>
             </div>
         </nav>
-        <!-- Masthead-->
-        <div class="container-fluid">
-            <div class="row no-gutter">
-              <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-              <div class="col-md-8 col-lg-6">
-                <div class="login d-flex align-items-center py-5">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-md-9 col-lg-8 mx-auto">
-                        <h3 class="login-heading mb-4 texto">Bienvenido</h3>
-                        <p class="texto">Crea la orden e ingresa los datos para poder comprar</p>
-                        <form>
-                            <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Nombre completo" required autofocus>
-                                <label for="inputEmail">Nombre del usuario</label>
-                              </div>
-                              <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Direccion" required autofocus>
-                                <label for="inputEmail">Direccion del usuario</label>
-                              </div>
-                          <div class="form-label-group">
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Correo electronico" required autofocus>
-                            <label for="inputEmail">Colonia</label>
-                          </div>
-          
-                          <div class="form-label-group">
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-                            <label for="inputPassword">Municipio</label>
-                          </div>
-                          <div class="form-label-group">
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Rectificar Contraseña" required>
-                            <label for="inputPassword">Referencia</label>
-                          </div>
-                          <select  class="form-label-group form-control" name="ciudad">
-                          
-                        <option value="1">Hawahiana</option>
-                        <option value="2">Camarones </option>
-                        <option value="3">Carnes Frias</option>
-                        <option value="4">Mexicana</option>
-                        <option value="4">Habanera</option>
-                    
-                          </select>
-                          <select  class="form-label-group form-control" name="ciudad">
-                          
-                        <option value="1">Tarjeta</option>
-                        <option value="2">Efectivo</option>
-                    
-                          </select>
-                          <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Aceptar</button>
-                          
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-
-
-
-
-
-
-
+        <?php
+        if(isset($_SESSION['usr'])){
         
-        <div class="form-area">
-            <h2>
-                Datos de orden
-            </h2>
-            <br>
-            <form action="php/login.php" method="post">
-                <p>
-                Nombre
-                </p>
-                
-                <input type="text" name="user" placeholder="Ingresa el Usuario">
-                <p>Telefono</p>
-                <input type="number" name="user" placeholder="Ingresa el Usuario">
-                
-                <p>Dirección</p>
-                <input type="text" name="pass" placeholder="Ingresa la contraseña">
-                
-                <p>Total </p>
-                <input type="date" name="pass" placeholder="Ingresa la contraseña">
-                <p>Fecha </p>
-                <input type="date" name="pass" placeholder="Ingresa la contraseña">
-                
-                <p>Fecha salida </p>
-                <input type="datetime" name="pass" placeholder="Ingresa la contraseña">
-                <br>
-                <input type="submit" value="Ingresa">
-            </form>
-        </div>
-        <table class="table">
+        ?>
+         <table class="table">
                 <tr>
                     <th>nombre</th>
                     <th>Complementos</th>
@@ -285,6 +208,65 @@ $total=$_GET['total_compra'];
                 </tr>
         
         </table>
+        <?php
+        }else{
+        ?>
+
+        <!-- Masthead-->
+        <div class="container-fluid ">
+            <div class="row no-gutter">
+              <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+              <div class="col-md-8 col-lg-6">
+                <div class="login d-flex align-items-center py-5">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-9 col-lg-8 mx-auto espacio">
+                        <h3 class="login-heading mb-4 texto">Bienvenido</h3>
+                        <p class="texto">Crea la orden e ingresa los datos para poder comprar</p>
+                        <form action="operacion.php" method="POST">
+                            <div class="form-label-group">
+                                <input type="text" id="inputNombre" name="nombre" class="form-control" placeholder="Nombre" required autofocus>
+                                <label for="inputNombre">Nombre</label>
+                              </div>
+                              <div class="form-label-group">
+                                <input type="number" id="inputTelefono" name="telefono" class="form-control" placeholder="Telefono" required autofocus>
+                                <label for="inputTelefono">Telefono</label>
+                              </div>
+                          <div class="form-label-group">
+                            <input type="text" id="inputDireccion" name="Direccion" class="form-control" placeholder="Direccion" required autofocus>
+                            <label for="inputDireccion">Direccion</label>
+                          </div>
+                          <input type='text' value='0' name='total_inicio' hidden>
+                          <input type='text' value='2020-12-23 10:00:00' name='fecha_inicio' hidden>
+                          <input type='text' value='2020-12-23 12:00:00' name='fecha_final' hidden>
+                          <input type='text' value='iniciada' name="estado" hidden>
+                          <!--
+                          <select  class="form-label-group form-control" name="ciudad">
+                          
+                        <option value="1">Hawahiana</option>
+                        <option value="2">Camarones </option>
+                        <option value="3">Carnes Frias</option>
+                        <option value="4">Mexicana</option>
+                        <option value="4">Habanera</option>
+                    
+                          </select>-->
+                          
+                          <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Crear orden</button>
+                          
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <?php
+        }
+        ?>
+        
+       
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>

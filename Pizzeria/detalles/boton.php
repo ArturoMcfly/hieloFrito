@@ -22,14 +22,14 @@ $boton=$_POST['boton'];
             $cantidad_compra=$_POST['cantidad_agregar'];
             $total_agregar=$_POST['total_agregar'];
             echo("".$id_pizza_compra." ".$cantidad_compra." ". $total_agregar );
-            header("Location: compra.php?id_compra=$id_pizza_compra&&cantidad_compra=$cantidad_compra&&total_compra=");
+            header("Location: compra.php?id_compra=$id_pizza_compra&&cantidad_compra=$cantidad_compra&&total_compra=$total_agregar&&tipo=tradicional");
         }else{
             $id_pizza_compra=$_POST['id_pizza_agregar'];
             $id_detalle_compra=$_POST['id_detalle_agregar'];
             $cantidad_compra=$_POST['cantidad_agregar'];
             $total_agregar=$_POST['total_agregar'];
             echo("".$id_pizza_compra." ".$id_detalle_compra." ".$cantidad_compra." ". $total_agregar );
-            header("Location: compra.php?id_compra=$id_pizza_compra&&id_detalle=$id_detalle_compra&&cantidad_compra=$cantidad_compra&&total_compra=");
+            header("Location: compra.php?id_compra=$id_pizza_compra&&id_detalle=$id_detalle_compra&&cantidad_compra=$cantidad_compra&&total_compra=$total_agregar&&tipo=personalizada");
         }
         
         //header("Location: compra.php");
