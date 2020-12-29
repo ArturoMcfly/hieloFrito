@@ -1,17 +1,7 @@
 <?php
 include('../php/conexion.php');
 
-$tipo=$_GET['tipo'];
-if($tipo=='tradicional'){
-    $id=$_GET['id_compra'];
-    $cantidad=$_GET['cantidad_compra'];
-    $total=$_GET['total_compra'];
-}else{
-    $id=$_GET['id_compra'];
-    $cantidad=$_GET['cantidad_compra'];
-    $id_detalle=$_GET['id_detalle'];
-    $total=$_GET['total_compra'];
-}
+
 session_start();
 ?>
 <!DOCTYPE html>
@@ -174,10 +164,45 @@ session_start();
             </div>
         </nav>
         <?php
-        if(isset($_SESSION['usr'])){
+        if(isset($_SESSION['com'])){
         
+        $id_orden=$_SESSION['com'];
+        echo("".$id_orden);
+        if(isset($_GET['tipo'])){
+          $tipo=$_GET['tipo'];
+          if($tipo=='tradicional'){
+              $id=$_GET['id_compra'];
+              $cantidad=$_GET['cantidad_compra'];
+              $total=$_GET['total_compra'];
+              
+          }else{
+              $id=$_GET['id_compra'];
+              $cantidad=$_GET['cantidad_compra'];
+              $id_detalle=$_GET['id_detalle'];
+              $total=$_GET['total_compra'];
+              
+          }
+        }
+        
+        $consulta="SELECT * FROM `ordenes` WHERE id_orden='".$id_orden."'";
+        $resultado_busqueda=$mysqli->query($consulta);
+        if($resultado_busqueda->num_rows > 0){
+          $fila=$resultado_busqueda->fetch_assoc();
+          $nombre_cliente=$fila['nombre'];
+          $telefono_cliente=$fila['telefono'];
+          $direccion_cliente=$fila['direccion'];
         ?>
-         <table class="table">
+        <h3 style="padding-top:50px">Datos de la orden</h3>
+        <?php
+          echo("<h4> Nombre: ".$nombre_cliente."</h4>");
+          echo("<h4> Telefono: ".$telefono_cliente."</h4>");
+          echo("<h4> Direccion: ".$direccion_cliente."</h4>");
+          $consulta_detalles="SELECT * FROM `detalle_orden` WHERE id_orden='".$id_orden."'";
+          $resultado_busqueda_detalles=$mysqli->query($consulta_detalles);
+          if($resultado_busqueda_detalles->num_rows > 0){
+
+        ?>
+         <table class="table" >
                 <tr>
                     <th>nombre</th>
                     <th>Complementos</th>
@@ -187,8 +212,12 @@ session_start();
                     </th>
                 </tr>
                 <tr>
+                    <?php
+                      while($fila=$resultado_busqueda_detalles->fetch_assoc()){
+                        
+                    ?>
                     <th>
-
+                        hola
                     </th>
                     <th>
 
@@ -205,11 +234,31 @@ session_start();
                     <th>
                         <a href="">Borrar</a>
                     </th>
+                    <?php
+                      }
+                    ?>
                 </tr>
         
         </table>
+        
         <?php
+                      
+          }else{
+            echo("<h1>Desea agregar algo a la orden?</h1>");
+          }
+          }else{
+            echo("<h1>No hay orden</h1>");
+          }
+          ?>
+          <br>
+          <a href="../pizzas.php">Pizzas</a>
+          <br>
+          <a href="../promosiones.php">Promociones</a>
+          <br>
+          <a href="../php/plantilla/cerrarsession.php">Terminar compra</a>
+          <?php
         }else{
+          
         ?>
 
         <!-- Masthead-->
@@ -250,6 +299,31 @@ session_start();
                         <option value="4">Habanera</option>
                     
                           </select>-->
+                          <?php
+                              if(isset($_GET['tipo'])){
+                                $tipo=$_GET['tipo'];
+                                if($tipo=='tradicional'){
+                                    $id=$_GET['id_compra'];
+                                    $cantidad=$_GET['cantidad_compra'];
+                                    $total=$_GET['total_compra'];
+                                    echo("<input type='text' value='$tipo' name='tipos' hidden>");
+                                    echo("<input type='text' value='$id' name='id_pizza_agregar' hidden>");
+                                    echo("<input type='text' value='$cantidad' name='cantidad_agregar' hidden>");
+                                    echo("<input type='text' value='$total' name='total_agregar' hidden>");
+                                }else{
+                                    $id=$_GET['id_compra'];
+                                    $cantidad=$_GET['cantidad_compra'];
+                                    $id_detalle=$_GET['id_detalle'];
+                                    $total=$_GET['total_compra'];
+                                    echo("<input type='text' value='$tipo' name='tipos' hidden>");
+                                    echo("<input type='text' value='$id' name='id_pizza_agregar' hidden>");
+                                    echo("<input type='text' value='$cantidad' name='cantidad_agregar' hidden>");
+                                    echo("<input type='text' value='$id_detalle' name='id_detalle_agregar' hidden>");
+                                    echo("<input type='text' value='$total' name='total_agregar' hidden>");
+                                }
+                              }
+                                
+                            ?>
                           
                           <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Crear orden</button>
                           
