@@ -120,8 +120,8 @@ if($resultado){
         }else{
             echo("no existe");
         }
-        /*
-        header("location:compra.php");*/
+        
+        header("location:compra.php");
     }
 
     
