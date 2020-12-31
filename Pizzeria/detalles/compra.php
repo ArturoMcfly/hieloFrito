@@ -23,6 +23,7 @@ session_start();
         <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../css.css" rel="stylesheet" />
+        <link href="../icomoon/fonts/style.css" rel="stylesheet">
     </head>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
@@ -164,83 +165,84 @@ session_start();
             </div>
         </nav>
         <?php
-        if(isset($_SESSION['com'])){
-        
-        $id_orden=$_SESSION['com'];
-        echo("".$id_orden);
-        if(isset($_GET['tipo'])){
-          $tipo=$_GET['tipo'];
-          if($tipo=='tradicional'){
-              $id=$_GET['id_compra'];
-              $cantidad=$_GET['cantidad_compra'];
-              $total=$_GET['total_compra'];
-              $consulta_pizza="SELECT * FROM `pizza` WHERE id_pizza='".$id."'";
-              $resultado_busqueda_pizza=$mysqli->query($consulta_pizza);
-              $fila_pizza=$resultado_busqueda_pizza->fetch_assoc();
-                    $nombre_pizza=$fila_pizza['nombre'];
-                    $precio_pizza=$fila_pizza['precio'];
-                    $insert_detalle="INSERT INTO `detalle_orden`( 
-                        `id_orden`, 
-                        `nombre`, 
-                        `complementos`, 
-                        `cantidad`, 
-                        `Total`) 
-                        VALUES (
-                            '".$id_orden."',
-                            '".$nombre_pizza." <br> $".$precio_pizza."',
-                            'No hay detalle',
-                            '".$cantidad."',
-                            '".$total."')";
-                    $resultado_detalles_completos=$mysqli->query($insert_detalle);
-                    if($resultado_detalles_completos){
-                        echo("exitoso");
-                    }else{
-                        echo("fallido");
-                    }
-          }else{
-              $id=$_GET['id_compra'];
-              $cantidad=$_GET['cantidad_compra'];
-              $id_detalle=$_GET['id_detalle'];
-              $total=$_GET['total_compra'];
-              $consulta_pizza="SELECT * FROM `pizza` WHERE id_pizza='".$id."'";
-              $resultado_busqueda_pizza=$mysqli->query($consulta_pizza);
-              $fila_pizza=$resultado_busqueda_pizza->fetch_assoc();
-                  $nombre_pizza=$fila_pizza['nombre'];
-                  $precio_pizza=$fila_pizza['precio'];
-
-              $consulta_detalle="SELECT * FROM `agregados_pizza` WHERE id_agregado_pizza='".$id_detalle."'";
-              $resultado_busqueda_detalle=$mysqli->query($consulta_detalle);
-              $fila_detalle=$resultado_busqueda_detalle->fetch_assoc();
-                  $nombre_agregado_pizza=$fila_detalle['nombre_agregado_pizza'];
-                  $precio_agregado_pizza=$fila_detalle['precio_agregado_pizza'];
-              $insert_detalle="INSERT INTO `detalle_orden`( 
-                  `id_orden`, 
-                  `nombre`, 
-                  `complementos`, 
-                  `cantidad`, 
-                  `Total`) 
-                  VALUES (
-                      '".$id_orden."',
-                      '".$nombre_pizza." <br> $".$precio_pizza."',
-                      '".$nombre_agregado_pizza." <br> $".$precio_agregado_pizza."',
-                      '".$cantidad."',
-                      '".$total."')";
-              $resultado_detalles_completos=$mysqli->query($insert_detalle);
-              if($resultado_detalles_completos){
-                  echo("exitoso");
+          if(isset($_SESSION['com'])){
+            $total_final=0;
+            $id_orden=$_SESSION['com'];
+            
+            /*
+            if(isset($_GET['tipo'])){
+              $tipo=$_GET['tipo'];
+              if($tipo=='tradicional'){
+                  $id=$_GET['id_compra'];
+                  $cantidad=$_GET['cantidad_compra'];
+                  $total=$_GET['total_compra'];
+                  $consulta_pizza="SELECT * FROM `pizza` WHERE id_pizza='".$id."'";
+                  $resultado_busqueda_pizza=$mysqli->query($consulta_pizza);
+                  $fila_pizza=$resultado_busqueda_pizza->fetch_assoc();
+                        $nombre_pizza=$fila_pizza['nombre'];
+                        $precio_pizza=$fila_pizza['precio'];
+                        $insert_detalle="INSERT INTO `detalle_orden`( 
+                            `id_orden`, 
+                            `nombre`, 
+                            `complementos`, 
+                            `cantidad`, 
+                            `Total`) 
+                            VALUES (
+                                '".$id_orden."',
+                                '".$nombre_pizza." <br> $".$precio_pizza."',
+                                'No hay detalle',
+                                '".$cantidad."',
+                                '".$total."')";
+                        $resultado_detalles_completos=$mysqli->query($insert_detalle);
+                        if($resultado_detalles_completos){
+                            echo("exitoso");
+                        }else{
+                            echo("fallido");
+                        }
               }else{
-                  echo("fallido");
+                  $id=$_GET['id_compra'];
+                  $cantidad=$_GET['cantidad_compra'];
+                  $id_detalle=$_GET['id_detalle'];
+                  $total=$_GET['total_compra'];
+                  $consulta_pizza="SELECT * FROM `pizza` WHERE id_pizza='".$id."'";
+                  $resultado_busqueda_pizza=$mysqli->query($consulta_pizza);
+                  $fila_pizza=$resultado_busqueda_pizza->fetch_assoc();
+                      $nombre_pizza=$fila_pizza['nombre'];
+                      $precio_pizza=$fila_pizza['precio'];
+
+                  $consulta_detalle="SELECT * FROM `agregados_pizza` WHERE id_agregado_pizza='".$id_detalle."'";
+                  $resultado_busqueda_detalle=$mysqli->query($consulta_detalle);
+                  $fila_detalle=$resultado_busqueda_detalle->fetch_assoc();
+                      $nombre_agregado_pizza=$fila_detalle['nombre_agregado_pizza'];
+                      $precio_agregado_pizza=$fila_detalle['precio_agregado_pizza'];
+                  $insert_detalle="INSERT INTO `detalle_orden`( 
+                      `id_orden`, 
+                      `nombre`, 
+                      `complementos`, 
+                      `cantidad`, 
+                      `Total`) 
+                      VALUES (
+                          '".$id_orden."',
+                          '".$nombre_pizza." <br> $".$precio_pizza."',
+                          '".$nombre_agregado_pizza." <br> $".$precio_agregado_pizza."',
+                          '".$cantidad."',
+                          '".$total."')";
+                  $resultado_detalles_completos=$mysqli->query($insert_detalle);
+                  if($resultado_detalles_completos){
+                      echo("exitoso");
+                  }else{
+                      echo("fallido");
+                  }
               }
-          }
-        }
-        
-        $consulta="SELECT * FROM `ordenes` WHERE id_orden='".$id_orden."'";
-        $resultado_busqueda=$mysqli->query($consulta);
-        if($resultado_busqueda->num_rows > 0){
-          $fila=$resultado_busqueda->fetch_assoc();
-          $nombre_cliente=$fila['nombre'];
-          $telefono_cliente=$fila['telefono'];
-          $direccion_cliente=$fila['direccion'];
+            }*/
+            
+            $consulta="SELECT * FROM `ordenes` WHERE id_orden='".$id_orden."'";
+            $resultado_busqueda=$mysqli->query($consulta);
+            if($resultado_busqueda->num_rows > 0){
+              $fila=$resultado_busqueda->fetch_assoc();
+              $nombre_cliente=$fila['nombre'];
+              $telefono_cliente=$fila['telefono'];
+              $direccion_cliente=$fila['direccion'];
         ?>
         <h3 style="padding-top:50px">Datos de la orden</h3>
         <?php
@@ -252,7 +254,7 @@ session_start();
           if($resultado_busqueda_detalles->num_rows > 0){
 
         ?>
-         <table class="table" >
+            <table class="table" >
                 <tr>
                     <th>nombre</th>
                     <th>Complementos</th>
@@ -262,16 +264,19 @@ session_start();
                     </th >
                 </tr>
                 <?php
-                      while($fila=$resultado_busqueda_detalles->fetch_assoc()){
+                    while($fila=$resultado_busqueda_detalles->fetch_assoc()){
+                        $id_detalle_final=$fila['id_detalle'];
                         $nombre_complemento=$fila['nombre'];
                         $com_complemento=$fila['complementos'];
                         $cantidad_complemento=$fila['cantidad'];
                         $total_complemento=$fila['Total'];
-                    ?>
+                        $total_final=$total_final+$total_complemento;
+                ?>
                 <tr>
-                    
+                      <form action="operar/editarBorrar.php"></form>
                     <th>
                         <?php
+                          echo("<input type='text' value='$id_detalle_final' name='id_detalle' hidden>");
                           echo($nombre_complemento);
                         ?>
                     </th>
@@ -287,21 +292,30 @@ session_start();
                     </th>
                     <th>
                         <?php
-                          echo($total_complemento);
+                          echo("$".$total_complemento);
                         ?>
                     </th>
                     <th>
-                        <a href="">Editar</a>
+                    <input type="submit" value="Editar" class="boton " name="boton">&nbsp;<span class="icon-pencil icono">
                     </th>
                     <th>
-                        <a href="">Borrar</a>
+                    <input type="submit" value="Borrar" class="boton "name="boton">&nbsp;<span class="icon-bin icono">
                     </th>
-                    
                 </tr>
                 <?php
-                      }
-                    ?>
-        
+                    }
+                ?>
+                <tr>
+                    <th colspan=2></th>
+                    <th >
+                        Total:
+                    </th>
+                    <th>
+                        <?php
+                            echo("$".$total_final);
+                        ?>
+                    </th>
+                </tr>
         </table>
         
         <?php
