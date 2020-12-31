@@ -1,3 +1,6 @@
+<?php
+include('php/conexion.php');
+?>
 <!DOCTYPE html>
 <html lang="es-en">
     <head>
@@ -53,56 +56,180 @@
           <h1 style="text-align: center; color: white;" class="my-4">Elije tu pizza</h1>
           <!-- Marketing Icons Section -->
           <div class="row">
-            <div class="col-lg-4 mb-4">
-              <div class="card h-100">
-                <h4 class="card-header" style="color: white;">Hawaiana</h4>
-                <div class="card-body">
-                  <p class="card-text" style="text-align: center; color: rgb(255, 255, 255); background: rgba(128, 0, 0, 0.575);"><strong style="color: orangered;">Detalles:</strong> 
-                    <br>
-                    La pizza que unos cuestionan pero todos aman.
-                    <br>
-                    <strong style="color: rgb(59, 185, 0);">Ingredientes:</strong>  <br> Jamón y Piña. <br><br>
-                    <img width="310" height="200" src="https://cdn1.cocina-familiar.com/recetas/pizza-hawaiana-con-masa-casera.JPG" alt="">  
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <a href="compra.php" class="btn btn-primary">Ordenar aqui</a>
-                </div>
-              </div>
+        <?php
+          $query1="SELECT * FROM pizza WHERE nombre LIKE 'Hawaiana'";
+          $resultado1=$mysqli->query($query1);
+          if($resultado1->num_rows > 0){
+            $fila1=$resultado1->fetch_assoc();
+            $nombre_pizza1=$fila1['nombre'];
+            $precio_pizza1=$fila1['precio'];
+            $caracteristicas_pizza1=$fila1['caracteristicas'];
+        ?>
+      
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100" >
+            <h4 class="card-header" style="color: white;">
+              <?php
+              echo($fila1['nombre']);
+              ?>
+            </h4>
+            <div class="card-body" style="margin-bottom:10px border-radius:20px;">
+              <p class="card-text" style="text-align: center; color: rgb(255, 255, 255); background: rgba(128, 0, 0, 0.575);">
+                <strong style="color: orangered;">Ingredientes:</strong> 
+                <br>
+                <?php
+                  echo($nombre_pizza1);
+                ?>
+                <br>
+                <strong style="color: rgb(59, 185, 0);">Precio</strong>  
+                <br> 
+                <?php
+                  echo("$".$fila1['precio']);
+                ?> 
+                <br>
+                <strong style="color: #DFF408;">Ingredientes</strong>  
+                <br> 
+                <?php
+                  echo("".$caracteristicas_pizza1);
+                ?> 
+                <br>
+                <img style="margin-bottom:20px; border-radius:6px" width="310" height="200" src="https://cdn1.cocina-familiar.com/recetas/pizza-hawaiana-con-masa-casera.JPG" alt="">  
+              </p>
             </div>
-            <div class="col-lg-4 mb-4">
-              <div class="card h-100">
-                <h4 class="card-header" style="color: white;">Carnes frias</h4>
-                <div class="card-body">
-                  <p class="card-text" style="text-align: center; color: rgb(255, 255, 255); background: rgba(128, 0, 0, 0.575);"><strong style="color: orangered;">Detalles:</strong> 
-                    <br>
-                    La pizza para los amantes de la carne. <br> 
-                    <strong style="color:rgb(59, 185, 0);">Ingredientes:</strong>  <br> Pepperoni,Salami, pepperoni, jamón, finas hierbas.
-                    <br><br> <img width="310" height="200" src="https://italianissimo.mx/wp-content/uploads/2014/04/photodune-5347516-traditional-pizza-and-ingredients-xs1.jpg" alt="">  
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <a href="compra.php" class="btn btn-primary">Ordenar aqui</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-              <div class="card h-100">
-                <h4 class="card-header" style="color: white;">Cuatro quesos</h4>
-                <div class="card-body">
-                  <p class="card-text" style="background: rgba(128, 0, 0, 0.575); text-align: center; color: rgb(255, 255, 255);" ><strong style="color: orangered;">Detalles:</strong>  
-                    <br>
-                    La pizza pensada en los amantes del queso. <br>
-                    <strong style="color:rgb(59, 185, 0);">Ingredientes:</strong> <br> Queso mozzarella, queso crema, queso cheddar, queso.
-                    <br><br><img width="310" height="200" src="https://vod-hogarmania.atresmedia.com/cocinatis/images/images01/2019/04/11/5caf542f1f4daa0001932466/1239x697.jpg" alt="">    
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <a href="compra.php" class="btn btn-primary">Ordenar aqui</a>
-                </div>
-              </div>
+            <div class="card-footer">
+              <form action="detalles/editarPizza.php" method="post">
+                <?php
+                  echo("<input type='text' value='$nombre_pizza1' name='nombre' hidden>");
+                  echo("<input type='text' value='$precio_pizza1' name='precio' hidden>");
+                  echo("<input type='text' value='$caracteristicas_pizza1' name='caracteristicas' hidden>");
+                ?>
+                <input type="submit" name="boton" class="btn btn-primary" value="Prepara a tu gusto">
+              </form>
+            
+              
+      
             </div>
           </div>
+        </div>
+      
+        <?php
+          }else{
+            echo ("<h1>Pizza no disponible</h1>");
+          }
+          $query2="SELECT * FROM pizza WHERE nombre LIKE 'Peperoni'";
+          $resultado2=$mysqli->query($query2);
+          if($resultado2->num_rows > 0){
+            $fila2=$resultado2->fetch_assoc();
+            $nombre_pizza2=$fila2['nombre'];
+            $precio_pizza2=$fila2['precio'];
+            $caracteristicas_pizza2=$fila2['caracteristicas'];
+
+        ?>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h4 class="card-header" style="color: white;">
+            
+              <?php
+                echo($fila2['nombre']);
+          
+              ?>
+            </h4>
+            <div class="card-body">
+              <p class="card-text" style="text-align: center; color: rgb(255, 255, 255); background: rgba(128, 0, 0, 0.575);"><strong style="color: orangered;">Detalles:</strong> 
+                <br>
+                <?php
+                  echo($nombre_pizza2);
+                ?> 
+                <br> 
+                <strong style="color:rgb(59, 185, 0);">Precio</strong>  
+                <br> 
+                <?php
+                  echo("$".$precio_pizza2);
+                ?>
+                <br>
+                
+                <strong style="color: #DFF408;">Ingredientes</strong>  
+                <br> 
+                <?php
+                  echo("".$caracteristicas_pizza2);
+                ?> 
+                <br> 
+                <img style="margin-bottom:20px; border-radius:6px" width="310" height="200" src="https://italianissimo.mx/wp-content/uploads/2014/04/photodune-5347516-traditional-pizza-and-ingredients-xs1.jpg" alt="">  
+              </p>
+            </div>
+            <div class="card-footer">
+              <form action="detalles/editarPizza.php" method="post">
+                <?php
+                  echo("<input type='text' value='$nombre_pizza2' name='nombre' hidden>");
+                  echo("<input type='text' value='$precio_pizza2' name='precio' hidden>");
+                  echo("<input type='text' value='$caracteristicas_pizza2' name='caracteristicas' hidden>");
+                ?>
+                <input type="submit" name="boton" class="btn btn-primary" value="Prepara a tu gusto">
+              </form>
+            </div>
+          </div>
+        </div>
+        <?php
+          }else{
+            echo ("<h1>Pizza no disponible</h1>");
+          }
+          $query3="SELECT * FROM pizza WHERE nombre LIKE 'Cuatro quesos'";
+          $resultado3=$mysqli->query($query3);
+          if($resultado3->num_rows > 0){
+            $fila3=$resultado3->fetch_assoc();
+            $nombre_pizza3=$fila3['nombre'];
+            $precio_pizza3=$fila3['precio'];
+            $caracteristicas_pizza3=$fila3['caracteristicas'];
+        ?>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h4 class="card-header" style="color: white;">
+              <?php
+                echo($nombre_pizza3);
+          
+              ?>
+            </h4>
+            <div class="card-body">
+              <p class="card-text" style="background: rgba(128, 0, 0, 0.575); text-align: center; color: rgb(255, 255, 255);" >
+                <strong style="color: orangered;">Detalles:</strong>  
+                <br>
+                <?php
+                  echo($nombre_pizza3);
+                ?>
+                <br>
+                <strong style="color:rgb(59, 185, 0);">Precio</strong> 
+                <br>
+                <?php
+                  echo("$".$precio_pizza3);
+                ?>
+                <br>
+                <strong style="color: #DFF408;">Ingredientes</strong>  
+                <br> 
+                <?php
+                  echo("".$caracteristicas_pizza3);
+                ?> 
+                <br><img style="margin-bottom:20px; border-radius:6px" width="310" height="200" src="https://vod-hogarmania.atresmedia.com/cocinatis/images/images01/2019/04/11/5caf542f1f4daa0001932466/1239x697.jpg" alt="">    
+              </p>
+            </div>
+            <div class="card-footer">
+              <form action="detalles/editarPizza.php" method="post">
+                <?php
+                  echo("<input type='text' value='$nombre_pizza3' name='nombre' hidden>");
+                  echo("<input type='text' value='$precio_pizza3' name='precio' hidden>");
+                  echo("<input type='text' value='$caracteristicas_pizza3' name='caracteristicas' hidden>");
+                ?>
+                <input type="submit" name="boton" class="btn btn-primary" value="Prepara a tu gusto">
+              </form>
+            </div>
+          </div>
+        </div>
+        <?php
+          }else{
+            echo ("<h1>Pizza no disponible</h1>");
+          }
+        ?>
+      </div>
+      <!-- /.row -->
         </div>  
         <!-- /.row -->
         <!-- Bootstrap core JS-->

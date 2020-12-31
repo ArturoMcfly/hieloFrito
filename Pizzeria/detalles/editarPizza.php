@@ -138,8 +138,7 @@ include('../php/conexion.php');
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../pizzas.php">Pizzas</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../promosiones.php">Promociones</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../Bebidas.php">Bebidas</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../pedidos.php">Pedidos</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="compra.php">Lista</a></li>  
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../login2.php">Iniciar Sesión</a></li>
                     </ul>
                 </div>
@@ -293,7 +292,7 @@ include('../php/conexion.php');
                             echo($fila['caracteristicas']."<br>");
                             echo("<input type='text' value='$id_pizza' name='id_pizza' hidden>");
                             echo("<input type='text' value='$precio' name='precio' hidden>");
-                            echo("costo $".$precio);
+                            echo("costo: $".$precio);
                         ?>
                 
                     </h3>
