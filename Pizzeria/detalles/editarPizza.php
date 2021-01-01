@@ -269,10 +269,9 @@ include('../php/conexion.php');
         <div class="form-area">
             <table class="table">
                 <?php
-                    $nombre=$_POST['nombre'];
-                    $precio=$_POST['precio'];
-                    $caracteristicas=$_POST['caracteristicas'];
-                    $query="SELECT * FROM pizza WHERE nombre LIKE '$nombre'";
+                    $id=$_POST['id'];
+                    
+                    $query="SELECT * FROM pizza WHERE id_pizza LIKE '$id'";
                     $resultado=$mysqli->query($query);
                     if($resultado->num_rows > 0){  
                         $fila=$resultado->fetch_assoc();

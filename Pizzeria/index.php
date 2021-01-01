@@ -61,6 +61,7 @@ include('php/conexion.php');
           $resultado1=$mysqli->query($query1);
           if($resultado1->num_rows > 0){
             $fila1=$resultado1->fetch_assoc();
+            $id_pizza1=$fila1['id_pizza'];
             $nombre_pizza1=$fila1['nombre'];
             $precio_pizza1=$fila1['precio'];
             $caracteristicas_pizza1=$fila1['caracteristicas'];
@@ -99,9 +100,8 @@ include('php/conexion.php');
             <div class="card-footer">
               <form action="detalles/editarPizza.php" method="post">
                 <?php
-                  echo("<input type='text' value='$nombre_pizza1' name='nombre' hidden>");
-                  echo("<input type='text' value='$precio_pizza1' name='precio' hidden>");
-                  echo("<input type='text' value='$caracteristicas_pizza1' name='caracteristicas' hidden>");
+                  echo("<input type='text' value='$id_pizza1' name='id' hidden>");
+                  
                 ?>
                 <input type="submit" name="boton" class="btn btn-primary" value="Prepara a tu gusto">
               </form>
@@ -120,6 +120,7 @@ include('php/conexion.php');
           $resultado2=$mysqli->query($query2);
           if($resultado2->num_rows > 0){
             $fila2=$resultado2->fetch_assoc();
+            $id_pizza2=$fila2['id_pizza'];
             $nombre_pizza2=$fila2['nombre'];
             $precio_pizza2=$fila2['precio'];
             $caracteristicas_pizza2=$fila2['caracteristicas'];
@@ -160,9 +161,8 @@ include('php/conexion.php');
             <div class="card-footer">
               <form action="detalles/editarPizza.php" method="post">
                 <?php
-                  echo("<input type='text' value='$nombre_pizza2' name='nombre' hidden>");
-                  echo("<input type='text' value='$precio_pizza2' name='precio' hidden>");
-                  echo("<input type='text' value='$caracteristicas_pizza2' name='caracteristicas' hidden>");
+                  echo("<input type='text' value='$id_pizza2' name='id' hidden>");
+                  
                 ?>
                 <input type="submit" name="boton" class="btn btn-primary" value="Prepara a tu gusto">
               </form>
@@ -177,6 +177,7 @@ include('php/conexion.php');
           $resultado3=$mysqli->query($query3);
           if($resultado3->num_rows > 0){
             $fila3=$resultado3->fetch_assoc();
+            $id_pizza3=$fila3['id_pizza'];
             $nombre_pizza3=$fila3['nombre'];
             $precio_pizza3=$fila3['precio'];
             $caracteristicas_pizza3=$fila3['caracteristicas'];
@@ -214,9 +215,8 @@ include('php/conexion.php');
             <div class="card-footer">
               <form action="detalles/editarPizza.php" method="post">
                 <?php
-                  echo("<input type='text' value='$nombre_pizza3' name='nombre' hidden>");
-                  echo("<input type='text' value='$precio_pizza3' name='precio' hidden>");
-                  echo("<input type='text' value='$caracteristicas_pizza3' name='caracteristicas' hidden>");
+                  echo("<input type='text' value='$id_pizza3' name='id' hidden>");
+                  
                 ?>
                 <input type="submit" name="boton" class="btn btn-primary" value="Prepara a tu gusto">
               </form>
