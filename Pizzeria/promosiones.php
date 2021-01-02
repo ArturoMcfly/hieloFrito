@@ -1,3 +1,6 @@
+<?php
+	include('php/conexion.php');
+?>
 <!DOCTYPE html>
 <html lang="es-en">
   <head>
@@ -58,72 +61,288 @@
           </div>
         </div>
     	</div>
+	
     	<div class="container-wrap">
     		<div class="row no-gutters d-flex">
+				<?php
+					$query1_pizza="SELECT * FROM pizza WHERE nombre LIKE 'Pizza Italiana'";
+					$resultado1_pizza=$mysqli->query($query1_pizza);
+					if($resultado1_pizza->num_rows > 0){
+					  $fila1_pizza=$resultado1_pizza->fetch_assoc();
+					  $id_pizza1=$fila1_pizza['id_pizza'];
+					  $nombre_pizza1=$fila1_pizza['nombre'];
+					  $precio_pizza1=$fila1_pizza['precio'];
+					  $caracteristicas_pizza1=$fila1_pizza['caracteristicas'];
+				
+				?>
     			<div class="col-lg-4 d-flex ftco-animate">
     				<div class="services-wrap d-flex">
     					<a href="#" class="img" style="background-image: url(images/pizza-1.jpg);"></a>
     					<div class="text p-4">
-    						<h3>Italian Pizza</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+    						<h3>
+								<?php
+									echo($nombre_pizza1);
+								?>
+							</h3>
+    						<p>
+								<?php
+									echo($caracteristicas_pizza1);
+								?>
+								
+							</p>
+    						<p class="price">
+								<span>
+									<?php
+										echo("$".$precio_pizza1);
+									?>
+								</span> 
+								<form action="detalles/editarPizza.php" method="post">
+									<?php
+										echo("<input type='text' value='$id_pizza1' name='id' hidden>");
+										echo("<input type='text' value='pizza' name='tipo_producto' hidden>");
+									
+									?>
+									<input type="submit" name="boton" class="ml-2 btn btn-white btn-outline-white" value="Ordena">
+								</form>
+								
+							</p>
     					</div>
     				</div>
     			</div>
+				<?php
+					}else{
+						echo ("<h1>Pizza no disponible</h1>");
+					}
+					$query2_pizza="SELECT * FROM pizza WHERE nombre LIKE 'Pizza Griega'";
+					$resultado2_pizza=$mysqli->query($query2_pizza);
+					if($resultado2_pizza->num_rows > 0){
+					  $fila2_pizza=$resultado2_pizza->fetch_assoc();
+					  $id_pizza2=$fila2_pizza['id_pizza'];
+					  $nombre_pizza2=$fila2_pizza['nombre'];
+					  $precio_pizza2=$fila2_pizza['precio'];
+					  $caracteristicas_pizza2=$fila2_pizza['caracteristicas'];
+				?>
     			<div class="col-lg-4 d-flex ftco-animate">
     				<div class="services-wrap d-flex">
     					<a href="#" class="img" style="background-image: url(images/pizza-2.jpg);"></a>
     					<div class="text p-4">
-    						<h3>Greek Pizza</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+    						<h3>
+								<?php
+									echo($nombre_pizza2);
+								?>
+							</h3>
+    						<p>
+								<?php
+									echo($caracteristicas_pizza2);
+								?>
+							</p>
+    						<p class="price">
+								<span>
+									<?php
+										echo("$".$precio_pizza2);
+									?>
+								</span> 
+								<form action="detalles/editarPizza.php" method="post">
+									<?php
+										echo("<input type='text' value='$id_pizza2' name='id' hidden>");
+										echo("<input type='text' value='pizza' name='tipo_producto' hidden>");
+									
+									?>
+									<input type="submit" name="boton" class="ml-2 btn btn-white btn-outline-white" value="Ordena">
+								</form>
+							
+							</p>
     					</div>
     				</div>
     			</div>
+				<?php
+					}else{
+						echo ("<h1>Pizza no disponible</h1>");
+					}
+					$query3_pizza="SELECT * FROM pizza WHERE nombre LIKE 'Pizza Caucasica'";
+					$resultado3_pizza=$mysqli->query($query3_pizza);
+					if($resultado3_pizza->num_rows > 0){
+					  $fila3_pizza=$resultado3_pizza->fetch_assoc();
+					  $id_pizza3=$fila3_pizza['id_pizza'];
+					  $nombre_pizza3=$fila3_pizza['nombre'];
+					  $precio_pizza3=$fila3_pizza['precio'];
+					  $caracteristicas_pizza3=$fila3_pizza['caracteristicas'];
+				?>
     			<div class="col-lg-4 d-flex ftco-animate">
     				<div class="services-wrap d-flex">
     					<a href="#" class="img" style="background-image: url(images/pizza-3.jpg);"></a>
     					<div class="text p-4">
-    						<h3>Caucasian Pizza</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+    						<h3>
+								<?php
+									echo($nombre_pizza3);
+								?>
+							</h3>
+    						<p>
+								<?php
+									echo($caracteristicas_pizza3);
+								?>
+							</p>
+    						<p class="price">
+								<span>
+									<?php
+										echo("$".$precio_pizza3);
+									?>
+								</span>
+								<form action="detalles/editarPizza.php" method="post">
+									<?php
+										echo("<input type='text' value='$id_pizza3' name='id' hidden>");
+										echo("<input type='text' value='pizza' name='tipo_producto' hidden>");
+									
+									?>
+									<input type="submit" name="boton" class="ml-2 btn btn-white btn-outline-white" value="Ordena">
+								</form> 
+							</p>
     					</div>
     				</div>
     			</div>
-
+				<?php
+					}else{
+						echo ("<h1>Pizza no disponible</h1>");
+					}
+					$query4_pizza="SELECT * FROM pizza WHERE nombre LIKE 'Pizza estilo Italiana'";
+					$resultado4_pizza=$mysqli->query($query4_pizza);
+					if($resultado4_pizza->num_rows > 0){
+					  $fila4_pizza=$resultado4_pizza->fetch_assoc();
+					  $id_pizza4=$fila4_pizza['id_pizza'];
+					  $nombre_pizza4=$fila4_pizza['nombre'];
+					  $precio_pizza4=$fila4_pizza['precio'];
+					  $caracteristicas_pizza4=$fila4_pizza['caracteristicas'];
+				?>
     			<div class="col-lg-4 d-flex ftco-animate">
     				<div class="services-wrap d-flex">
     					<a href="#" class="img order-lg-last" style="background-image: url(images/pizza-4.jpg);"></a>
     					<div class="text p-4">
-    						<h3>American Pizza</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+    						<h3>
+								<?php
+									echo($nombre_pizza4);
+								?>
+							</h3>
+    						<p>
+								<?php
+									echo($caracteristicas_pizza4);
+								?>
+							</p>
+    						<p class="price">
+								<span>
+									<?php
+										echo("$".$precio_pizza4);
+									?>
+								</span> 
+								<form action="detalles/editarPizza.php" method="post">
+									<?php
+										echo("<input type='text' value='$id_pizza4' name='id' hidden>");
+										echo("<input type='text' value='pizza' name='tipo_producto' hidden>");
+									
+									?>
+									<input type="submit" name="boton" class="ml-2 btn btn-white btn-outline-white" value="Ordena">
+								</form> 
+								
+							</p>
     					</div>
     				</div>
     			</div>
+				<?php
+					}else{
+						echo ("<h1>Pizza no disponible</h1>");
+					}
+					$query5_pizza="SELECT * FROM pizza WHERE nombre LIKE 'Pizza alta Mar'";
+					$resultado5_pizza=$mysqli->query($query5_pizza);
+					if($resultado5_pizza->num_rows > 0){
+					  $fila5_pizza=$resultado5_pizza->fetch_assoc();
+					  $id_pizza5=$fila5_pizza['id_pizza'];
+					  $nombre_pizza5=$fila5_pizza['nombre'];
+					  $precio_pizza5=$fila5_pizza['precio'];
+					  $caracteristicas_pizza5=$fila5_pizza['caracteristicas'];
+				?>
     			<div class="col-lg-4 d-flex ftco-animate">
     				<div class="services-wrap d-flex">
     					<a href="#" class="img order-lg-last" style="background-image: url(images/pizza-5.jpg);"></a>
     					<div class="text p-4">
-    						<h3>Tomatoe Pie</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+    						<h3>
+								<?php
+									echo($nombre_pizza5);
+								?>
+							</h3>
+    						<p>
+								<?php
+									echo($caracteristicas_pizza5);
+								?>
+							</p>
+    						<p class="price">
+								<span>
+									<?php
+										echo("$".$precio_pizza5);
+									?>
+								</span> 
+								<form action="detalles/editarPizza.php" method="post">
+									<?php
+										echo("<input type='text' value='$id_pizza5' name='id' hidden>");
+										echo("<input type='text' value='pizza' name='tipo_producto' hidden>");
+									
+									?>
+									<input type="submit" name="boton" class="ml-2 btn btn-white btn-outline-white" value="Ordena">
+								</form> 
+							</p>
     					</div>
     				</div>
     			</div>
+				<?php
+					}else{
+						echo ("<h1>Pizza no disponible</h1>");
+					}
+					$query6_pizza="SELECT * FROM pizza WHERE nombre LIKE 'Carnes frias'";
+					$resultado6_pizza=$mysqli->query($query6_pizza);
+					if($resultado6_pizza->num_rows > 0){
+					  $fila6_pizza=$resultado6_pizza->fetch_assoc();
+					  $id_pizza6=$fila6_pizza['id_pizza'];
+					  $nombre_pizza6=$fila6_pizza['nombre'];
+					  $precio_pizza6=$fila6_pizza['precio'];
+					  $caracteristicas_pizza6=$fila6_pizza['caracteristicas'];
+				?>
     			<div class="col-lg-4 d-flex ftco-animate">
     				<div class="services-wrap d-flex">
     					<a href="#" class="img order-lg-last" style="background-image: url(images/pizza-6.jpg);"></a>
     					<div class="text p-4">
-    						<h3>Margherita</h3>
-    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-    						<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+    						<h3>
+								<?php
+									echo($nombre_pizza6);
+								?>
+							</h3>
+    						<p>
+								<?php
+									echo($caracteristicas_pizza6);
+								?>
+							</p>
+    						<p class="price">
+								<span>
+									<?php
+										echo("$".$precio_pizza6);
+									?>
+								</span> 
+								<form action="detalles/editarPizza.php" method="post">
+									<?php
+										echo("<input type='text' value='$id_pizza6' name='id' hidden>");
+										echo("<input type='text' value='pizza' name='tipo_producto' hidden>");
+									
+									?>
+									<input type="submit" name="boton" class="ml-2 btn btn-white btn-outline-white" value="Ordena">
+								</form> 
+							</p>
     					</div>
     				</div>
     			</div>
     		</div>
     	</div>
-
+		<?php
+			}else{
+				echo ("<h1>Pizza no disponible</h1>");
+			}
+		?>
     	<div class="container" id="dosxuno">
     		<div class="row justify-content-center mb-5 pb-3 mt-5 pt-5">
           <div class="col-md-7 heading-section text-center ftco-animate">
@@ -264,6 +483,16 @@
 
 		              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
 		              	<div class="row">
+							<?php
+								$query7_pizza="SELECT * FROM pizza WHERE nombre LIKE 'Pizza estilo Italiana'";
+								$resultado7_pizza=$mysqli->query($query7_pizza);
+								if($resultado7_pizza->num_rows > 0){
+								  $fila7_pizza=$resultado7_pizza->fetch_assoc();
+								  $id_pizza7=$fila7_pizza['id_pizza'];
+								  $nombre_pizza7=$fila7_pizza['nombre'];
+								  $precio_pizza7=$fila7_pizza['precio'];
+								  $caracteristicas_pizza7=$fila7_pizza['caracteristicas'];  
+							?>
 		              		<div class="col-md-4 text-center">
 		              			<div class="menu-wrap">
 		              				<a href="#" class="menu-img img mb-4" style="background-image: url(images/pizza-1.jpg);"></a>
@@ -275,6 +504,12 @@
 		              				</div>
 		              			</div>
 		              		</div>
+							<?php
+								}else{
+									echo ("<h1>Pizza no disponible</h1>");
+								}
+							
+							?>
 		              		<div class="col-md-4 text-center">
 		              			<div class="menu-wrap">
 		              				<a href="#" class="menu-img img mb-4" style="background-image: url(images/pizza-2.jpg);"></a>
