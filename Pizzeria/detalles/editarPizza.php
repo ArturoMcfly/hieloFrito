@@ -1,7 +1,5 @@
 <?php
 include('../php/conexion.php');
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es-mx">
@@ -151,16 +149,20 @@ include('../php/conexion.php');
                     $id_regreso=$_GET['id'];
                     $total=$_GET['total'];
                     $cantidad_pizza=$_GET['canti'];
+                    
+                    $tipo_producto=$_GET['tipo_producto'];
+                    $tipo_id=$_GET['tipo_id'];
+                    $tipo_producto_detalle=$_GET['tipo_producto_detalle'];
         ?>
         <div class="form-area titulo">
             <table class="table">
                 <?php
                     
-                    $query="SELECT * FROM pizza WHERE id_pizza LIKE '$id_regreso'";
+                    $query="SELECT * FROM $tipo_producto WHERE $tipo_id LIKE '$id_regreso'";
                     $resultado=$mysqli->query($query);
                     if($resultado->num_rows > 0){
                         $fila=$resultado->fetch_assoc();
-                        $id_pizza=$fila['id_pizza'];
+                        $id_pizza=$fila["$tipo_id"];
                         $precio=$fila['precio'];
                         
                 ?>
@@ -187,6 +189,9 @@ include('../php/conexion.php');
                                 echo("costo: $".$precio."<br>");
                                 echo("cantidad ordenada: ".$cantidad_pizza."<br>");
                                 echo("Total: $".$total);
+                                echo("<input type='text' value='$tipo_producto' name='tipo_producto' hidden>"); 
+                                echo("<input type='text' value='$tipo_id' name='tipo_id' hidden>"); 
+                                echo("<input type='text' value='$tipo_producto_detalle' name='tipo_producto_detalle' hidden>"); 
                             ?>
                             </h3>
                             <input type="submit" name="boton" value="Añadir a la orden">
@@ -202,19 +207,23 @@ include('../php/conexion.php');
                     $total=$_GET['total'];
                     $cantidad_pizza=$_GET['canti'];
                     $id_detalle=$_GET['detalle'];
+
+                    $tipo_producto=$_GET['tipo_producto'];
+                    $tipo_id=$_GET['tipo_id'];
+                    $tipo_producto_detalle=$_GET['tipo_producto_detalle'];
                    
         ?>
         <div class="form-area titulo">
             <table class="table">
                 <?php
                     
-                    $query="SELECT * FROM pizza WHERE id_pizza LIKE '$id_regreso'";
+                    $query="SELECT * FROM $tipo_producto WHERE $tipo_id LIKE '$id_regreso'";
                     $resultado=$mysqli->query($query);
                     if($resultado->num_rows > 0){
                         $fila=$resultado->fetch_assoc();
-                        $id_pizza=$fila['id_pizza'];
+                        $id_pizza=$fila["$tipo_id"];
                         $precio=$fila['precio'];
-                        $consulta="SELECT * FROM agregados_pizza WHERE id_agregado_pizza LIKE $id_detalle";
+                        $consulta="SELECT * FROM $tipo_producto_detalle WHERE $tipo_id LIKE $id_detalle";
                         $resultado_consulta=$mysqli->query($consulta);
                         if($resultado_consulta->num_rows > 0){
 
@@ -250,6 +259,9 @@ include('../php/conexion.php');
                                 echo("precio complemento: $".$precio_detalle_pizza ."<br>");
                                 echo("cantidad ordenada: ".$cantidad_pizza."<br>");
                                 echo("Total: $".$total);
+                                echo("<input type='text' value='$tipo_producto' name='tipo_producto' hidden>"); 
+                                echo("<input type='text' value='$tipo_id' name='tipo_id' hidden>"); 
+                                echo("<input type='text' value='$tipo_producto_detalle' name='tipo_producto_detalle' hidden>"); 
                             ?>
                             </h3>
                             <input type="submit" name="boton" value="Añadir a la orden">
@@ -270,14 +282,46 @@ include('../php/conexion.php');
             <table class="table">
                 <?php
                     $id=$_POST['id'];
-                    
-                    $query="SELECT * FROM pizza WHERE id_pizza LIKE '$id'";
+                    $tipo_producto=$_POST['tipo_producto'];
+                    if($tipo_producto=="pizza"){
+                        $tipo_producto_detalle="agregados_pizza";
+                        $tipo_id="id_pizza";
+                        echo("tabla: ".$tipo_producto."<br>");
+                        echo("Sub-tabla: ".$tipo_producto_detalle."<br>");
+                        echo("Id-tabla: ".$tipo_id."<br>");
+
+                    }else if($tipo_producto=="postres"){
+                        $tipo_producto_detalle="agregados_postres";
+                        $tipo_id="id_postre";
+                        echo("tabla: ".$tipo_producto."<br>");
+                        echo("Sub-tabla: ".$tipo_producto_detalle."<br>");
+                        echo("Id-tabla: ".$tipo_id."<br>");
+                    }else if($tipo_producto=="bebidas"){
+                        $tipo_producto_detalle="agregados_bebidas";
+                        $tipo_id="id_bebida";
+                        echo("tabla: ".$tipo_producto."<br>");
+                        echo("Sub-tabla: ".$tipo_producto_detalle."<br>");
+                        echo("Id-tabla: ".$tipo_id."<br>");
+                    }else if($tipo_producto=="salsas"){
+                        $tipo_producto_detalle="agregados_salsas";
+                        $tipo_id="id_salsas";
+                        echo("tabla: ".$tipo_producto."<br>");
+                        echo("Sub-tabla: ".$tipo_producto_detalle."<br>");
+                        echo("Id-tabla: ".$tipo_id."<br>");
+                    }else if($tipo_producto=="promociones"){
+                        $tipo_producto_detalle="agregados_promociones";
+                        $tipo_id="id_promociones";
+                        echo("tabla: ".$tipo_producto."<br>");
+                        echo("Sub-tabla: ".$tipo_producto_detalle."<br>");
+                        echo("Id-tabla: ".$tipo_id."<br>");
+                    }
+                    $query="SELECT * FROM $tipo_producto WHERE $tipo_id LIKE '$id'";
                     $resultado=$mysqli->query($query);
                     if($resultado->num_rows > 0){  
                         $fila=$resultado->fetch_assoc();
-                        $id_pizza=$fila['id_pizza'];
+                        $id_pizza=$fila["$tipo_id"];
                         $precio=$fila['precio'];
-                        $detalle="SELECT * FROM agregados_pizza WHERE id_entrada LIKE $id_pizza";
+                        $detalle="SELECT * FROM $tipo_producto_detalle WHERE $tipo_id LIKE $id_pizza";
                         $resultado_detalle=$mysqli->query($detalle);
                 ?>
                 <form action="boton.php" method="POST">
@@ -338,6 +382,11 @@ include('../php/conexion.php');
                             ?>
                             <p>Cantidad</p>
                             <input type='number' value='1' name='cantidad'>
+                            <?php
+                                echo("<input type='text' value='$tipo_producto' name='tipo_producto' hidden>"); 
+                                echo("<input type='text' value='$tipo_id' name='tipo_id' hidden>"); 
+                                echo("<input type='text' value='$tipo_producto_detalle' name='tipo_producto_detalle' hidden>"); 
+                            ?>
                             <input type="submit" name="boton" class="calcular" value="Calcular costo">
                             <!--
                             <input type="submit" name="boton" value="Añadir a la orden">-->
