@@ -146,10 +146,16 @@ session_start();
       .espacio{
           padding-top:30px;
       }
+      .table{
+        
+        background:#fff;
+        padding:100px, !important;
+        
+      }
     </style>
-    <body id="page-top">
+    <body id="page-top" style="background: url(https://img.chilango.com/2019/05/latozza-pizza.jpg);">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <nav style="background: rgba(0, 0, 0, 0.651);" class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="../index.php">Hilo Frito</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -244,17 +250,30 @@ session_start();
               $telefono_cliente=$fila['telefono'];
               $direccion_cliente=$fila['direccion'];
         ?>
-        <h3 style="padding-top:50px">Datos de la orden</h3>
-        <?php
-          echo("<h4> Nombre: ".$nombre_cliente."</h4>");
-          echo("<h4> Telefono: ".$telefono_cliente."</h4>");
-          echo("<h4> Direccion: ".$direccion_cliente."</h4>");
-          $consulta_detalles="SELECT * FROM `detalle_orden` WHERE id_orden='".$id_orden."'";
-          $resultado_busqueda_detalles=$mysqli->query($consulta_detalles);
-          if($resultado_busqueda_detalles->num_rows > 0){
 
-        ?>
+        <h3 style="padding-top:100px; background-color: rgba(0, 0, 0, 0.219); color: rgb(255, 255, 255);text-align: center;">Datos de la orden</h3>
+        
             <table class="table" >
+                <tr>
+                  <th style="background:#727366; color:#fff" colspan="5">
+                  <?php
+                    echo("<h4> Nombre: ".$nombre_cliente."</h4>");
+                    echo("<h4> Telefono: ".$telefono_cliente."</h4>");
+                    echo("<h4> Direccion: ".$direccion_cliente."</h4>");
+                    $consulta_detalles="SELECT * FROM `detalle_orden` WHERE id_orden='".$id_orden."'";
+                    $resultado_busqueda_detalles=$mysqli->query($consulta_detalles);
+                    if($resultado_busqueda_detalles->num_rows > 0){
+
+                  ?>
+                  </th>
+        
+                  <th>
+                    <a href="../php/plantilla/cerrarsession.php">Cancelar compra</a>
+                    <br>
+
+                    <a href="../php/plantilla/cerrarsession.php">Cancelar compra</a>
+                  </th>
+                </tr>
                 <tr>
                     <th>nombre</th>
                     <th>Complementos</th>
@@ -328,11 +347,13 @@ session_start();
           }
           ?>
           <br>
+
+          
           <a href="../pizzas.php">Pizzas</a>
           <br>
           <a href="../promosiones.php">Promociones</a>
           <br>
-          <a href="../php/plantilla/cerrarsession.php">Terminar compra</a>
+          
           <?php
         }else{
           
