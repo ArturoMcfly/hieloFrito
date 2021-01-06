@@ -1,6 +1,6 @@
 <?php
 include('../php/conexion.php');
-
+date_default_timezone_set("America/Mexico_City");
 
 session_start();
 ?>
@@ -152,6 +152,40 @@ session_start();
         padding:100px, !important;
         
       }
+      .boton-final{
+        background:#fff;
+        border-radius:6px;
+        border: 1px solid #cccccc;
+        padding:10px;
+        color:#FF0000;
+        text-decoration:none !important;
+
+        transition: 0.3s;
+        
+        
+      }
+      .boton-final:hover{
+        background:#FF0000;
+        color:#fff;
+        border: 1px solid #fff;
+      }
+      .boton-final-compra{
+        background:#fff;
+        border-radius:6px;
+        border: 1px solid #cccccc;
+        padding:10px;
+        color:#22BD3C;
+        text-decoration:none !important;
+
+        transition: 0.3s;
+        
+        
+      }
+      .boton-final-compra:hover{
+        background:#22BD3C;
+        color:#fff;
+        border: 1px solid #fff;
+      }
     </style>
     <body id="page-top" style="background: url(https://img.chilango.com/2019/05/latozza-pizza.jpg);">
         <!-- Navigation-->
@@ -251,11 +285,11 @@ session_start();
               $direccion_cliente=$fila['direccion'];
         ?>
 
-        <h3 style="padding-top:100px; background-color: rgba(0, 0, 0, 0.219); color: rgb(255, 255, 255);text-align: center;">Datos de la orden</h3>
+        <h3 style="padding-top:100px; background-color:#0000009b; color: rgb(255, 255, 255);text-align: center;">Datos de la orden</h3>
         
             <table class="table" >
                 <tr>
-                  <th style="background:#727366; color:#fff" colspan="5">
+                  <th style="background:#000000; color:#fff; text-align:center" colspan="6">
                   <?php
                     echo("<h4> Nombre: ".$nombre_cliente."</h4>");
                     echo("<h4> Telefono: ".$telefono_cliente."</h4>");
@@ -267,12 +301,7 @@ session_start();
                   ?>
                   </th>
         
-                  <th>
-                    <a href="../php/plantilla/cerrarsession.php">Cancelar compra</a>
-                    <br>
-
-                    <a href="../php/plantilla/cerrarsession.php">Cancelar compra</a>
-                  </th>
+                  
                 </tr>
                 <tr>
                     <th>nombre</th>
@@ -315,14 +344,17 @@ session_start();
                         ?>
                     </th>
                     <th>
-                    <input type="submit" value="Editar" class="boton " name="boton">&nbsp;<span class="icon-pencil icono">
+                      <input type="submit" value="Editar" class="boton " name="boton">&nbsp;<span class="icon-pencil icono"></span>
                     </th>
                     <th>
-                    <input type="submit" value="Borrar" class="boton "name="boton">&nbsp;<span class="icon-bin icono">
+                      <input type="submit" value="Borrar" class="boton "name="boton">&nbsp;<span class="icon-bin icono"></span>
                     </th>
                 </tr>
                 <?php
                     }
+                ?>
+                <?php
+                  if(isset($_GET['err5'])){
                 ?>
                 <tr>
                     <th colspan=2></th>
@@ -334,7 +366,47 @@ session_start();
                             echo("$".$total_final);
                         ?>
                     </th>
+                    
+                    <th colspan=2>
+                      <p>El pedido se ha realizado con exito</p>
+                      <a class="boton-final"  href="../php/plantilla/cerrarsession.php">Imprimir PDF</a>&nbsp;<span class="icon-bin icono"></span>  
+                    </th>
                 </tr>
+
+                <?php
+                      }else{
+                    ?>
+                <tr>
+                    <th colspan=2></th>
+                    <th >
+                        Total:
+                    </th>
+                    <th>
+                        <?php
+                            echo("$".$total_final);
+                        ?>
+                    </th>
+                    
+                    <th>
+                        <p>Confirmar compra</p>
+                        <form action="TerminarCompra.php" method="POST">
+                          <?php
+                            
+                            echo("<input type='text' value='$total_final' name='cantidad_total' hidden>");
+                          ?>
+                          
+                          <input type="submit" value="Imprimir ticket" class="boton boton-final-compra" name="boton">&nbsp;<span class="icon-newspaper icono"></span>    
+                        </form>
+                    
+                    </th>
+                    <th>
+                      <p>Se borraran todos los registros</p>
+                      <a class="boton-final"  href="../php/plantilla/cerrarsession.php">Cancelar compra</a>&nbsp;<span class="icon-bin icono"></span>  
+                    </th>
+                </tr>
+                <?php
+                      }
+                ?>
         </table>
         
         <?php
@@ -384,8 +456,16 @@ session_start();
                             <label for="inputDireccion">Direccion</label>
                           </div>
                           <input type='text' value='0' name='total_inicio' hidden>
-                          <input type='text' value='2020-12-23 10:00:00' name='fecha_inicio' hidden>
-                          <input type='text' value='2020-12-23 12:00:00' name='fecha_final' hidden>
+                          <?php
+                            
+                            $fecha_inicio=date('Y-m-d h:i:s');
+                            echo($fecha_inicio);
+                            echo(" <input type='text' value=$fecha_inicio name='fecha_inicio' hidden>");
+                            echo("<input type='text' value=$fecha_inicio name='fecha_final' hidden>");
+
+                          ?>
+                          
+                          
                           <input type='text' value='iniciada' name="estado" hidden>
                           <!--
                           <select  class="form-label-group form-control" name="ciudad">

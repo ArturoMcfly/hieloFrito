@@ -101,7 +101,7 @@ include('php/conexion.php');
               <form action="detalles/editarPizza.php" method="post">
                 <?php
                   echo("<input type='text' value='$id_pizza1' name='id' hidden>");
-                  
+                  echo("<input type='text' value='pizza' name='tipo_producto' hidden>");
                 ?>
                 <input type="submit" name="boton" class="btn btn-primary" value="Prepara a tu gusto">
               </form>
@@ -162,7 +162,7 @@ include('php/conexion.php');
               <form action="detalles/editarPizza.php" method="post">
                 <?php
                   echo("<input type='text' value='$id_pizza2' name='id' hidden>");
-                  
+                  echo("<input type='text' value='pizza' name='tipo_producto' hidden>");
                 ?>
                 <input type="submit" name="boton" class="btn btn-primary" value="Prepara a tu gusto">
               </form>
@@ -216,7 +216,7 @@ include('php/conexion.php');
               <form action="detalles/editarPizza.php" method="post">
                 <?php
                   echo("<input type='text' value='$id_pizza3' name='id' hidden>");
-                  
+                  echo("<input type='text' value='pizza' name='tipo_producto' hidden>");
                 ?>
                 <input type="submit" name="boton" class="btn btn-primary" value="Prepara a tu gusto">
               </form>
