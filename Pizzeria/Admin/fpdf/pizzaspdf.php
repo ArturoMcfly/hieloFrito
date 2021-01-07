@@ -15,9 +15,10 @@ function Header()
     $this->Cell(30,10,'Tabla de Pizzas',0,0,'C');
     // Salto de línea
     $this->Ln(20);
-    $this->Cell(30,5,'ID',1,0,'C',0);
-    $this->Cell(110,5,'Nombre',1,0,'C',0);
-    $this->Cell(50,5,'No. de Empleado',1,1,'C',0);
+    $this->Cell(10,7,'ID',1,0,'C',0);
+    $this->Cell(40,7,'Nombre postre',1,0,'C',0);
+    $this->Cell(110,7,'Caracteristicas',1,0,'C',0);
+    $this->Cell(30,7,'Precio',1,1,'C',0);
 
 
 }
@@ -36,7 +37,7 @@ function Footer()
 }
 
 require 'cn.php';
-$consulta="SELECT * FROM usuario";
+$consulta="SELECT * FROM pizza";
 $resultado =$mysqli->query($consulta);
 
 
@@ -46,9 +47,10 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','',10);
 
 while($row =$resultado-> fetch_assoc()){
-    $pdf->Cell(30,5,$row['id_usuario'],1,0,'C',0);
-    $pdf->Cell(110,5,$row['nombre_usuario'],1,0,'C',0);
-    $pdf->Cell(50,5,$row['no_empleado'],1,1,'C',0);
+    $pdf->Cell(10,7,$row['id_pizza'],1,0,'C',0);
+    $pdf->Cell(40,7,$row['nombre'],1,0,'C',0);
+    $pdf->Cell(110,7,$row['caracteristicas'],1,0,'C',0);
+    $pdf->Cell(30,7,$row['precio'],1,1,'C',0);
 }
 
 $pdf->Output();

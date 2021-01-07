@@ -22,8 +22,8 @@ function Header()
     $this->Cell(30,5,'Telefono',1,0,'C',0);
     $this->Cell(30,5,'Direccion',1,0,'C',0);
     $this->Cell(30,5,'Total',1,0,'C',0);
-    $this->Cell(38,5,'Hora de solicitud',1,0,'C',0);
-    $this->Cell(38,5,'Hora de llegada',1,1,'C',0);
+    $this->Cell(38,5,'Hora de solicitud',1,1,'C',0);
+    
 
 
 }
@@ -60,8 +60,8 @@ while($row =$resultado-> fetch_assoc()){
     $pdf->Cell(30,5,$row['telefono'],1,0,'C',0);
     $pdf->Cell(30,5,$row['direccion'],1,0,'C',0);
     $pdf->Cell(30,5,$row['total'],1,0,'C',0);
-    $pdf->Cell(38,5,$row['fecha_hora_solicitud'],1,0,'C',0);
-    $pdf->Cell(38,5,$row['fecha_hora_llegada'],1,1,'C',0);
+    $pdf->Cell(38,5,$row['fecha_hora_solicitud'],1,1,'C',0);
+    
 }
 
 $pdf->Output();

@@ -185,7 +185,7 @@ body {
     </style>
     <body style="background: linear-gradient(to right, #6b6b6b, #612103);" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="../BienvenidaPizzas.php">Hielo Frito</a>
+            <a class="navbar-brand" href="../Ordenes.php">Hielo Frito</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">

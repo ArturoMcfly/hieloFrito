@@ -16,9 +16,9 @@ function Header()
     // Salto de línea
     $this->Ln(20);
     $this->Cell(10,5,'ID',1,0,'C',0);
-    $this->Cell(60,5,'Nombre',1,0,'C',0);
-    $this->Cell(30,5,'Precio',1,0,'C',0);
-    $this->Cell(90,5,'Caracteristicas',1,1,'C',0);
+    $this->Cell(30,5,'Nombre',1,0,'C',0);
+    $this->Cell(20,5,'Precio',1,0,'C',0);
+    $this->Cell(130,5,'Caracteristicas',1,1,'C',0);
 
 
 }
@@ -48,9 +48,9 @@ $pdf->SetFont('Arial','',10);
 
 while($row =$resultado-> fetch_assoc()){
     $pdf->Cell(10,5,$row['id_promociones'],1,0,'C',0);
-    $pdf->Cell(60,5,$row['nombre'],1,0,'C',0);
-    $pdf->Cell(30,5,$row['precio'],1,0,'C',0);
-    $pdf->Cell(90,5,$row['caracteristicas'],1,1,'C',0);
+    $pdf->Cell(30,5,$row['nombre'],1,0,'C',0);
+    $pdf->Cell(20,5,$row['precio'],1,0,'C',0);
+    $pdf->Cell(130,5,$row['caracteristicas'],1,1,'C',0);
 }
 
 $pdf->Output();

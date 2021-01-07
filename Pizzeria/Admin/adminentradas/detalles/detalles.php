@@ -185,7 +185,7 @@ body {
     </style>
     <body style="background: linear-gradient(to right, #6b6b6b, #612103);" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="../BienvenidaPizzas.php">Hielo Frito</a>
+            <a class="navbar-brand" href="../ListaEntradas.php">Hielo Frito</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -201,28 +201,28 @@ body {
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                         <div class="sb-sidenav-menu-heading"></div>
-                            <a class="nav-link" href="viewpedidos.html">
+                        <a class="nav-link" href="../../adminOrdenes/Ordenes.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Ordenes
                             </a>
-                            
-                            <a class="nav-link" href="addpromos.html">
+                            <a class="nav-link" href="../../adminPizzas/BienvenidaPizzas.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Administración de Pizzas
+                            </a>
+                            <a class="nav-link" href="../../adminPromos/Promos.php">
                               <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                               Administración de Promociones
                           </a>
-                          <a class="nav-link" href="viewpedidos.html">
+                          
+                          <a class="nav-link" href="../../adminBebidas/Bebidas.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Bebidas
                         </a>
-                        <a class="nav-link" href="viewpedidos.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Administracion de Entradas
-                        </a>
-                        <a class="nav-link" href="viewpedidos.html">
+                        <a class="nav-link" href="../../adminpostres/addpostres.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Postres
                         </a>
-                        <a class="nav-link" href="viewpedidos.html">
+                        <a class="nav-link" href="../../adminsalsas/ListaSalsa.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Salsas
                         </a>

@@ -199,29 +199,28 @@ body {
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                        <div class="sb-sidenav-menu-heading"></div>
-                            <a class="nav-link" href="../adminOrdenes/Ordenes.php">
+                        <a class="nav-link" href="../adminOrdenes/Ordenes.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Ordenes
                             </a>
-                            
+                            <a class="nav-link" href="../adminPizzas/BienvenidaPizzas.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Administración de Pizzas
+                            </a>
                             <a class="nav-link" href="../adminPromos/Promos.php">
                               <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                               Administración de Promociones
                           </a>
+                          
                           <a class="nav-link" href="../adminBebidas/Bebidas.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Bebidas
-                        </a>
-                        <a class="nav-link" href="ListaEntradas.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Administracion de Entradas
                         </a>
                         <a class="nav-link" href="../adminpostres/addpostres.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Postres
                         </a>
-                        <a class="nav-link" href="../adminsalsas/ListaSalsa">
+                        <a class="nav-link" href="../adminsalsas/ListaSalsa.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Salsas
                         </a>
