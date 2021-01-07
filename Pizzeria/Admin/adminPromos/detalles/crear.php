@@ -209,16 +209,16 @@ body {
             <div id="layoutSidenav_content">
                 <main >
                     <div class="container-fluid">
-                        <h1 style="color: white;" class="mt-4"> Administrar Pizzas</h1>
+                        <h1 style="color: white;" class="mt-4"> Administrar Promociones</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Qué pizza nueva tendremos?</li>
+                            <li class="breadcrumb-item active">Qué promocion nueva tendremos?</li>
                         </ol>
                         <div class="">
                             <div class="">
                               <div class="">
                                 <div class="card card-signin my-5">
                                   <div class="card-body">
-                                    <h5 class="card-title text-center">Ingresa una nueva pizza</h5>
+                                    <h5 class="card-title text-center">Ingresa una nueva promosion</h5>
                                     <form class="form-signin" action="cre.php" method="post">
                                       
                         
@@ -229,12 +229,12 @@ body {
                                       </div>
                                       <div class="form-label-group">
                                         
-                                        <input type="int" id="inputPrecio" name="precio" class="form-control" placeholder="Precio" required>
+                                        <input type="number" id="inputPrecio" name="precio" class="form-control" placeholder="Precio" required>
                                         <label for="inputPrecio">Precio</label>
                                       </div>
                                       <div class="form-label-group">
                                           
-                                      <input type="text" id="inputCaracteristicas" name="caracteristicas"class="form-control" placeholder="caracterisiticas" required>
+                                      <input type="text" id="inputCaracteristicas" name="caracteristicas"class="form-control" placeholder="caracteristicas" required>
                                         <label for="inputCaracteristicas">Caracteristicas</label>
                                       </div>
                                       <div class="form-label-group">
@@ -242,7 +242,7 @@ body {
                                             echo "<input type='number' id='inputIdPizzas' name='id_pizza' class='form-control' placeholder='Id_pizza' value='$id' required autofocus>"; 
                                           ?>
                                       
-                                        <label for="inputIdPizza">Id_pizza</label>
+                                        <label for="inputIdPizza">Id_promosion</label>
                                       </div>
                                       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Guardar</button>
                                       <hr class="my-4">

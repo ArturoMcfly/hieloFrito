@@ -243,10 +243,10 @@ body {
                 <main >
                     <div class="container-fluid">
                         
-                        <h1 style="color: white;" class="mt-4"> Detalles de Pizzas</h1>
+                        <h1 style="color: white;" class="mt-4"> Detalles de Promosiones</h1>
                         <ol class="breadcrumb mb-4">
                             <?php
-                                $consulta="SELECT * FROM pizza WHERE id_pizza='$id'";
+                                $consulta="SELECT * FROM promociones WHERE id_promociones='$id'";
                                 $resultado_pizza=$mysqli->query($consulta);
                                 if($resultado_pizza->num_rows > 0){
                                     $fila1=$resultado_pizza->fetch_assoc();
@@ -269,7 +269,7 @@ body {
                         
                         <p></p>
                         <?php
-                            $query="SELECT * FROM agregados_pizza WHERE id_pizza='$id'";
+                            $query="SELECT * FROM agregados_promociones WHERE id_promociones='$id'";
                             $resultado=$mysqli->query($query);
                             if($resultado->num_rows > 0){
                                 
@@ -286,7 +286,7 @@ body {
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Id pizza</th>
+                                                <th>Id promocion</th>
                                                 <th>Nombre</th>
                                                 <th>precio</th>
                                                 <th colspan=4>caracteristicas</th>
@@ -295,7 +295,7 @@ body {
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>Id pizza</th>
+                                                <th>Id promocion</th>
                                                 <th>Nombre</th>
                                                 <th>precio</th>
                                                 <th colspan=4>caracteristicas</th>
@@ -313,7 +313,7 @@ body {
                                             </tr>-->
                                             <?php
                                                 while($fila=$resultado->fetch_assoc()){
-                                                    $id=$fila['id_agregado_pizza'];
+                                                    $id=$fila['id_agregado_promo'];
                                                     
                                             ?>
                                             <tr>
@@ -327,17 +327,17 @@ body {
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['nombre_agregado_pizza']);
+                                                            echo($fila['nombre_agregado_promo']);
                                                         ?>
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['precio_agregado_pizza']);
+                                                            echo($fila['precio_agregado_promo']);
                                                         ?>
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['caracteristicas_agregado_pizza']);
+                                                            echo($fila['caracteristicas_agregado_promo']);
                                                         ?>
                                                     </th>
                                                     <th>

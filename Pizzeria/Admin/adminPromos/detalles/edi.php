@@ -6,7 +6,7 @@
     $caracteristica=$_POST['caracteristicas'];
     echo($id." ".$nombre." ".$precio." ".$caracteristica);
 
-    $consulta="UPDATE `agregados_pizza` SET `nombre_agregado_pizza` = '$nombre', `precio_agregado_pizza`='$precio', `caracteristicas_agregado_pizza`='$caracteristica' WHERE `id_agregado_pizza` = $id";
+    $consulta="UPDATE `agregados_promociones` SET `nombre_agregado_promo` = '$nombre', `precio_agregado_promo`='$precio', `caracteristicas_agregado_promo`='$caracteristica' WHERE `id_agregado_promo` = $id";
     $resultado=$mysqli->query($consulta);
     if($resultado==TRUE){
         //echo("Exitoso");

@@ -207,14 +207,14 @@ body {
                 </nav>
             </div>
             <?php
-                $query="SELECT * FROM agregados_pizza WHERE id_agregado_pizza=$id";
+                $query="SELECT * FROM agregados_promociones WHERE id_agregado_promo=$id";
                 $resultado=$mysqli->query($query);
                 if($resultado->num_rows > 0){
                     $fila=$resultado->fetch_assoc();
-                    $id_pizza=$fila['id_agregado_pizza'];
-                    $nombre=$fila['nombre_agregado_pizza'];
-                    $precio=$fila['precio_agregado_pizza'];
-                    $caracteristicas=$fila['caracteristicas_agregado_pizza'];
+                    $id_pizza=$fila['id_agregado_promo'];
+                    $nombre=$fila['nombre_agregado_promo'];
+                    $precio=$fila['precio_agregado_promo'];
+                    $caracteristicas=$fila['caracteristicas_agregado_promo'];
             ?>
             <!-- Parte del centro -->
             <div id="layoutSidenav_content">
