@@ -155,7 +155,7 @@ body {
     </style>
     <body style="background: linear-gradient(to right, #6b6b6b, #612103);" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="../BienvenidaPizzas.php">Hielo Frito</a>
+            <a class="navbar-brand" href="../Lista_entrada.php">Hielo Frito</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -209,16 +209,16 @@ body {
             <div id="layoutSidenav_content">
                 <main >
                     <div class="container-fluid">
-                        <h1 style="color: white;" class="mt-4"> Administrar Pizzas</h1>
+                        <h1 style="color: white;" class="mt-4"> Administrar Entradas</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Qué pizza nueva tendremos?</li>
+                            
                         </ol>
                         <div class="">
                             <div class="">
                               <div class="">
                                 <div class="card card-signin my-5">
                                   <div class="card-body">
-                                    <h5 class="card-title text-center">Ingresa una nueva pizza</h5>
+                                    <h5 class="card-title text-center">Ingresa una nueva Entrada</h5>
                                     <form class="form-signin" action="cre.php" method="post">
                                       
                         
@@ -229,7 +229,7 @@ body {
                                       </div>
                                       <div class="form-label-group">
                                         
-                                        <input type="int" id="inputPrecio" name="precio" class="form-control" placeholder="Precio" required>
+                                        <input type="number" id="inputPrecio" name="precio" class="form-control" placeholder="Precio" required>
                                         <label for="inputPrecio">Precio</label>
                                       </div>
                                       <div class="form-label-group">
@@ -239,10 +239,10 @@ body {
                                       </div>
                                       <div class="form-label-group">
                                           <?php
-                                            echo "<input type='number' id='inputIdPizzas' name='id_pizza' class='form-control' placeholder='Id_pizza' value='$id' required autofocus>"; 
+                                            echo "<input type='number' id='inputIdPizzas' name='id_pizza' class='form-control' placeholder='Id_pizza' value='$id' hidden>"; 
                                           ?>
                                       
-                                        <label for="inputIdPizza">Id_pizza</label>
+                                        
                                       </div>
                                       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Guardar</button>
                                       <hr class="my-4">

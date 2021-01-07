@@ -2,6 +2,7 @@
 include '../../plantilla/header.php';
 include ('../../../php/conexion.php');
 $id=$_GET['id'];
+$id_detalle=$_GET['id_detalle'];
 echo($id);
 ?>
 <!DOCTYPE html>
@@ -156,7 +157,7 @@ body {
     </style>
     <body style="background: linear-gradient(to right, #6b6b6b, #612103);" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="../BienvenidaPizzas.php">Hielo Frito</a>
+            <a class="navbar-brand" href="../ListaSalsa.php">Hielo Frito</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -207,20 +208,20 @@ body {
                 </nav>
             </div>
             <?php
-                $query="SELECT * FROM agregados_pizza WHERE id_agregado_pizza=$id";
+                $query="SELECT * FROM agregados_salsas WHERE id_agregado_salsa=$id_detalle";
                 $resultado=$mysqli->query($query);
                 if($resultado->num_rows > 0){
                     $fila=$resultado->fetch_assoc();
-                    $id_pizza=$fila['id_agregado_pizza'];
-                    $nombre=$fila['nombre_agregado_pizza'];
-                    $precio=$fila['precio_agregado_pizza'];
-                    $caracteristicas=$fila['caracteristicas_agregado_pizza'];
+                    $id_pizza=$fila['id_agregado_salsa'];
+                    $nombre=$fila['nombre_agregado_salsa'];
+                    $precio=$fila['precio_agregado_salsa'];
+                    $caracteristicas=$fila['caracteristica_agregado_salsa'];
             ?>
             <!-- Parte del centro -->
             <div id="layoutSidenav_content">
                 <main >
                     <div class="container-fluid">
-                        <h1 style="color: white;" class="mt-4"> Administrar Pizzas</h1>
+                        <h1 style="color: white;" class="mt-4"> Administrar Salsas</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Qué pizza nueva tendremos?</li>
                         </ol>
@@ -231,7 +232,11 @@ body {
                                   <div class="card-body">
                                     <h5 class="card-title text-center">Modifique el ingrediente extra</h5>
                                     <form class="form-signin" action="edi.php" method="post">
-                                      
+                                      <?php
+
+                                          echo "<input type='number' id='inputId' name='id' class='form-control' placeholder='Id usuario' value='$id' hidden>";
+                                          echo "<input type='number' id='inputId' name='id_detalle' class='form-control' placeholder='Id usuario' value='$id_detalle' hidden>"; 
+                                      ?>
                                       
                                       <div class="form-label-group">
                                       <?php
@@ -254,10 +259,7 @@ body {
                                       <!--<input type="textarea" rows="20" cols="5"id="inputCaracteristicas" name="caracteristicas"class="form-control" placeholder="caracterisiticas" required>-->
                                         <label for="inputCaracteristicas">Caracteristicas</label>
                                       </div>
-                                      <?php
-                                          
-                                          echo "<input type='number' id='inputId' name='id' class='form-control' placeholder='Id usuario' value='$id' hidden>"; 
-                                      ?>
+                                     
                                       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Guardar</button>
                                       <hr class="my-4">
                                     </form>

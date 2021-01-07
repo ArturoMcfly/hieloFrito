@@ -185,7 +185,7 @@ body {
     </style>
     <body style="background: linear-gradient(to right, #6b6b6b, #612103);" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="../BienvenidaPizzas.php">Hielo Frito</a>
+            <a class="navbar-brand" href="../Bebidas.php">Hielo Frito</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -243,10 +243,10 @@ body {
                 <main >
                     <div class="container-fluid">
                         
-                        <h1 style="color: white;" class="mt-4"> Detalles de Pizzas</h1>
+                        <h1 style="color: white;" class="mt-4"> Detalles de Bebidas</h1>
                         <ol class="breadcrumb mb-4">
                             <?php
-                                $consulta="SELECT * FROM pizza WHERE id_pizza='$id'";
+                                $consulta="SELECT * FROM bebidas WHERE id_bebida='$id'";
                                 $resultado_pizza=$mysqli->query($consulta);
                                 if($resultado_pizza->num_rows > 0){
                                     $fila1=$resultado_pizza->fetch_assoc();
@@ -269,7 +269,7 @@ body {
                         
                         <p></p>
                         <?php
-                            $query="SELECT * FROM agregados_pizza WHERE id_pizza='$id'";
+                            $query="SELECT * FROM agregados_bebidas WHERE id_bebida='$id'";
                             $resultado=$mysqli->query($query);
                             if($resultado->num_rows > 0){
                                 
@@ -278,7 +278,7 @@ body {
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
                                 <?php
-                                    echo("Detalles de pizza ".$nombre)
+                                    echo("Detalles de bebida ".$nombre)
                                 ?>
                             </div>
                             <div class="card-body">
@@ -286,7 +286,7 @@ body {
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Id pizza</th>
+                                                <th>Id Bebida</th>
                                                 <th>Nombre</th>
                                                 <th>precio</th>
                                                 <th colspan=4>caracteristicas</th>
@@ -295,7 +295,7 @@ body {
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>Id pizza</th>
+                                                <th>Id Bebida</th>
                                                 <th>Nombre</th>
                                                 <th>precio</th>
                                                 <th colspan=4>caracteristicas</th>
@@ -313,31 +313,36 @@ body {
                                             </tr>-->
                                             <?php
                                                 while($fila=$resultado->fetch_assoc()){
-                                                    $id=$fila['id_agregado_pizza'];
+                                                    $id_detalle=$fila['id_agregado_bebidas'];
                                                     
                                             ?>
                                             <tr>
                                                 <form action="boton.php" method="post">
                                                     <th>
                                                     <?php
-                                                        echo "$id<input type='text' value='$id' name='id' hidden>"; 
+                                                        echo("<input type='text' value='$id' name='id' hidden>"); 
+                                                        
+                                                    ?>
+
+                                                    <?php
+                                                        echo "$id<input type='text' value='$id_detalle' name='id_detalle' hidden>"; 
                                                         
                                                     ?>
                                                     
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['nombre_agregado_pizza']);
+                                                            echo($fila['nombre_agregado_bebida']);
                                                         ?>
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['precio_agregado_pizza']);
+                                                            echo($fila['precio_agregado_bebida']);
                                                         ?>
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['caracteristicas_agregado_pizza']);
+                                                            echo($fila['caracteristica_agregado_bebida']);
                                                         ?>
                                                     </th>
                                                     <th>

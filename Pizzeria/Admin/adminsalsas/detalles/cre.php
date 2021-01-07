@@ -5,7 +5,7 @@
     $caracteristicas=$_POST['caracteristicas'];
     $id=$_POST['id_pizza'];
     echo($nombre." ".$precio." ".$caracteristicas);
-    $consulta="INSERT INTO `agregados_pizza`(`nombre_agregado_pizza`, `precio_agregado_pizza`, `caracteristicas_agregado_pizza`,`id_pizza`) VALUES ('$nombre','$precio','$caracteristicas','$id')";
+    $consulta="INSERT INTO `agregados_salsas`(`nombre_agregado_salsa`, `precio_agregado_salsa`, `caracteristica_agregado_salsa`,`id_salsas`) VALUES ('$nombre','$precio','$caracteristicas','$id')";
     $resultado=$mysqli->query($consulta);
     if($resultado==TRUE){
         //echo("Exitoso");

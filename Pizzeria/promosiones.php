@@ -43,7 +43,7 @@
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#promociones" style="color: aliceblue;">Promociones</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#dosxuno" style="color: aliceblue;">2x1</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Extras" style="color: aliceblue;">Extras</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="pedidos.php" style="color: aliceblue;">Pedidos</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="detalles/compra.php" style="color: aliceblue;">Lista</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="busca.php">Buscar orden</a></li>
                 </ul>
             </div>

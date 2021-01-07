@@ -229,7 +229,7 @@ body {
                                       </div>
                                       <div class="form-label-group">
                                         
-                                        <input type="int" id="inputPrecio" name="precio" class="form-control" placeholder="Precio" required>
+                                        <input type="number" id="inputPrecio" name="precio" class="form-control" placeholder="Precio" required>
                                         <label for="inputPrecio">Precio</label>
                                       </div>
                                       <div class="form-label-group">
@@ -239,10 +239,10 @@ body {
                                       </div>
                                       <div class="form-label-group">
                                           <?php
-                                            echo "<input type='number' id='inputIdPizzas' name='id_pizza' class='form-control' placeholder='Id_pizza' value='$id' required autofocus>"; 
+                                            echo "<input type='number' id='inputIdPizzas' name='id_pizza' class='form-control' placeholder='Id_pizza' value='$id' hidden>"; 
                                           ?>
                                       
-                                        <label for="inputIdPizza">Id_pizza</label>
+                                        
                                       </div>
                                       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Guardar</button>
                                       <hr class="my-4">

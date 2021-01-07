@@ -5,7 +5,7 @@
     $caracteristicas=$_POST['caracteristicas'];
     $id=$_POST['id_pizza'];
     echo($nombre." ".$precio." ".$caracteristicas);
-    $consulta="INSERT INTO `agregados_pizza`(`nombre_agregado_pizza`, `precio_agregado_pizza`, `caracteristicas_agregado_pizza`,`id_pizza`) VALUES ('$nombre','$precio','$caracteristicas','$id')";
+    $consulta="INSERT INTO `agregados_postres`(`nombre_agregado_postre`, `precio_agregado_postre`, `caracteristica_agregado_postre`,`id_postre`) VALUES ('$nombre','$precio','$caracteristicas','$id')";
     $resultado=$mysqli->query($consulta);
     if($resultado==TRUE){
         //echo("Exitoso");
@@ -13,7 +13,7 @@
     }else{
         //echo("falido");
         $mensaje=" <script language='javascript'> alert('Error.') </script> <script>window.history.go(-1)</script>";
-        Header("Location: detalles.php?err=$mensaje");
+        Header("Location: detalles.php?err=$mensaje&&id=$id");
     }
 
 ?>

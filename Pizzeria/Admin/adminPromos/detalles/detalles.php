@@ -185,7 +185,7 @@ body {
     </style>
     <body style="background: linear-gradient(to right, #6b6b6b, #612103);" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="../BienvenidaPizzas.php">Hielo Frito</a>
+            <a class="navbar-brand" href="../addpostres.php">Hielo Frito</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -243,7 +243,7 @@ body {
                 <main >
                     <div class="container-fluid">
                         
-                        <h1 style="color: white;" class="mt-4"> Detalles de Promosiones</h1>
+                        <h1 style="color: white;" class="mt-4"> Detalles de las Promociones</h1>
                         <ol class="breadcrumb mb-4">
                             <?php
                                 $consulta="SELECT * FROM promociones WHERE id_promociones='$id'";
@@ -278,7 +278,7 @@ body {
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
                                 <?php
-                                    echo("Detalles de pizza ".$nombre)
+                                    echo("Detalles de promociones ".$nombre)
                                 ?>
                             </div>
                             <div class="card-body">
@@ -286,7 +286,7 @@ body {
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Id promocion</th>
+                                                <th>Id pizza</th>
                                                 <th>Nombre</th>
                                                 <th>precio</th>
                                                 <th colspan=4>caracteristicas</th>
@@ -295,7 +295,7 @@ body {
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>Id promocion</th>
+                                                <th>Id pizza</th>
                                                 <th>Nombre</th>
                                                 <th>precio</th>
                                                 <th colspan=4>caracteristicas</th>
@@ -313,14 +313,19 @@ body {
                                             </tr>-->
                                             <?php
                                                 while($fila=$resultado->fetch_assoc()){
-                                                    $id=$fila['id_agregado_promo'];
+                                                    $id_detalle=$fila['id_agregado_promo'];
                                                     
                                             ?>
                                             <tr>
                                                 <form action="boton.php" method="post">
                                                     <th>
                                                     <?php
-                                                        echo "$id<input type='text' value='$id' name='id' hidden>"; 
+                                                        echo("<input type='text' value='$id' name='id' hidden>"); 
+                                                        
+                                                    ?>
+
+                                                    <?php
+                                                        echo "$id<input type='text' value='$id_detalle' name='id_detalle' hidden>"; 
                                                         
                                                     ?>
                                                     
@@ -401,4 +406,5 @@ body {
             <script src="../../datatables-demo.js"></script>
         </body>
     </html>
+    
     

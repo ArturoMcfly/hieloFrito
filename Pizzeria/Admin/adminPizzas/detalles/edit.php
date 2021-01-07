@@ -2,6 +2,7 @@
 include '../../plantilla/header.php';
 include ('../../../php/conexion.php');
 $id=$_GET['id'];
+$id_detalle=$_GET['id_detalle'];
 echo($id);
 ?>
 <!DOCTYPE html>
@@ -207,7 +208,7 @@ body {
                 </nav>
             </div>
             <?php
-                $query="SELECT * FROM agregados_pizza WHERE id_agregado_pizza=$id";
+                $query="SELECT * FROM agregados_pizza WHERE id_agregado_pizza=$id_detalle";
                 $resultado=$mysqli->query($query);
                 if($resultado->num_rows > 0){
                     $fila=$resultado->fetch_assoc();
@@ -231,7 +232,11 @@ body {
                                   <div class="card-body">
                                     <h5 class="card-title text-center">Modifique el ingrediente extra</h5>
                                     <form class="form-signin" action="edi.php" method="post">
-                                      
+                                      <?php
+
+                                          echo "<input type='number' id='inputId' name='id' class='form-control' placeholder='Id usuario' value='$id' hidden>";
+                                          echo "<input type='number' id='inputId' name='id_detalle' class='form-control' placeholder='Id usuario' value='$id_detalle' hidden>"; 
+                                      ?>
                                       
                                       <div class="form-label-group">
                                       <?php
@@ -254,10 +259,7 @@ body {
                                       <!--<input type="textarea" rows="20" cols="5"id="inputCaracteristicas" name="caracteristicas"class="form-control" placeholder="caracterisiticas" required>-->
                                         <label for="inputCaracteristicas">Caracteristicas</label>
                                       </div>
-                                      <?php
-                                          
-                                          echo "<input type='number' id='inputId' name='id' class='form-control' placeholder='Id usuario' value='$id' hidden>"; 
-                                      ?>
+                                     
                                       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Guardar</button>
                                       <hr class="my-4">
                                     </form>

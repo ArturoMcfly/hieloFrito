@@ -313,14 +313,19 @@ body {
                                             </tr>-->
                                             <?php
                                                 while($fila=$resultado->fetch_assoc()){
-                                                    $id=$fila['id_agregado_pizza'];
+                                                    $id_detalle=$fila['id_agregado_pizza'];
                                                     
                                             ?>
                                             <tr>
                                                 <form action="boton.php" method="post">
                                                     <th>
                                                     <?php
-                                                        echo "$id<input type='text' value='$id' name='id' hidden>"; 
+                                                        echo("<input type='text' value='$id' name='id' hidden>"); 
+                                                        
+                                                    ?>
+
+                                                    <?php
+                                                        echo "$id<input type='text' value='$id_detalle' name='id_detalle' hidden>"; 
                                                         
                                                     ?>
                                                     
