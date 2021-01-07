@@ -232,13 +232,7 @@ body {
                                     <h5 class="card-title text-center">Modifique el postre</h5>
                                     <form class="form-signin" action="edi.php" method="post">
                                       
-                                      <div class="form-label-group">
-                                          <?php
-                                            echo "<input type='number' id='inputId' name='id' class='form-control' placeholder='Id usuario' value='$id_postre' required autofocus>"; 
-                                          ?>
-                                        <!--<input type="number" id="inputId" name="id" class="form-control" placeholder="ID" required>-->
-                                        <label for="inputId">ID</label>
-                                      </div>
+                                      
                                       <div class="form-label-group">
                                       <?php
                                             echo "<input type='text' id='inputNombre' name='nombre' class='form-control' placeholder='Nombre' value='$nombre' required autofocus>"; 
@@ -260,7 +254,10 @@ body {
                                       <!--<input type="textarea" rows="20" cols="5"id="inputCaracteristicas" name="caracteristicas"class="form-control" placeholder="caracterisiticas" required>-->
                                         <label for="inputCaracteristicas">Caracteristicas</label>
                                       </div>
-                                      
+                                      <?php
+                                          
+                                          echo "<input type='number' id='inputId' name='id' class='form-control' placeholder='Id usuario' value='$id_postre' hidden>"; 
+                                      ?>
                                       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Guardar</button>
                                       <hr class="my-4">
                                     </form>

@@ -7,9 +7,8 @@
     $consulta="INSERT INTO `postres`(`nombre`, `precio`, `caracteristicas`) VALUES ('$nombre','$precio','$caracteristicas')";
     $resultado=$mysqli->query($consulta);
     if($resultado==TRUE){
-        $mensaje=" <script language='javascript'> alert('El registro se creo con exito.') </script> <script>window.history.go(-1)</script>";
-        echo("Hola");
-        Header("Location: addpostres.php?err=$mensaje");
+        
+        Header("Location: addpostres.php");
     }else{
         $mensaje=" <script language='javascript'> alert('Error.') </script> <script>window.history.go(-1)</script>";
         Header("Location: addpostres.php?err=$mensaje");

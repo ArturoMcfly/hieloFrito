@@ -6,13 +6,13 @@
     $caracteristica=$_POST['caracteristicas'];
     echo($id." ".$nombre." ".$precio." ".$caracteristica);
 
-    $consulta="UPDATE `agregados_pizza` SET `nombre_agregado_pizza` = '$nombre', `precio_agregado_pizza`='$precio', `caracterisitcas_agregado_pizza`='$caracteristica' WHERE `id_agregado_pizza` = $id";
+    $consulta="UPDATE `agregados_pizza` SET `nombre_agregado_pizza` = '$nombre', `precio_agregado_pizza`='$precio', `caracteristicas_agregado_pizza`='$caracteristica' WHERE `id_agregado_pizza` = $id";
     $resultado=$mysqli->query($consulta);
     if($resultado==TRUE){
-        $mensaje=" <script language='javascript'> alert('El registro se modifico con exito.') </script> <script>window.history.go(-1)</script>";
-        echo("Hola");
+        //echo("Exitoso");
         Header("Location: BienvenidaPizzas.php?err=$mensaje");
     }else{
+        //echo("falido");
         $mensaje=" <script language='javascript'> alert('Error.') </script> <script>window.history.go(-1)</script>";
         Header("Location: BienvenidaPizzas.php?err=$mensaje");
     }

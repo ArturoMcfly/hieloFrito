@@ -7,9 +7,8 @@
     $consulta="INSERT INTO `pizza`(`nombre`, `precio`, `caracteristicas`) VALUES ('$nombre','$precio','$caracteristicas')";
     $resultado=$mysqli->query($consulta);
     if($resultado==TRUE){
-        $mensaje=" <script language='javascript'> alert('El registro se creo con exito.') </script> <script>window.history.go(-1)</script>";
-        echo("Hola");
-        Header("Location: BienvenidaPizzas.php?err=$mensaje");
+        
+        Header("Location: BienvenidaPizzas.php");
     }else{
         $mensaje=" <script language='javascript'> alert('Error.') </script> <script>window.history.go(-1)</script>";
         Header("Location: BienvenidaPizzas.php?err=$mensaje");

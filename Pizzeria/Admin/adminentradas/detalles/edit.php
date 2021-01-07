@@ -156,7 +156,7 @@ body {
     </style>
     <body style="background: linear-gradient(to right, #6b6b6b, #612103);" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="detalles.php">Hielo Frito</a>
+            <a class="navbar-brand" href="../BienvenidaPizzas.php">Hielo Frito</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -176,18 +176,18 @@ body {
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Ordenes
                             </a>
-                            <a class="nav-link" href="../../adminPizzas/BienvenidaPizzas.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Administración de Pizzas
-                            </a>
+                            
                             <a class="nav-link" href="../../adminPromos/Promos.php">
                               <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                               Administración de Promociones
                           </a>
-                          
                           <a class="nav-link" href="../../adminBebidas/Bebidas.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Bebidas
+                        </a>
+                        <a class="nav-link" href="../../adminentradas/ListaEntradas.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Administracion de Entradas
                         </a>
                         <a class="nav-link" href="../../adminpostres/addpostres.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -214,7 +214,7 @@ body {
                     $id_pizza=$fila['id_agregado_pizza'];
                     $nombre=$fila['nombre_agregado_pizza'];
                     $precio=$fila['precio_agregado_pizza'];
-                    $caracteristicas=$fila['caracterisitcas_agregado_pizza'];
+                    $caracteristicas=$fila['caracteristicas_agregado_pizza'];
             ?>
             <!-- Parte del centro -->
             <div id="layoutSidenav_content">
@@ -232,13 +232,7 @@ body {
                                     <h5 class="card-title text-center">Modifique el ingrediente extra</h5>
                                     <form class="form-signin" action="edi.php" method="post">
                                       
-                                      <div class="form-label-group">
-                                          <?php
-                                            echo "<input type='number' id='inputId' name='id' class='form-control' placeholder='Id usuario' value='$id_pizza' required autofocus>"; 
-                                          ?>
-                                        <!--<input type="number" id="inputId" name="id" class="form-control" placeholder="ID" required>-->
-                                        <label for="inputId">ID</label>
-                                      </div>
+                                      
                                       <div class="form-label-group">
                                       <?php
                                             echo "<input type='text' id='inputNombre' name='nombre' class='form-control' placeholder='Nombre' value='$nombre' required autofocus>"; 
@@ -260,7 +254,10 @@ body {
                                       <!--<input type="textarea" rows="20" cols="5"id="inputCaracteristicas" name="caracteristicas"class="form-control" placeholder="caracterisiticas" required>-->
                                         <label for="inputCaracteristicas">Caracteristicas</label>
                                       </div>
-                                      
+                                      <?php
+                                          
+                                          echo "<input type='number' id='inputId' name='id' class='form-control' placeholder='Id usuario' value='$id' hidden>"; 
+                                      ?>
                                       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Guardar</button>
                                       <hr class="my-4">
                                     </form>

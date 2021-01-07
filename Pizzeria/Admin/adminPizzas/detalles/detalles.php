@@ -257,9 +257,16 @@ body {
                              }
                             ?>
                         </ol>
-                        <a href="Crear.php" class=" crear">Crear nuevo &nbsp;<span class="icon-plus"></span></a>
+                        <form action="crear.php" method="POST">
+                            <?php
+                                echo("<input type='text' value='$id' name='id' hidden>"); 
+                                
+                            ?>
+                            <input type="submit" name="boton" class="crear" value="Crear nuevo">
+                        </form>
+                        
 
-                        <a class=" btn btn-primary" href="../fpdf/usupdf.php">Descargar archivo PDF &nbsp;<i class="fa fa-download"></i></a>
+                        
                         <p></p>
                         <?php
                             $query="SELECT * FROM agregados_pizza WHERE id_pizza='$id'";

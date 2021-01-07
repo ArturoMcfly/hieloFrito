@@ -229,7 +229,7 @@ body {
                                       </div>
                                       <div class="form-label-group">
                                         
-                                        <input type="int" id="inputPrecio" name="precio" class="form-control" placeholder="Precio" required>
+                                        <input type="number" id="inputPrecio" name="precio" class="form-control" placeholder="Precio" required>
                                         <label for="inputPrecio">Precio</label>
                                       </div>
                                       <div class="form-label-group">

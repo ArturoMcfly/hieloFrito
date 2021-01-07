@@ -9,9 +9,8 @@
     $consulta="UPDATE `bebidas` SET `nombre` = '$nombre', `precio`='$precio', `caracteristicas`='$caracteristica' WHERE `id_bebida` = $id";
     $resultado=$mysqli->query($consulta);
     if($resultado==TRUE){
-        $mensaje=" <script language='javascript'> alert('El registro se modifico con exito.') </script> <script>window.history.go(-1)</script>";
-        echo("Hola");
-        Header("Location: Bebidas.php?err=$mensaje");
+        
+        Header("Location: Bebidas.php");
     }else{
         $mensaje=" <script language='javascript'> alert('Error.') </script> <script>window.history.go(-1)</script>";
         Header("Location: bebidas.php?err=$mensaje");

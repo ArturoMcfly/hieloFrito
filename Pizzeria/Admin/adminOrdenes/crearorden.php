@@ -230,7 +230,7 @@ body {
 
                                       <div class="form-label-group">
                                         
-                                        <input type="int" id="inputTelefono" name="telefono" class="form-control" placeholder="Telefono" required>
+                                        <input type="number" id="inputTelefono" name="telefono" class="form-control" placeholder="Telefono" required>
                                         <label for="inputTelefono">Telefono</label>
                                       </div>
 

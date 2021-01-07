@@ -319,7 +319,9 @@ body {
                                                     <th>
                                                         <input type="submit" value="Borrar" class="boton "name="boton">&nbsp;<span class="icon-bin icono">
                                                     </th>
-                                                   
+                                                    <th>
+                                                        <input type="submit" value="Detalles" class="boton " name="boton">&nbsp;<span class="icon-stack icono">
+                                                    </th>
                                                 </form>
                                             </tr>
                                             <?php

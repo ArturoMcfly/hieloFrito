@@ -201,28 +201,28 @@ body {
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                         <div class="sb-sidenav-menu-heading"></div>
-                            <a class="nav-link" href="../../adminOrdenes/detalles/detalles.php">
+                        <a class="nav-link" href="../../adminOrdenes/Ordenes.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Ordenes
                             </a>
                             
-                            <a class="nav-link" href="../../adminPromos/detalles/detalles.php">
+                            <a class="nav-link" href="../../adminPromos/Promos.php">
                               <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                               Administración de Promociones
                           </a>
-                          <a class="nav-link" href="../../adminBebidas/detalles/detalles.php">
+                          <a class="nav-link" href="../../adminBebidas/Bebidas.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Bebidas
                         </a>
-                        <a class="nav-link" href="viewpedidos.html">
+                        <a class="nav-link" href="../../adminentradas/ListaEntradas.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Entradas
                         </a>
-                        <a class="nav-link" href="viewpedidos.html">
+                        <a class="nav-link" href="../../adminpostres/addpostres.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Postres
                         </a>
-                        <a class="nav-link" href="viewpedidos.html">
+                        <a class="nav-link" href="../../adminsalsas/ListaSalsa.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Salsas
                         </a>
@@ -243,10 +243,10 @@ body {
                 <main >
                     <div class="container-fluid">
                         
-                        <h1 style="color: white;" class="mt-4"> Detalles de Promos</h1>
+                        <h1 style="color: white;" class="mt-4"> Detalles de Pizzas</h1>
                         <ol class="breadcrumb mb-4">
                             <?php
-                                $consulta="SELECT * FROM promociones WHERE id_promociones='$id'";
+                                $consulta="SELECT * FROM pizza WHERE id_pizza='$id'";
                                 $resultado_pizza=$mysqli->query($consulta);
                                 if($resultado_pizza->num_rows > 0){
                                     $fila1=$resultado_pizza->fetch_assoc();
@@ -257,12 +257,19 @@ body {
                              }
                             ?>
                         </ol>
-                        <a href="Crear.php" class=" crear">Crear nuevo &nbsp;<span class="icon-plus"></span></a>
+                        <form action="crear.php" method="POST">
+                            <?php
+                                echo("<input type='text' value='$id' name='id' hidden>"); 
+                                
+                            ?>
+                            <input type="submit" name="boton" class="crear" value="Crear nuevo">
+                        </form>
+                        
 
-                        <a class=" btn btn-primary" href="../fpdf/usupdf.php">Descargar archivo PDF &nbsp;<i class="fa fa-download"></i></a>
+                        
                         <p></p>
                         <?php
-                            $query="SELECT * FROM agregados_promociones WHERE id_agregado_promo='$id'";
+                            $query="SELECT * FROM agregados_pizza WHERE id_pizza='$id'";
                             $resultado=$mysqli->query($query);
                             if($resultado->num_rows > 0){
                                 
@@ -279,23 +286,19 @@ body {
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Id agregado promo</th>
+                                                <th>Id pizza</th>
                                                 <th>Nombre</th>
-                                                <th>Precio</th>
-                                                <th>Caracteristicas</th>
-                                              
-                                                <th colspan=4>Id Promocion</th>
+                                                <th>precio</th>
+                                                <th colspan=4>caracteristicas</th>
                                                 
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                             <th>Id agregado promo</th>
+                                                <th>Id pizza</th>
                                                 <th>Nombre</th>
-                                                <th>Precio</th>
-                                                <th>Caracteristicas</th>
-                                              
-                                                <th colspan=4>Id Promocion</th>
+                                                <th>precio</th>
+                                                <th colspan=4>caracteristicas</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
@@ -310,7 +313,7 @@ body {
                                             </tr>-->
                                             <?php
                                                 while($fila=$resultado->fetch_assoc()){
-                                                    $id=$fila['id_agregado_promo'];
+                                                    $id=$fila['id_agregado_pizza'];
                                                     
                                             ?>
                                             <tr>
@@ -324,22 +327,17 @@ body {
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['nombre_agregado_promo']);
+                                                            echo($fila['nombre_agregado_pizza']);
                                                         ?>
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['precio_agregado_promo']);
+                                                            echo($fila['precio_agregado_pizza']);
                                                         ?>
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['caracteristica_agregado_promo']);
-                                                        ?>
-                                                    </th>
-                                                    <th>
-                                                        <?php
-                                                            echo($fila['id_promociones']);
+                                                            echo($fila['caracteristicas_agregado_pizza']);
                                                         ?>
                                                     </th>
                                                     <th>
@@ -370,7 +368,7 @@ body {
                             }
                             else{
                             ?>
-                            <h1>No hay agregados para esta Promocion</h1>
+                            <h1>No hay agregados para esta Pizza</h1>
                             <?php
                             }
                         ?>
