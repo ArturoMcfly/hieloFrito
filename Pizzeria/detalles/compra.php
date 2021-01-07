@@ -197,8 +197,8 @@ session_start();
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../pizzas.php">Pizzas</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../promosiones.php">Promociones</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../Bebidas.php">Bebidas</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../pedidos.php">Pedidos</a></li>
+                        
+                        
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../login2.php">Iniciar Sesión</a></li>
                     </ul>
                 </div>
@@ -283,6 +283,8 @@ session_start();
               $nombre_cliente=$fila['nombre'];
               $telefono_cliente=$fila['telefono'];
               $direccion_cliente=$fila['direccion'];
+              $total_cliente=$fila['total'];
+              
         ?>
 
         <h3 style="padding-top:100px; background-color:#0000009b; color: rgb(255, 255, 255);text-align: center;">Datos de la orden</h3>
@@ -291,9 +293,11 @@ session_start();
                 <tr>
                   <th style="background:#000000; color:#fff; text-align:center" colspan="6">
                   <?php
+                    echo("<h1> Numero de compra".$id_orden."</h1>");
                     echo("<h4> Nombre: ".$nombre_cliente."</h4>");
                     echo("<h4> Telefono: ".$telefono_cliente."</h4>");
                     echo("<h4> Direccion: ".$direccion_cliente."</h4>");
+                    echo("<h4> Total a pagar: $".$total_cliente."</h4>");
                     $consulta_detalles="SELECT * FROM `detalle_orden` WHERE id_orden='".$id_orden."'";
                     $resultado_busqueda_detalles=$mysqli->query($consulta_detalles);
                     if($resultado_busqueda_detalles->num_rows > 0){
@@ -343,12 +347,17 @@ session_start();
                           echo("$".$total_complemento);
                         ?>
                     </th>
-                    <th>
-                      <input type="submit" value="Editar" class="boton " name="boton">&nbsp;<span class="icon-pencil icono"></span>
-                    </th>
-                    <th>
+                    <?php
+                      if(isset($_GET['err5'])){
+
+                      }else{
+                    ?>
+                    <th >
                       <input type="submit" value="Borrar" class="boton "name="boton">&nbsp;<span class="icon-bin icono"></span>
                     </th>
+                    <?php
+                      }
+                    ?>
                 </tr>
                 <?php
                     }
@@ -357,7 +366,18 @@ session_start();
                   if(isset($_GET['err5'])){
                 ?>
                 <tr>
-                    <th colspan=2></th>
+                    <th colspan=2>
+                      <p>El pedido se ha realizado con exito</p>
+                      <form action="">
+                        <?php
+                          echo("<input type='text' value='$id_orden' name='id' hidden>");
+                        
+                        ?>
+                        <input type="submit" name="boton" class="boton-final" value="Imprimir ticket">&nbsp;<span class="icon-file-text icono"></span>  
+                      </form>
+                       
+                    </th>
+                    
                     <th >
                         Total:
                     </th>
@@ -367,10 +387,7 @@ session_start();
                         ?>
                     </th>
                     
-                    <th colspan=2>
-                      <p>El pedido se ha realizado con exito</p>
-                      <a class="boton-final"  href="../php/plantilla/cerrarsession.php">Imprimir PDF</a>&nbsp;<span class="icon-bin icono"></span>  
-                    </th>
+                    
                 </tr>
 
                 <?php
@@ -388,6 +405,7 @@ session_start();
                     </th>
                     
                     <th>
+                        
                         <p>Confirmar compra</p>
                         <form action="TerminarCompra.php" method="POST">
                           <?php

@@ -230,7 +230,7 @@ include('../php/conexion.php');
                             $fila_resultado=$resultado_consulta->fetch_assoc();
                             $nombre_detalle_pizza=$fila_resultado['nombre_agregado_pizza'];
                             $precio_detalle_pizza=$fila_resultado['precio_agregado_pizza'];
-                            $nombre_detalle_pizza=$fila_resultado['caracterisitcas_agregado_pizza'];
+                            $nombre_detalle_pizza=$fila_resultado['caracteristicas_agregado_pizza'];
                             
                 ?>
                 <form action="boton.php" method="POST">
@@ -351,7 +351,7 @@ include('../php/conexion.php');
                                 while($fila_detalle=$resultado_detalle->fetch_assoc()){
                                     $id_detalle=$fila_detalle['id_agregado_pizza'];
                                     $nombre_detalle=$fila_detalle['nombre_agregado_pizza'];
-                                    $caracteristicas_detalle=$fila_detalle['caracterisitcas_agregado_pizza'];
+                                    $caracteristicas_detalle=$fila_detalle['caracteristicas_agregado_pizza'];
                                     $precio_detalle=$fila_detalle['precio_agregado_pizza'];
 
                                     echo("<input type='text' value='$id_detalle' name='id_detalle' hidden>");
