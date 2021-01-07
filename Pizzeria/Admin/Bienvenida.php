@@ -18,51 +18,51 @@ $nombre=$_SESSION['usr'];
         <link href="../icomoon/fonts/style.css" rel="stylesheet">
         <style>
         
-        .table{
-            color:#000000 !important;
-            background:#ffffff !important;
+            .table{
+                color:#000000 !important;
+                background:#ffffff !important;
+                
+                border-radius:15px;
+                
+            }
             
-            border-radius:15px;
-            
-        }
-        
-        .crear{
-            background:#fff;
-            padding:10px;
-            color: 10157F;
-            text-decoration: none !important;
-            transition: .3s linear;
-            border-radius:6px;
+            .crear{
+                background:#fff;
+                padding:10px;
+                color: 10157F;
+                text-decoration: none !important;
+                transition: .3s linear;
+                border-radius:6px;
 
-        }
-        .crear:hover{
-            background:#007BFF;
-            color:#fff;
+            }
+            .crear:hover{
+                background:#007BFF;
+                color:#fff;
 
-        }
-        .boton{
-            background:#fff;
-            text-decoration: none !important;
-            transition: .3s linear;
-            border: 2px solid #fff;
-            color:#007BFF;
-        }
-        .boton:hover{
-            background:#007BFF;
-            color:#fff;
-            border:6px;
-        }
-        .icono{
-            color:#007BFF;
-        }
+            }
+            .boton{
+                background:#fff;
+                text-decoration: none !important;
+                transition: .3s linear;
+                border: 2px solid #fff;
+                color:#007BFF;
+            }
+            .boton:hover{
+                background:#007BFF;
+                color:#fff;
+                border:6px;
+            }
+            .icono{
+                color:#007BFF;
+            }
         </style>
     </head>
     <body style="background-image:url(https://www.gstatic.com/bfe/apps/website/img/h/87450465-pizza-1440.jpg);padding-top: 10rem;
-    padding-bottom: calc(10rem - 4.5rem);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;" class="sb-nav-fixed">
+        padding-bottom: calc(10rem - 4.5rem);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: cover;" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="Bienvenida.php">Hielo Frito</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
@@ -81,7 +81,7 @@ $nombre=$_SESSION['usr'];
                         <div class="nav">
                         
                             
-                            <a class="nav-link" href="viewpedidos.html">
+                            <a class="nav-link" href="adminOrdenes/Ordenes.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Ordenes
                             </a>
@@ -89,23 +89,23 @@ $nombre=$_SESSION['usr'];
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Administración de Pizzas
                             </a>
-                            <a class="nav-link" href="addpromos.html">
+                            <a class="nav-link" href="adminPromos/Promos.php">
                               <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                               Administración de Promociones
                           </a>
-                          <a class="nav-link" href="viewpedidos.html">
+                          <a class="nav-link" href="adminBebidas/Bebidas.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Bebidas
                         </a>
-                        <a class="nav-link" href="viewpedidos.html">
+                        <a class="nav-link" href="adminentradas/ListaEntradas.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Entradas
                         </a>
-                        <a class="nav-link" href="viewpedidos.html">
+                        <a class="nav-link" href="adminpostres/addpostres.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Postres
                         </a>
-                        <a class="nav-link" href="viewpedidos.html">
+                        <a class="nav-link" href="adminsalsas/ListaSalsa.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Administracion de Salsas
                         </a>

@@ -214,7 +214,7 @@ body {
                     $id_pizza=$fila['id_agregado_pizza'];
                     $nombre=$fila['nombre_agregado_pizza'];
                     $precio=$fila['precio_agregado_pizza'];
-                    $caracteristicas=$fila['caracterisitcas_agregado_pizza'];
+                    $caracteristicas=$fila['caracteristicas_agregado_pizza'];
             ?>
             <!-- Parte del centro -->
             <div id="layoutSidenav_content">

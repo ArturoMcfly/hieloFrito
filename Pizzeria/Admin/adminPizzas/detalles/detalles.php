@@ -262,7 +262,7 @@ body {
                         <a class=" btn btn-primary" href="../fpdf/usupdf.php">Descargar archivo PDF &nbsp;<i class="fa fa-download"></i></a>
                         <p></p>
                         <?php
-                            $query="SELECT * FROM agregados_pizza WHERE id_entrada='$id'";
+                            $query="SELECT * FROM agregados_pizza WHERE id_pizza='$id'";
                             $resultado=$mysqli->query($query);
                             if($resultado->num_rows > 0){
                                 
@@ -330,7 +330,7 @@ body {
                                                     </th>
                                                     <th>
                                                         <?php
-                                                            echo($fila['caracterisitcas_agregado_pizza']);
+                                                            echo($fila['caracteristicas_agregado_pizza']);
                                                         ?>
                                                     </th>
                                                     <th>
