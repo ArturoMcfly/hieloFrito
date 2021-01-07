@@ -277,7 +277,7 @@ session_start();
               ?>
             </th>
             <th>
-              <form action="">
+              <form action="Admin/fpdf/tikect.php" method="GET">
                 <?php
                 echo("<input type='text' value='$id_orden' name='id' hidden>");
                 

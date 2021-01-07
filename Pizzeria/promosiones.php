@@ -969,7 +969,7 @@
 		              					<p class="price">
 										  	<span>
 											  	<?php
-													echo("$".$precio_postre1);
+													echo("$".$precio_salsa1);
 												?>
 											</span>
 										</p>
@@ -1017,7 +1017,7 @@
 		              					<p class="price">
 										  	<span>
 											  	<?php
-													echo("$".$precio_postre2);
+													echo("$".$precio_salsa2);
 												?>
 											</span>
 										</p>
@@ -1064,7 +1064,7 @@
 		              					<p class="price">
 										  	<span>
 											  	<?php
-													echo("$".$precio_postre3);
+													echo("$".$precio_salsa3);
 												?>
 											</span>
 										</p>

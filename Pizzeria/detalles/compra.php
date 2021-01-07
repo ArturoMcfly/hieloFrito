@@ -293,7 +293,7 @@ session_start();
                 <tr>
                   <th style="background:#000000; color:#fff; text-align:center" colspan="6">
                   <?php
-                    echo("<h1> Numero de compra".$id_orden."</h1>");
+                    echo("<h1> Numero de compra: ".$id_orden."</h1>");
                     echo("<h4> Nombre: ".$nombre_cliente."</h4>");
                     echo("<h4> Telefono: ".$telefono_cliente."</h4>");
                     echo("<h4> Direccion: ".$direccion_cliente."</h4>");
@@ -323,9 +323,10 @@ session_start();
                         $cantidad_complemento=$fila['cantidad'];
                         $total_complemento=$fila['Total'];
                         $total_final=$total_final+$total_complemento;
+                        echo("h".$id_detalle_final);
                 ?>
                 <tr>
-                      <form action="operar/editarBorrar.php"></form>
+                      
                     <th>
                         <?php
                           echo("<input type='text' value='$id_detalle_final' name='id_detalle' hidden>");
@@ -353,7 +354,18 @@ session_start();
                       }else{
                     ?>
                     <th >
-                      <input type="submit" value="Borrar" class="boton "name="boton">&nbsp;<span class="icon-bin icono"></span>
+                      <form action="operar/editarBorrar.php" method="POST">
+                      <?php
+                          echo("<input type='text' value='$id_detalle_final' name='id_detalle' hidden>");
+                          
+                        ?>
+                        <input type="submit" value="Borrar" class="boton " name="boton">&nbsp;<span class="icon-bin icono"></span>
+                      </form>
+                        
+                        
+                        
+                      
+                      
                     </th>
                     <?php
                       }
@@ -368,7 +380,7 @@ session_start();
                 <tr>
                     <th colspan=2>
                       <p>El pedido se ha realizado con exito</p>
-                      <form action="">
+                      <form action="../busqueda/cerrarSesion.php" method="GET">
                         <?php
                           echo("<input type='text' value='$id_orden' name='id' hidden>");
                         
