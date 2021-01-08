@@ -82,33 +82,33 @@ $nombre=$_SESSION['usr'];
                         
                             
                             <a class="nav-link" href="adminOrdenes/Ordenes.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Administracion de Ordenes
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Administracion de Ordenes
                             </a>
                             <a class="nav-link" href="adminPizzas/BienvenidaPizzas.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Administración de Pizzas
                             </a>
                             <a class="nav-link" href="adminPromos/Promos.php">
-                              <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                              Administración de Promociones
-                          </a>
-                          <a class="nav-link" href="adminBebidas/Bebidas.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Administracion de Bebidas
-                        </a>
-                        <a class="nav-link" href="adminentradas/ListaEntradas.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Administracion de Entradas
-                        </a>
-                        <a class="nav-link" href="adminpostres/addpostres.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Administracion de Postres
-                        </a>
-                        <a class="nav-link" href="adminsalsas/ListaSalsa.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Administracion de Salsas
-                        </a>
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Administración de Promociones
+                            </a>
+                            <a class="nav-link" href="adminBebidas/Bebidas.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Administracion de Bebidas
+                            </a>
+                            <a class="nav-link" href="adminentradas/ListaEntradas.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Administracion de Entradas
+                            </a>
+                            <a class="nav-link" href="adminpostres/addpostres.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Administracion de Postres
+                            </a>
+                            <a class="nav-link" href="adminsalsas/ListaSalsa.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Administracion de Salsas
+                            </a>
                            
                         </div>
                     </div>
@@ -132,106 +132,100 @@ $nombre=$_SESSION['usr'];
                         <a class=" btn btn-primary" href="fpdf/usupdf.php">Descargar archivo PDF &nbsp;<i class="fa fa-download"></i></a>
                         <p></p>
                         <?php
-      $query="SELECT * FROM usuario";
-      $resultado=$mysqli->query($query);
-      if($resultado->num_rows > 0){
-        
-    ?>
-        <table class="table">
-            <tr>
-                <th colspan=6>
-                    <h1>Tabla usuarios</h1>
-                </th>
-                
-            </tr>
-            <tr>
-                <th>
-                    id usuario
-                </th>
-                <th>
-                    nombre
-                </th>
-                <th>
-                    contraseñas
-                </th>
-                <th colspan=3>
-                    numero
-                </th>
-            </tr>
-            <?php
-            while($fila=$resultado->fetch_assoc()){
-                $id=$fila['id_usuario'];
-                
-            ?>
-            <tr>
-                <form action="adminUsuarios/editarBorrar.php" method="POST">
-
-                
-                    <th>
-                        <?php
-                            echo "$id<input type='text' value='$id' name='id' hidden>"; 
+                            $query="SELECT * FROM usuario";
+                            $resultado=$mysqli->query($query);
+                            if($resultado->num_rows > 0){
                             
                         ?>
-                    </th>
-                    <th>
-                        <?php
-                                echo($fila['nombre_usuario']);
+                        <table class="table">
+                            <tr>
+                                <th colspan=6>
+                                    <h1>Tabla usuarios</h1>
+                                </th>
+                                
+                            </tr>
+                            <tr>
+                                <th>
+                                    id usuario
+                                </th>
+                                <th>
+                                    nombre
+                                </th>
+                                <th>
+                                    contraseñas
+                                </th>
+                                <th colspan=3>
+                                    numero
+                                </th>
+                            </tr>
+                            <?php
+                                while($fila=$resultado->fetch_assoc()){
+                                    $id=$fila['id_usuario'];
+                                    
                             ?>
-                    </th>
-                    <th>
-                    <?php
-                            echo($fila['contrasenia_usuario']);
-                        ?>
-                    </th>
-                    <th>
-                    <?php
-                            echo($fila['no_empleado']);
-                        ?>
-                    </th>
-                    <th >
-                        <input type="submit" value="Editar" class="boton " name="boton">&nbsp;<span class="icon-pencil icono">
-                        
-                    </th>
-                    <th>
-                        <input type="submit" value="Borrar" class="boton "name="boton">&nbsp;<span class="icon-bin icono">
-                        
-                    </th>
-                    <!--<th>
-                        <input type="submit" value="Detalles" class="boton ">&nbsp;<span class="icon-stack icono">
-                        
-                    </th>-->
-                </form>
-            </tr>
-            <?php
-            }
-            ?>
+                            <tr>
+                                <form action="adminUsuarios/editarBorrar.php" method="POST">
+                                <th>
+                                    <?php
+                                        echo "$id<input type='text' value='$id' name='id' hidden>"; 
+                                            
+                                    ?>
+                                </th>
+                                <th>
+                                    <?php
+                                        echo($fila['nombre_usuario']);
+                                    ?>
+                                </th>
+                                <th>
+                                    <?php
+                                        echo($fila['contrasenia_usuario']);
+                                    ?>
+                                </th>
+                                <th>
+                                    <?php
+                                        echo($fila['no_empleado']);
+                                    ?>
+                                </th>
+                                <th >
+                                    <input type="submit" value="Editar" class="boton " name="boton">&nbsp;<span class="icon-pencil icono">
+                                    
+                                </th>
+                                <th>
+                                    <input type="submit" value="Borrar" class="boton "name="boton">&nbsp;<span class="icon-bin icono">
+                                    
+                                </th>
+                                </form>
+                            </tr>
+                            <?php
+                            }
+                            ?>
 
-        </table>
-        <?php
-            }
-            if(isset($_GET['err'])){
-                echo " ".$_GET['err'];
-                
-            }
-        ?>
+                        </table>
+                        <?php
+                            }
+                            if(isset($_GET['err'])){
+                                echo " ".$_GET['err'];
+                                
+                            }
+                        ?>
                        
                        
-                        </div>
+                    </div>
                 </main>
-                    <footer class="py-4 bg-black  mt-auto">
-                      <div class="container-fluid">
-                          <div class="d-flex align-items-center justify-content-between small">
-                              <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                              <div>
-                                  <a href="#">Privacy Policy</a>
-                                  &middot;
-                                  <a href="#">Terms &amp; Conditions</a>
-                              </div>
-                          </div>
-                      </div>
-                  </footer>
-                </div>
+                <footer class="py-4 bg-black  mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </div>
+        </div>
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
             <script src="scripts.js"></script>
@@ -241,6 +235,6 @@ $nombre=$_SESSION['usr'];
             <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
             <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
             <script src="datatables-demo.js"></script>
-        </body>
-    </html>
+    </body>
+</html>
     

@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>Login / Registro</title>
-	<link rel="stylesheet" href="css/estilo.css">
-
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-	
-	<style>
-		body {
-			background: url(images/pizzafondo.jpg) !important;
-		}
-
-		.tarjeta {
-			background: #0000009b !important;
-		}
-	</style>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Login / Registro</title>
+		<link rel="stylesheet" href="css/estilo.css">
 
 
-</head>
-<body class="login-body">
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background:#000000;">
-		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="index.php">Hilo Frito</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+		<style>
+			body {
+				background: url(images/pizzafondo.jpg) !important;
+			}
+
+			.tarjeta {
+				background: #0000009b !important;
+			}
+		</style>
+
+
+	</head>
+	<body class="login-body">
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style="background:#000000;">
+			<div class="container">
+				<a class="navbar-brand js-scroll-trigger" href="index.php">Hilo Frito</a>
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
 					
+				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
 		<div class="row">
 			<div class=" input-cart col s12 m10 push-m1 z-depth-2 grey lighten-5 ">
 				<div class="col s12 m5 login ">
@@ -89,16 +87,17 @@
 										required="required">
 									<label for="pass-picked">No de empleado</label>
 								</div>
+							
 							</div>
 							
-						<div class="row">
-							<button type="submit" name="btn-signup"
-								class="btn blue right waves-effect waves-light">Registrarse</button>
+							<div class="row">
+								<button type="submit" name="btn-signup"
+									class="btn blue right waves-effect waves-light">Registrarse</button>
+							</div>
 						</div>
-					</div>
-					<div class="signup-toggle center">
-						<h4 class="center"> ¿ Aun no tienes cuenta ? <a href="#!">Registrar</a></h4>
-					</div>
+						<div class="signup-toggle center">
+							<h4 class="center"> ¿ Aun no tienes cuenta ? <a href="#!">Registrar</a></h4>
+						</div>
 				</div>
 				<div class="col s12">
 					<br>
