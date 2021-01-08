@@ -181,6 +181,30 @@ body {
         .icono{
             color:#007BFF;
         }
+        .table tr{
+          transition: .3s linear;
+        }
+        .table tr:hover{
+          background:#D9D9D9 ;
+        }
+        .confirmada{
+          color:#fff;
+          background:#C70039  ;
+          transition: .1s linear;
+        }
+        .confirmada:hover{
+          color:#C70039;
+          background:#fff;
+        }
+        .iniciada{
+          color:#fff;
+          background:#16CD35 ;
+          transition: .1s linear;
+        }
+        .iniciada:hover{
+          color:#16CD35;
+          background:#fff;
+        }
     </style>
     <body style="background: linear-gradient(to right, #6b6b6b, #612103);" class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -275,7 +299,7 @@ body {
                                                
                                                 <th>total</th>
                                                 <th>hora de solicitud</th>
-                                                <th>hora de salida</th>
+                                                <th colspan=4>estado</th>
 
                                                 
                                                 
@@ -291,7 +315,7 @@ body {
                                           
                                                 <th>total</th>
                                                 <th>hora de solicitud</th>
-                                                <th>hora de salida</th>
+                                                <th colspan=4>estado</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
@@ -344,11 +368,30 @@ body {
                                                             echo($fila['fecha_hora_solicitud']);
                                                         ?>
                                                     </th>
-                                                    <th>
+                                                    <?php
+                                                      $estado=$fila['estado'];
+                                                      if($estado=="Confirmada"){
+                                                    ?>
+                                                    <th class="confirmada">
                                                         <?php
-                                                            echo($fila['fecha_hora_llegada']);
+                                                            
+                                                            echo($fila['estado']);
+                                                        ?>
+                                                    </th >
+
+                                                    <?php
+                                                      }else{
+                                                        $estado=$fila['estado'];
+                                                    ?>
+                                                    <th class="iniciada">
+                                                        <?php
+                                                            echo($fila['estado']);
                                                         ?>
                                                     </th>
+                                                    <?php
+                                                    
+                                                      }
+                                                    ?>
                                                     <th>
                                                         <input type="submit" value="Editar" class="boton " name="boton">&nbsp;<span class="icon-pencil icono">
                                                     </th>
