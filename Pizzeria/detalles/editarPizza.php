@@ -211,6 +211,36 @@ include('../php/conexion.php');
                     $tipo_producto=$_GET['tipo_producto'];
                     $tipo_id=$_GET['tipo_id'];
                     $tipo_producto_detalle=$_GET['tipo_producto_detalle'];
+                    if($tipo_producto=="pizza"){
+                        $detalle_id="id_agregado_pizza";
+                        $detalle_nombre="nombre_agregado_pizza";
+                        $detalle_caracteristicas="caracteristicas_agregado_pizza";
+                        $detalle_precio="precio_agregado_pizza";
+                    }else if($tipo_producto=="postres"){
+                        $detalle_id="id_agregado_postre";
+                        $detalle_nombre="nombre_agregado_postre";
+                        $detalle_caracteristicas="caracteristica_agregado_postre";
+                        $detalle_precio="precio_agregado_postre";
+                    }else if($tipo_producto=="bebidas"){
+                        
+                        $detalle_id="id_agregado_bebidas";
+                        $detalle_nombre="nombre_agregado_bebida";
+                        $detalle_caracteristicas="caracteristica_agregado_bebida";
+                        $detalle_precio="precio_agregado_bebida";
+                    }else if($tipo_producto=="salsas"){
+                        
+                        $detalle_id="id_agregado_salsa";
+                        $detalle_nombre="nombre_agregado_salsa";
+                        $detalle_caracteristicas="caracteristica_agregado_salsa";
+                        $detalle_precio="precio_agregado_salsa";
+                    }else if($tipo_producto=="promociones"){
+                        
+                        $detalle_id="id_agregado_promo";
+                        $detalle_nombre="nombre_agregado_promo";
+                        $detalle_caracteristicas="caracteristicas_agregado_promo";
+                        $detalle_precio="precio_agregado_promo";
+                    }
+                    
                    
         ?>
         <div class="form-area titulo">
@@ -228,9 +258,9 @@ include('../php/conexion.php');
                         if($resultado_consulta->num_rows > 0){
 
                             $fila_resultado=$resultado_consulta->fetch_assoc();
-                            $nombre_detalle_pizza=$fila_resultado['nombre_agregado_pizza'];
-                            $precio_detalle_pizza=$fila_resultado['precio_agregado_pizza'];
-                            $nombre_detalle_pizza=$fila_resultado['caracteristicas_agregado_pizza'];
+                            $nombre_detalle_pizza=$fila_resultado["$detalle_nombre"];
+                            $precio_detalle_pizza=$fila_resultado["$detalle_precio"];
+                            $nombre_detalle_pizza=$fila_resultado["$detalle_caracteristicas"];
                             
                 ?>
                 <form action="boton.php" method="POST">
@@ -289,31 +319,50 @@ include('../php/conexion.php');
                         echo("tabla: ".$tipo_producto."<br>");
                         echo("Sub-tabla: ".$tipo_producto_detalle."<br>");
                         echo("Id-tabla: ".$tipo_id."<br>");
-
+                        $detalle_id="id_agregado_pizza";
+                        $detalle_nombre="nombre_agregado_pizza";
+                        $detalle_caracteristicas="caracteristicas_agregado_pizza";
+                        $detalle_precio="precio_agregado_pizza";
                     }else if($tipo_producto=="postres"){
                         $tipo_producto_detalle="agregados_postres";
                         $tipo_id="id_postre";
                         echo("tabla: ".$tipo_producto."<br>");
                         echo("Sub-tabla: ".$tipo_producto_detalle."<br>");
                         echo("Id-tabla: ".$tipo_id."<br>");
+                        $detalle_id="id_agregado_postre";
+                        $detalle_nombre="nombre_agregado_postre";
+                        $detalle_caracteristicas="caracteristica_agregado_postre";
+                        $detalle_precio="precio_agregado_postre";
                     }else if($tipo_producto=="bebidas"){
                         $tipo_producto_detalle="agregados_bebidas";
                         $tipo_id="id_bebida";
                         echo("tabla: ".$tipo_producto."<br>");
                         echo("Sub-tabla: ".$tipo_producto_detalle."<br>");
                         echo("Id-tabla: ".$tipo_id."<br>");
+                        $detalle_id="id_agregado_bebidas";
+                        $detalle_nombre="nombre_agregado_bebida";
+                        $detalle_caracteristicas="caracteristica_agregado_bebida";
+                        $detalle_precio="precio_agregado_bebida";
                     }else if($tipo_producto=="salsas"){
                         $tipo_producto_detalle="agregados_salsas";
                         $tipo_id="id_salsas";
                         echo("tabla: ".$tipo_producto."<br>");
                         echo("Sub-tabla: ".$tipo_producto_detalle."<br>");
                         echo("Id-tabla: ".$tipo_id."<br>");
+                        $detalle_id="id_agregado_salsa";
+                        $detalle_nombre="nombre_agregado_salsa";
+                        $detalle_caracteristicas="caracteristica_agregado_salsa";
+                        $detalle_precio="precio_agregado_salsa";
                     }else if($tipo_producto=="promociones"){
                         $tipo_producto_detalle="agregados_promociones";
                         $tipo_id="id_promociones";
                         echo("tabla: ".$tipo_producto."<br>");
                         echo("Sub-tabla: ".$tipo_producto_detalle."<br>");
                         echo("Id-tabla: ".$tipo_id."<br>");
+                        $detalle_id="id_agregado_promo";
+                        $detalle_nombre="nombre_agregado_promo";
+                        $detalle_caracteristicas="caracteristicas_agregado_promo";
+                        $detalle_precio="precio_agregado_promo";
                     }
                     $query="SELECT * FROM $tipo_producto WHERE $tipo_id LIKE '$id'";
                     $resultado=$mysqli->query($query);
@@ -349,10 +398,10 @@ include('../php/conexion.php');
                             <input type="radio"  value="tradicional" name="precio_detalle" checked="checked"/>
                             <?php
                                 while($fila_detalle=$resultado_detalle->fetch_assoc()){
-                                    $id_detalle=$fila_detalle['id_agregado_pizza'];
-                                    $nombre_detalle=$fila_detalle['nombre_agregado_pizza'];
-                                    $caracteristicas_detalle=$fila_detalle['caracteristicas_agregado_pizza'];
-                                    $precio_detalle=$fila_detalle['precio_agregado_pizza'];
+                                    $id_detalle=$fila_detalle["$detalle_id"];
+                                    $nombre_detalle=$fila_detalle["$detalle_nombre"];
+                                    $caracteristicas_detalle=$fila_detalle["$detalle_caracteristicas"];
+                                    $precio_detalle=$fila_detalle["$detalle_precio"];
 
                                     echo("<input type='text' value='$id_detalle' name='id_detalle' hidden>");
                             ?>
