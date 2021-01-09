@@ -47,6 +47,7 @@
     echo("ejemplo de Hora: ".date("d-m-Y h:i a"));
     */
     include('../php/conexion.php');
+    require('../codigo_barras/barcode.php');
     session_start();
     if(isset($_SESSION['com'])){
         $fecha_inicio=date('Y-m-d h:i:s');
@@ -55,7 +56,7 @@
         $total=$_POST['cantidad_total'];
         $id_orden=$_SESSION['com'];
         $estado="Confirmada";
-
+        
         echo("Total: ".$total."<br> id: ".$id_orden."<br>");
         $consulta="SELECT * FROM `ordenes` WHERE id_orden='".$id_orden."'";
             $resultado_busqueda=$mysqli->query($consulta);
@@ -69,6 +70,7 @@
                 $actualizacion="UPDATE `ordenes` SET `nombre` = '$nombre_cliente', `telefono`='$telefono_cliente', `direccion`='$direccion_cliente', `total`='$total', `fecha_hora_solicitud`='$fecha_inicio', `fecha_hora_llegada`='$fecha_inicio', `estado`='$estado'WHERE `id_orden` = $id_orden";
                 $resultado=$mysqli->query($actualizacion);
                 if($resultado==TRUE){
+                    barcode('../codigos/'.$id_orden.'.png',$id_orden,20,'horizontal','code25',true);
                     $mensaje=" <script language='javascript'> alert('El pedido se ha realizado con exito.') </script> <script>window.history.go(-1)</script>";
                     echo("Hola");
                     echo("se logro");

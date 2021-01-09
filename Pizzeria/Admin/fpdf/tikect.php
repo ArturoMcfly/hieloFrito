@@ -82,6 +82,7 @@ $pdf->Cell(110,4,$fila['direccion'],1,1,'c',0);
 
 
 $code=$id_orden;
+$pdf->Image('../../codigos/'.$code.'.png',10,30,15);
 
 $pdf->Ln(10);
 $pdf->SetFont('Arial','B',15);
