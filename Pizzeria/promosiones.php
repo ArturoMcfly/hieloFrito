@@ -58,7 +58,8 @@
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
             <h2 class="mb-4">Promociones del dia</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <p>La Pizzería Hilo Frito ofrece una gran variedad de pizzas para degustar el paladar
+			</p>
           </div>
         </div>
     	</div>
@@ -349,7 +350,7 @@
           <div class="col-md-7 heading-section text-center ftco-animate">
             <h2 class="mb-4">Promociones del 2x1</h2>
             <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
-            <p class="mt-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            
           </div>
         </div>
         <div class="row">
@@ -358,11 +359,11 @@
         			<div class="img" style="background-image: url(images/pizza-1.jpg);"></div>
         			<div class="desc pl-3">
 	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Italian Pizza</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>Pizza con muzzarella</span></h3>
+	        				<span class="price">$199.00</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>Entre tantos gustos de pizza sin duda la Pizza con Muzzarella se lleva la medalla de oro</p>
 	        			</div>
         			</div>
         		</div>
@@ -370,11 +371,11 @@
         			<div class="img" style="background-image: url(images/pizza-2.jpg);"></div>
         			<div class="desc pl-3">
 	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Hawaiian Pizza</span></h3>
-	        				<span class="price">$29.00</span>
+	        				<h3><span>Pizza napolitana</span></h3>
+	        				<span class="price">$185.00</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>Y es que no hay mejor combinación que: masa, tomate, queso muzzarella, rodajas de tomate natural, ajo y perejil picado</p>
 	        			</div>
 	        		</div>
         		</div>
@@ -382,11 +383,11 @@
         			<div class="img" style="background-image: url(images/pizza-3.jpg);"></div>
         			<div class="desc pl-3">
 	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Greek Pizza</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>Pizza fugazzeta</span></h3>
+	        				<span class="price">$195.00</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>se caracteriza principalmente por ser de masa esponjosa y crocante con abundante queso muzzarella con trozos finos de cebolla que le dan un toque único</p>
 	        			</div>
 	        		</div>
         		</div>
@@ -394,11 +395,11 @@
         			<div class="img" style="background-image: url(images/pizza-4.jpg);"></div>
         			<div class="desc pl-3">
 	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Bacon Crispy Thins</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span> Pizza calabresa</span></h3>
+	        				<span class="price">$200.00</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>Pizza Calabresa en donde el protagonismo se encuentra en la longaniza calabresa o chorizo seco, es una pizza un poco picante pero deliciosa </p>
 	        			</div>
 	        		</div>
         		</div>
@@ -409,11 +410,11 @@
         			<div class="img" style="background-image: url(images/pizza-5.jpg);"></div>
         			<div class="desc pl-3">
 	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Hawaiian Special</span></h3>
-	        				<span class="price">$49.91</span>
+	        				<h3><span>Pizza Cuatro estaciones</span></h3>
+	        				<span class="price">$299.00</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>se dividen en secciones y por separado cada sabor. Esto se da comúnmente con las pizzas de gran tamaño, para así dividirlas en cuatro opciones</p>
 	        			</div>
 	        		</div>
         		</div>
@@ -421,11 +422,13 @@
         			<div class="img" style="background-image: url(images/pizza-6.jpg);"></div>
         			<div class="desc pl-3">
 	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Ultimate Overload</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>Pizza de Pollo</span></h3>
+	        				<span class="price">$200.00</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>Esta pizza es tipo California, se ha hecho popular en variaciones como pollo barbecue.  
+
+Esta opción puede servir al pollo en tiras o deshebrado, además, hay lugares donde se le agregan champiñones o aceitunas negras.</p>
 	        			</div>
 	        		</div>
         		</div>
@@ -433,11 +436,11 @@
         			<div class="img" style="background-image: url(images/pizza-7.jpg);"></div>
         			<div class="desc pl-3">
 	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Bacon Pizza</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>Pizza Vegetariana</span></h3>
+	        				<span class="price">$200.00</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>Las variedades en ingredientes de esta pizza pueden ser el calabacín, las espinacas, la berenjena, entre otras opciones.</p>
 	        			</div>
 	        		</div>
         		</div>
@@ -445,11 +448,11 @@
         			<div class="img" style="background-image: url(images/pizza-8.jpg);"></div>
         			<div class="desc pl-3">
 	        			<div class="d-flex text align-items-center">
-	        				<h3><span>Ham &amp; Pineapple</span></h3>
-	        				<span class="price">$20.00</span>
+	        				<h3><span>Pizza Mexicana </span></h3>
+	        				<span class="price">$250.00</span>
 	        			</div>
 	        			<div class="d-block">
-	        				<p>A small river named Duden flows by their place and supplies</p>
+	        				<p>Los ingredientes característicos de este manjar de doble nacionalidad son: frijoles, chorizo y jalapeños; aunque en algunas partes también agregan trozos de jitomate y cebolla.</p>
 	        			</div>
 	        		</div>
         		</div>
@@ -470,12 +473,14 @@
 		          <div class="col-md-12 nav-link-wrap mb-5">
 		            <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 		              <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Pizza</a>
-
+						
 		              <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Bebidas</a>
 
 		              <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Postres</a>
 
 		              <a class="nav-link" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab" aria-controls="v-pills-4" aria-selected="false">Salsas</a>
+
+					  
 		            </div>
 		          </div>
 		          <div class="col-md-12 d-flex align-items-center">
@@ -795,7 +800,7 @@
 		              <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
 		                <div class="row">
 							<?php
-								$query1_postre="SELECT * FROM postres WHERE nombre LIKE 'Pastel de choccolate'";
+								$query1_postre="SELECT * FROM postres WHERE nombre LIKE 'Pastel de chocolate'";
 								$resultado1_postre=$mysqli->query($query1_postre);
 								if($resultado1_postre->num_rows > 0){
 								  $fila1_postre=$resultado1_postre->fetch_assoc();
@@ -1088,6 +1093,8 @@
 							?>
 		              	</div>
 		              </div>
+
+					  
 		            </div>
 		          </div>
 		        </div>

@@ -58,7 +58,7 @@ include('php/conexion.php');
           <!-- Marketing Icons Section -->
           <div class="row">
         <?php
-          $query1="SELECT * FROM pizza WHERE nombre LIKE 'Hawaiana'";
+          $query1="SELECT * FROM pizza";
           $resultado1=$mysqli->query($query1);
           if($resultado1->num_rows > 0){
             $fila1=$resultado1->fetch_assoc();
@@ -114,13 +114,9 @@ include('php/conexion.php');
         </div>
       
         <?php
-          }else{
-            echo ("<h1>Pizza no disponible</h1>");
-          }
-          $query2="SELECT * FROM pizza WHERE nombre LIKE 'Peperoni'";
-          $resultado2=$mysqli->query($query2);
-          if($resultado2->num_rows > 0){
-            $fila2=$resultado2->fetch_assoc();
+          
+          
+            $fila2=$resultado1->fetch_assoc();
             $id_pizza2=$fila2['id_pizza'];
             $nombre_pizza2=$fila2['nombre'];
             $precio_pizza2=$fila2['precio'];
@@ -171,13 +167,8 @@ include('php/conexion.php');
           </div>
         </div>
         <?php
-          }else{
-            echo ("<h1>Pizza no disponible</h1>");
-          }
-          $query3="SELECT * FROM pizza WHERE nombre LIKE 'Cuatro quesos'";
-          $resultado3=$mysqli->query($query3);
-          if($resultado3->num_rows > 0){
-            $fila3=$resultado3->fetch_assoc();
+          
+            $fila3=$resultado1->fetch_assoc();
             $id_pizza3=$fila3['id_pizza'];
             $nombre_pizza3=$fila3['nombre'];
             $precio_pizza3=$fila3['precio'];
