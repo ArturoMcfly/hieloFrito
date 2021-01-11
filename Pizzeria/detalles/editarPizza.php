@@ -153,6 +153,26 @@ include('../php/conexion.php');
                     $tipo_producto=$_GET['tipo_producto'];
                     $tipo_id=$_GET['tipo_id'];
                     $tipo_producto_detalle=$_GET['tipo_producto_detalle'];
+                    if($tipo_producto=="pizza"){
+                        
+                        $imagen="../images/Pizzas.jpeg";
+                    }else if($tipo_producto=="postres"){
+                        
+                        $imagen="../images/Postres.jpeg";
+                    }else if($tipo_producto=="bebidas"){
+                        
+                       
+                        $imagen="../images/Bebidas.jpeg";
+                    }else if($tipo_producto=="salsas"){
+                        
+                        
+                        $imagen="../images/Salsas.jpeg";
+                    }else if($tipo_producto=="promociones"){
+                     
+                        $imagen="../images/Bebidas.jpeg";
+                    }else if($tipo_producto=="entradas"){
+                        $imagen="../images/Entradas.jpeg";
+                    }
         ?>
         <div class="form-area titulo">
             <table class="table">
@@ -168,17 +188,19 @@ include('../php/conexion.php');
                 ?>
                 <form action="boton.php" method="POST">
                     <h1>
-                        Datos de la pizza:
+                        Datos de la producto:
                         <?php
                             echo($fila['nombre']);
                         ?>
                     </h1>
                     <tr>
                         <th>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCf2vz1E0s1rJYyOMSMDIemGyDuGFQe7LhZA&usqp=CAU" alt="">
+                        <?php
+                                echo("<img src='$imagen' alt=''>");
+                            ?>
                         </th>
                         <th>
-                            <h3>Datos de la pizza</h3>
+                            <h3>Datos del Producto</h3>
                             <h3>
                             <?php
                                 echo($fila['caracteristicas']."<br>");
@@ -216,35 +238,41 @@ include('../php/conexion.php');
                         $detalle_nombre="nombre_agregado_pizza";
                         $detalle_caracteristicas="caracteristicas_agregado_pizza";
                         $detalle_precio="precio_agregado_pizza";
+                        $imagen="../images/Pizzas.jpeg";
                     }else if($tipo_producto=="postres"){
                         $detalle_id="id_agregado_postre";
                         $detalle_nombre="nombre_agregado_postre";
                         $detalle_caracteristicas="caracteristica_agregado_postre";
                         $detalle_precio="precio_agregado_postre";
+                        $imagen="../images/Postres.jpeg";
                     }else if($tipo_producto=="bebidas"){
                         
                         $detalle_id="id_agregado_bebidas";
                         $detalle_nombre="nombre_agregado_bebida";
                         $detalle_caracteristicas="caracteristica_agregado_bebida";
                         $detalle_precio="precio_agregado_bebida";
+                        $imagen="../images/Bebidas.jpeg";
                     }else if($tipo_producto=="salsas"){
                         
                         $detalle_id="id_agregado_salsa";
                         $detalle_nombre="nombre_agregado_salsa";
                         $detalle_caracteristicas="caracteristica_agregado_salsa";
                         $detalle_precio="precio_agregado_salsa";
+                        $imagen="../images/Salsas.jpeg";
                     }else if($tipo_producto=="promociones"){
                         
                         $detalle_id="id_agregado_promo";
                         $detalle_nombre="nombre_agregado_promo";
                         $detalle_caracteristicas="caracteristicas_agregado_promo";
                         $detalle_precio="precio_agregado_promo";
+                        $imagen="../images/Bebidas.jpeg";
                     }else if($tipo_producto=="entradas"){
                         
                         $detalle_id="id_agregado_entradas";
                         $detalle_nombre="nombre_agregado_entrada";
                         $detalle_caracteristicas="caracteristica_agregado_entrada";
                         $detalle_precio="precio_agregado_entrada";
+                        $imagen="../images/Entradas.jpeg";
                     }
                     
                    
@@ -271,17 +299,19 @@ include('../php/conexion.php');
                 ?>
                 <form action="boton.php" method="POST">
                     <h1>
-                        Datos de la pizza:
+                        Datos de la Producto:
                         <?php
                             echo($fila['nombre']);
                         ?>
                     </h1>
                     <tr>
                         <th>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCf2vz1E0s1rJYyOMSMDIemGyDuGFQe7LhZA&usqp=CAU" alt="">
+                        <?php
+                                echo("<img src='$imagen' alt=''>");
+                            ?>
                         </th>
                         <th>
-                            <h3>Datos de la pizza</h3>
+                            <h3>Datos del producto</h3>
                             <h3>
                             <?php
                                 echo($fila['caracteristicas']."<br>");
@@ -329,6 +359,7 @@ include('../php/conexion.php');
                         $detalle_nombre="nombre_agregado_pizza";
                         $detalle_caracteristicas="caracteristicas_agregado_pizza";
                         $detalle_precio="precio_agregado_pizza";
+                        $imagen="../images/Pizzas.jpeg";
                     }else if($tipo_producto=="postres"){
                         $tipo_producto_detalle="agregados_postres";
                         $tipo_id="id_postre";
@@ -339,6 +370,7 @@ include('../php/conexion.php');
                         $detalle_nombre="nombre_agregado_postre";
                         $detalle_caracteristicas="caracteristica_agregado_postre";
                         $detalle_precio="precio_agregado_postre";
+                        $imagen="../images/Postres.jpeg";
                     }else if($tipo_producto=="bebidas"){
                         $tipo_producto_detalle="agregados_bebidas";
                         $tipo_id="id_bebida";
@@ -349,6 +381,7 @@ include('../php/conexion.php');
                         $detalle_nombre="nombre_agregado_bebida";
                         $detalle_caracteristicas="caracteristica_agregado_bebida";
                         $detalle_precio="precio_agregado_bebida";
+                        $imagen="../images/Bebidas.jpeg";
                     }else if($tipo_producto=="salsas"){
                         $tipo_producto_detalle="agregados_salsas";
                         $tipo_id="id_salsas";
@@ -359,6 +392,7 @@ include('../php/conexion.php');
                         $detalle_nombre="nombre_agregado_salsa";
                         $detalle_caracteristicas="caracteristica_agregado_salsa";
                         $detalle_precio="precio_agregado_salsa";
+                        $imagen="../images/Salsas.jpeg";
                     }else if($tipo_producto=="promociones"){
                         $tipo_producto_detalle="agregados_promociones";
                         $tipo_id="id_promociones";
@@ -369,6 +403,7 @@ include('../php/conexion.php');
                         $detalle_nombre="nombre_agregado_promo";
                         $detalle_caracteristicas="caracteristicas_agregado_promo";
                         $detalle_precio="precio_agregado_promo";
+                        $imagen="../images/Bebidas.jpeg";
                     }else if($tipo_producto=="entradas"){
                         $tipo_producto_detalle="agregados_entradas";
                         $tipo_id="id_entrada";
@@ -379,6 +414,7 @@ include('../php/conexion.php');
                         $detalle_nombre="nombre_agregado_entrada";
                         $detalle_caracteristicas="caracteristica_agregado_entrada";
                         $detalle_precio="precio_agregado_entrada";
+                        $imagen="../images/Entradas.jpeg";
                     }
                     $query="SELECT * FROM $tipo_producto WHERE $tipo_id LIKE '$id'";
                     $resultado=$mysqli->query($query);
@@ -406,7 +442,10 @@ include('../php/conexion.php');
                     </h3>
                     <tr>
                         <th>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCf2vz1E0s1rJYyOMSMDIemGyDuGFQe7LhZA&usqp=CAU" alt="">
+                            <?php
+                                echo("<img src='$imagen' alt=''>");
+                            ?>
+                            
                         </th>
                         <th>
                             <h3>Elige el complemento</h3>
