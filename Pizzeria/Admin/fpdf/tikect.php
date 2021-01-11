@@ -110,7 +110,20 @@ while($row=$resultado->fetch_assoc()){
         
     
 }
+$pdf->Ln(15);
+$pdf->SetFont('Arial','B',25);
+$pdf->SetY(230);
+$pdf->Write(5,'Total a pagar:');
+$pdf->SetY(190);
 
+$pdf->Ln(55);
+$pdf->SetFont('Arial','B',25);
+$pdf->Write(4,'$');
+
+$pdf->SetY(244.09);
+$pdf->SetX(15);
+
+$pdf->Cell(36,6,$fila['total'],0,0,'c',0);
 
 $pdf->Output();
 

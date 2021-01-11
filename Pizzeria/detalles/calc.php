@@ -65,7 +65,14 @@ if(isset($_SESSION['com'])){
                 $tipo_producto_detalle_precio="precio_agregado_promo";
 
 
+            }else if($tipo_producto=="entradas"){
+                $tipo_producto_detalle_id="id_agregado_entradas";
+                $tipo_producto_detalle_nombre="nombre_agregado_entrada";
+                $tipo_producto_detalle_precio="precio_agregado_entrada";
+                
+                
             }
+            
 
 
 

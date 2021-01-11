@@ -480,7 +480,7 @@ Esta opción puede servir al pollo en tiras o deshebrado, además, hay lugares d
 
 		              <a class="nav-link" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab" aria-controls="v-pills-4" aria-selected="false">Salsas</a>
 
-					  
+					  <a class="nav-link" id="v-pills-5-tab" data-toggle="pill" href="#v-pills-5" role="tab" aria-controls="v-pills-5" aria-selected="false">Entradas</a>
 		            </div>
 		          </div>
 		          <div class="col-md-12 d-flex align-items-center">
@@ -959,7 +959,7 @@ Esta opción puede servir al pollo en tiras o deshebrado, además, hay lugares d
 							?>
 		              		<div class="col-md-4 text-center">
 		              			<div class="menu-wrap">
-		              				<a href="#" class="menu-img img mb-4" style="background-image: url(images/salsa-1.jpg);"></a>
+		              				<a href="#" class="menu-img img mb-4" style="background-image: url(images/habanera.jfif);"></a>
 		              				<div class="text">
 		              					<h3>
 										  	<?php
@@ -1007,7 +1007,7 @@ Esta opción puede servir al pollo en tiras o deshebrado, además, hay lugares d
 							?>
 		              		<div class="col-md-4 text-center">
 		              			<div class="menu-wrap">
-		              				<a href="#" class="menu-img img mb-4" style="background-image: url(images/salsa-2.jpg);"></a>
+		              				<a href="#" class="menu-img img mb-4" style="background-image: url(images/bbq.jfif);"></a>
 		              				<div class="text">
 		              					<h3>
 										  	<?php
@@ -1054,7 +1054,7 @@ Esta opción puede servir al pollo en tiras o deshebrado, además, hay lugares d
 							?>
 		              		<div class="col-md-4 text-center">
 		              			<div class="menu-wrap">
-		              				<a href="#" class="menu-img img mb-4" style="background-image: url(images/salsa-3.jpg);"></a>
+		              				<a href="#" class="menu-img img mb-4" style="background-image: url(images/inglesa.jfif);"></a>
 		              				<div class="text">
 		              					<h3>
 										  <?php
@@ -1091,10 +1091,149 @@ Esta opción puede servir al pollo en tiras o deshebrado, además, hay lugares d
 									echo ("<h1>Salsa no disponible</h1>");
 								}
 							?>
+							
 		              	</div>
 		              </div>
 
-					  
+					  <div class="tab-pane fade" id="v-pills-5" role="tabpanel" aria-labelledby="v-pills-5-tab">
+		                <div class="row">
+							<?php
+								$query1_entradas="SELECT * FROM entradas";
+								$resultado1_entradas=$mysqli->query($query1_entradas);
+								if($resultado1_entradas->num_rows > 0){
+								  $fila1_entrada=$resultado1_entradas->fetch_assoc();
+								  $id_entrada1=$fila1_entrada['id_entrada'];
+								  $nombre_entrada1=$fila1_entrada['nombre'];
+								  $precio_entrada1=$fila1_entrada['precio'];
+								  $caracteristicas_entrada1=$fila1_entrada['caracteristicas']; 
+							?>
+		              		<div class="col-md-5 text-center">
+		              			<div class="menu-wrap">
+		              				<a href="#" class="menu-img img mb-5" style="background-image: url(images/alitas.jfif);"></a>
+		              				<div class="text">
+		              					<h3>
+										  	<?php
+												echo($nombre_entrada1);
+											?>
+										</h3>
+		              					<p>
+										  	<?php
+												echo($caracteristicas_entrada1);
+											?>
+										</p>
+		              					<p class="price">
+										  	<span>
+											  	<?php
+													echo("$".$precio_entrada1);
+												?>
+											</span>
+										</p>
+		              					<p>
+										  	<form action="detalles/editarPizza.php" method="post">
+												<?php
+													echo("<input type='text' value='$id_entrada1' name='id' hidden>");
+													echo("<input type='text' value='entradas' name='tipo_producto' hidden>");
+												
+												?>
+												<input type="submit" name="boton" class="ml-2 btn btn-white btn-outline-white" value="Ordena">
+											</form>
+										</p>
+		              				</div>
+		              			</div>
+		              		</div>
+							<?php
+								
+								  $fila2_salsa=$resultado1_entradas->fetch_assoc();
+								  $id_salsa2=$fila2_salsa['id_entrada'];
+								  $nombre_salsa2=$fila2_salsa['nombre'];
+								  $precio_salsa2=$fila2_salsa['precio'];
+								  $caracteristicas_salsa2=$fila2_salsa['caracteristicas'];
+							
+							?>
+		              		<div class="col-md-5 text-center">
+		              			<div class="menu-wrap">
+		              				<a href="#" class="menu-img img mb-5" style="background-image: url(images/boneles.jfif);"></a>
+		              				<div class="text">
+		              					<h3>
+										  	<?php
+												echo($nombre_salsa2);
+											?>
+										</h3>
+		              					<p>
+										  	<?php
+												echo($caracteristicas_salsa2);
+											?>
+										</p>
+		              					<p class="price">
+										  	<span>
+											  	<?php
+													echo("$".$precio_salsa2);
+												?>
+											</span>
+										</p>
+		              					<p>
+										  <form action="detalles/editarPizza.php" method="post">
+												<?php
+													echo("<input type='text' value='$id_salsa2' name='id' hidden>");
+													echo("<input type='text' value='entradas' name='tipo_producto' hidden>");
+												
+												?>
+												<input type="submit" name="boton" class="ml-2 btn btn-white btn-outline-white" value="Ordena">
+											</form>
+										</p>
+		              				</div>
+		              			</div>
+		              		</div>
+							<?php
+								
+								  $fila3_salsa=$resultado1_entradas->fetch_assoc();
+								  $id_salsa3=$fila3_salsa['id_entrada'];
+								  $nombre_salsa3=$fila3_salsa['nombre'];
+								  $precio_salsa3=$fila3_salsa['precio'];
+								  $caracteristicas_salsa3=$fila3_salsa['caracteristicas'];
+							?>
+		              		<div class="col-md-5 text-center">
+		              			<div class="menu-wrap">
+		              				<a href="#" class="menu-img img mb-5" style="background-image: url(images/pan_pizza.jfif);"></a>
+		              				<div class="text">
+		              					<h3>
+										  <?php
+												echo($nombre_salsa3);
+											?>
+										</h3>
+		              					<p>
+										  	<?php
+												echo($caracteristicas_salsa3);
+											?>
+										</p>
+		              					<p class="price">
+										  	<span>
+											  	<?php
+													echo("$".$precio_salsa3);
+												?>
+											</span>
+										</p>
+		              					<p>
+										  	<form action="detalles/editarPizza.php" method="post">
+												<?php
+													echo("<input type='text' value='$id_salsa3' name='id' hidden>");
+													echo("<input type='text' value='entradas' name='tipo_producto' hidden>");
+												
+												?>
+												<input type="submit" name="boton" class="ml-2 btn btn-white btn-outline-white" value="Ordena">
+											</form>
+										</p>
+		              				</div>
+		              			</div>
+		              		</div>
+							<?php
+								}else{
+									echo ("<h1>Salsa no disponible</h1>");
+								}
+							?>
+							
+		              	</div>
+		              </div>
 		            </div>
 		          </div>
 		        </div>

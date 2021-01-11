@@ -239,6 +239,12 @@ include('../php/conexion.php');
                         $detalle_nombre="nombre_agregado_promo";
                         $detalle_caracteristicas="caracteristicas_agregado_promo";
                         $detalle_precio="precio_agregado_promo";
+                    }else if($tipo_producto=="entradas"){
+                        
+                        $detalle_id="id_agregado_entradas";
+                        $detalle_nombre="nombre_agregado_entrada";
+                        $detalle_caracteristicas="caracteristica_agregado_entrada";
+                        $detalle_precio="precio_agregado_entrada";
                     }
                     
                    
@@ -363,6 +369,16 @@ include('../php/conexion.php');
                         $detalle_nombre="nombre_agregado_promo";
                         $detalle_caracteristicas="caracteristicas_agregado_promo";
                         $detalle_precio="precio_agregado_promo";
+                    }else if($tipo_producto=="entradas"){
+                        $tipo_producto_detalle="agregados_entradas";
+                        $tipo_id="id_entrada";
+                        echo("tabla: ".$tipo_producto."<br>");
+                        echo("Sub-tabla: ".$tipo_producto_detalle."<br>");
+                        echo("Id-tabla: ".$tipo_id."<br>");
+                        $detalle_id="id_agregado_entradas";
+                        $detalle_nombre="nombre_agregado_entrada";
+                        $detalle_caracteristicas="caracteristica_agregado_entrada";
+                        $detalle_precio="precio_agregado_entrada";
                     }
                     $query="SELECT * FROM $tipo_producto WHERE $tipo_id LIKE '$id'";
                     $resultado=$mysqli->query($query);
