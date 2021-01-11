@@ -373,7 +373,7 @@ body {
                             }
                             else{
                             ?>
-                            <h1>No hay agregados para esta Pizza</h1>
+                            <h1>No hay agregados para este producto</h1>
                             <?php
                             }
                         ?>

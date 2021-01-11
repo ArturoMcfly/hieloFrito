@@ -96,7 +96,7 @@
 							</div>
 						</div>
 						<div class="signup-toggle center">
-							<h4 class="center"> ¿ Aun no tienes cuenta ? <a href="#!">Registrar</a></h4>
+							
 						</div>
 				</div>
 				<div class="col s12">
